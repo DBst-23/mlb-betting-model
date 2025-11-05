@@ -1,0 +1,48 @@
+schema_version: "1.0.0"
+last_updated: "2025-11-05"
+purpose: >
+  Daily feature manifest for NBA simulations. Defines required vs optional inputs,
+  freshness rules, and validation gates before a sim run.
+
+run_gate:
+  min_completeness_percent: 65
+  fail_on_missing_required: true
+  warn_on_stale_optional: true
+  notes:
+    - "SharpEdge policy: do not run sims if input sufficiency is below 65% unless explicitly overridden."
+    - "Required features must be present and fresh within their freshness window."
+
+freshness_policies:
+  team_factors:       {max_age_days: 3, source: "CraftedNBA / import_craftednba.py"}
+  pace_tables:        {max_age_days: 3, source: "league pace tables or pbp-like feed"}
+  injury_minutes:     {max_age_days: 1, source: "manual/news/UD tracker"}
+  market_lines:       {max_age_days: 0, source: "Onyx Odds live/pregame"}
+  ref_tendencies:     {max_age_days: 4, source: "ref foul/FTA profiles"}
+  travel_rest:        {max_age_days: 7, source: "schedule matrix"}
+  form_rolling:       {max_age_days: 3, source: "rolling 10-game splits"}
+  shot_profile:       {max_age_days: 3, source: "rim/mid/3 attempt rates"}
+
+required_features:
+  - team_factors
+  - pace_tables
+  - injury_minutes
+  - market_lines
+
+optional_features:
+  - ref_tendencies
+  - travel_rest
+  - form_rolling
+  - shot_profile
+
+validation_rules:
+  - name: "Feature age limit"
+    condition: "age_days <= max_age_days"
+    on_fail: "warn"
+
+  - name: "Minimum required coverage"
+    condition: "completeness_percent >= 65"
+    on_fail: "abort"
+
+notes:
+  - "This manifest acts as a dependency check before launching a sim batch."
+  - "Use it to automate validation in your bootloader or CLI scripts."
