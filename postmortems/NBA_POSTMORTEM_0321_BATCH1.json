@@ -1,0 +1,292 @@
+{
+  "batch_id": "NBA_POSTMORTEM_0321_BATCH1",
+  "date": "2026-03-21",
+  "matchups": [
+    {
+      "game": "MIA @ HOU",
+      "final_score": {
+        "MIA": 122,
+        "HOU": 123
+      },
+      "team_stats": {
+        "MIA": {
+          "rebounds": 41,
+          "off_reb": 11,
+          "assists": 31,
+          "ts_pct": 61.6
+        },
+        "HOU": {
+          "rebounds": 44,
+          "off_reb": 13,
+          "assists": 33,
+          "ts_pct": 64.6
+        }
+      },
+      "key_players": {
+        "Bam_Adebayo": {
+          "reb": 21,
+          "min": 45
+        },
+        "Amen_Thompson": {
+          "reb": 18,
+          "min": 38
+        },
+        "Alperen_Sengun": {
+          "reb": 12,
+          "min": 33
+        },
+        "Kel_el_Ware": {
+          "reb": 1,
+          "min": 5
+        }
+      },
+      "bets": [
+        {
+          "player": "Kel'el Ware",
+          "line": 9.5,
+          "type": "under",
+          "result": "win",
+          "actual": 1,
+          "stake": 12.0,
+          "payout": 32.27,
+          "edge": {
+            "median": 4.2,
+            "mean": 4.6,
+            "win_prob": 0.78
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "MINUTES_COLLAPSE",
+            "CENTER_DISPLACEMENT_RISK_ON",
+            "BAM_REBOUND_MONOPOLY_EVENT"
+          ]
+        }
+      ],
+      "model_notes": {
+        "primary_edge_driver": "minutes + rebound concentration",
+        "failure_mode": null,
+        "takeaway": "Bench big unders remain high EV when rebound alpha dominates and minutes are unstable"
+      }
+    },
+    {
+      "game": "PHI @ UTA",
+      "final_score": {
+        "PHI": 126,
+        "UTA": 116
+      },
+      "team_stats": {
+        "PHI": {
+          "rebounds": 56,
+          "off_reb": 16,
+          "assists": 27
+        },
+        "UTA": {
+          "rebounds": 39,
+          "off_reb": 11,
+          "assists": 29
+        }
+      },
+      "key_players": {
+        "VJ_Edgecombe": {
+          "reb": 13
+        },
+        "Trendon_Watford": {
+          "reb": 9
+        },
+        "Andre_Drummond": {
+          "reb": 8
+        },
+        "Adem_Bona": {
+          "reb": 5,
+          "min": 27
+        },
+        "Kyle_Filipowski": {
+          "reb": 6,
+          "min": 18
+        }
+      },
+      "bets": [
+        {
+          "player": "Adem Bona",
+          "line": 6.5,
+          "type": "under",
+          "result": "win",
+          "actual": 5,
+          "stake": 12.0,
+          "payout": 32.27,
+          "edge": {
+            "median": 5.4,
+            "mean": 5.8,
+            "win_prob": 0.64
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "REBOUND_DISTRIBUTION_EDGE",
+            "ROLE_SHARE_CORRECT"
+          ]
+        },
+        {
+          "player": "Kyle Filipowski",
+          "line": 7.5,
+          "type": "over",
+          "result": "loss",
+          "actual": 6,
+          "stake": 8.0,
+          "payout": 0.0,
+          "edge": {
+            "median": 8.2,
+            "mean": 8.6,
+            "win_prob": 0.57
+          },
+          "tags": [
+            "MISS_REGISTERED",
+            "MINUTES_SHORTFALL",
+            "ROLE_OVERESTIMATION"
+          ]
+        }
+      ],
+      "model_notes": {
+        "primary_edge_driver": "rebound distribution vs role stability",
+        "failure_mode": "minutes + efficiency collapse",
+        "takeaway": "Young big overs require confirmed 28+ min stability before activation"
+      }
+    },
+    {
+      "game": "CLE @ NOP",
+      "final_score": {
+        "CLE": 111,
+        "NOP": 106
+      },
+      "team_stats": {
+        "CLE": {
+          "rebounds": 55,
+          "off_reb": 14,
+          "assists": 26
+        },
+        "NOP": {
+          "rebounds": 40,
+          "off_reb": 10,
+          "assists": 30
+        }
+      },
+      "key_players": {
+        "Evan_Mobley": {
+          "reb": 8,
+          "min": 30
+        },
+        "Sam_Merrill": {
+          "reb": 10
+        },
+        "Thomas_Bryant": {
+          "reb": 8
+        },
+        "Max_Strus": {
+          "reb": 8
+        },
+        "Trey_Murphy": {
+          "reb": 6,
+          "min": 41
+        },
+        "Yves_Missi": {
+          "reb": 10
+        }
+      },
+      "bets": [
+        {
+          "player": "Evan Mobley",
+          "line": 9.5,
+          "type": "over",
+          "result": "loss",
+          "actual": 8,
+          "stake": 8.0,
+          "payout": 0.0,
+          "edge": {
+            "median": 10.1,
+            "mean": 10.6,
+            "win_prob": 0.58
+          },
+          "tags": [
+            "MISS_REGISTERED",
+            "REBOUND_DISTRIBUTION_FAILURE",
+            "TEAM_SHARE_DILUTION"
+          ]
+        },
+        {
+          "market": "spread",
+          "selection": "NOP +5.5",
+          "result": "win",
+          "actual_margin": 5,
+          "stake": 5.7,
+          "payout": 10.0,
+          "edge": {
+            "win_prob": 0.61
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "DOG_RESILIENCE",
+            "CLOSE_GAME_SCRIPT"
+          ]
+        },
+        {
+          "market": "total",
+          "line": 232.5,
+          "type": "under",
+          "result": "win",
+          "actual_total": 217,
+          "stake": 5.0,
+          "payout": 0.0,
+          "edge": {
+            "median": 224.3,
+            "mean": 225.7,
+            "win_prob": 0.66
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "PACE_SUPPRESSION",
+            "3PT_EFFICIENCY_DROP",
+            "PARLAY_LEG_WIN"
+          ]
+        },
+        {
+          "player": "Trey Murphy III",
+          "line": 7.5,
+          "type": "under",
+          "result": "win",
+          "actual": 6,
+          "stake": 5.0,
+          "payout": 0.0,
+          "edge": {
+            "median": 6.4,
+            "mean": 6.7,
+            "win_prob": 0.63
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "WING_REBOUND_CAP",
+            "INTERIOR_BLOCKED_SHARE",
+            "PARLAY_LEG_WIN"
+          ]
+        },
+        {
+          "player": "Evan Mobley",
+          "line": 6.5,
+          "type": "under",
+          "result": "loss",
+          "actual": 8,
+          "stake": 5.0,
+          "payout": 0.0,
+          "tags": [
+            "MISS_REGISTERED",
+            "ALT_LINE_TOO_AGGRESSIVE",
+            "BOOST_TRAP_RANGE"
+          ]
+        }
+      ],
+      "model_notes": {
+        "primary_edge_driver": "team rebound distribution",
+        "failure_mode": "mobley share dilution",
+        "takeaway": "Mid-range rebound outcomes kill both extremes (over + alt under)"
+      }
+    }
+  ]
+}
