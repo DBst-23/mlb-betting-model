@@ -1,0 +1,260 @@
+{
+  "batch_id": "NBA_POSTMORTEM_0321_BATCH2",
+  "date": "2026-03-21",
+  "matchups": [
+    {
+      "game": "LAC @ DAL",
+      "final_score": {
+        "LAC": 138,
+        "DAL": 131
+      },
+      "team_stats": {
+        "LAC": {
+          "rebounds": 40,
+          "off_reb": 6,
+          "assists": 33,
+          "ts_pct": 70.5,
+          "three_pm": 21,
+          "turnovers": 12
+        },
+        "DAL": {
+          "rebounds": 47,
+          "off_reb": 17,
+          "assists": 25,
+          "ts_pct": 57.1,
+          "three_pm": 13,
+          "turnovers": 11
+        }
+      },
+      "key_players": {
+        "Darius_Garland": {
+          "pts": 41,
+          "ast": 11,
+          "reb": 3
+        },
+        "Kawhi_Leonard": {
+          "pts": 34,
+          "ast": 5,
+          "reb": 3
+        },
+        "Cooper_Flagg": {
+          "pts": 18,
+          "reb": 10,
+          "ast": 8
+        },
+        "Daniel_Gafford": {
+          "reb": 13
+        }
+      },
+      "bets": [
+        {
+          "market": "total",
+          "line": 252.5,
+          "type": "under",
+          "result": "loss",
+          "actual_total": 269,
+          "stake": 10.07,
+          "payout": 0.0,
+          "edge": {
+            "median": 241.8,
+            "mean": 243.9,
+            "win_prob": 0.62
+          },
+          "tags": [
+            "MISS_REGISTERED",
+            "LATE_PACE_FAILURE",
+            "SHOTMAKING_SPIKE",
+            "OFFENSIVE_EFFICIENCY_SURGE",
+            "LIVE_TOTAL_MISS"
+          ]
+        }
+      ],
+      "model_notes": {
+        "primary_edge_driver": "halftime inflation vs close",
+        "failure_mode": "both sides sustained elite shotmaking instead of regressing",
+        "takeaway": "When both teams are already over 63 at half with live creation holding, pure inflation alone is not enough without efficiency decay signals"
+      }
+    },
+    {
+      "game": "LAL @ ORL",
+      "final_score": {
+        "LAL": 105,
+        "ORL": 104
+      },
+      "team_stats": {
+        "LAL": {
+          "rebounds": 43,
+          "off_reb": 14,
+          "assists": 19,
+          "ts_pct": 52.6,
+          "three_pm": 8,
+          "turnovers": 12
+        },
+        "ORL": {
+          "rebounds": 42,
+          "off_reb": 12,
+          "assists": 27,
+          "ts_pct": 55.8,
+          "three_pm": 11,
+          "turnovers": 16
+        }
+      },
+      "key_players": {
+        "Luka_Doncic": {
+          "pts": 33,
+          "reb": 5,
+          "ast": 8
+        },
+        "Austin_Reaves": {
+          "pts": 26,
+          "reb": 7,
+          "ast": 5
+        },
+        "Deandre_Ayton": {
+          "reb": 12
+        },
+        "Jalen_Suggs": {
+          "reb": 3,
+          "ast": 6
+        },
+        "Marcus_Smart": {
+          "reb": 1
+        }
+      },
+      "bets": [
+        {
+          "market": "total",
+          "line": 241.5,
+          "type": "under",
+          "result": "win",
+          "actual_total": 209,
+          "stake": 4.72,
+          "payout": 8.0,
+          "edge": {
+            "median": 228.6,
+            "mean": 230.4,
+            "win_prob": 0.69
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "PACE_SUPPRESSION",
+            "3PT_REGRESSION_CORRECT",
+            "LIVE_TOTAL_CAPTURE"
+          ]
+        },
+        {
+          "player": "Marcus Smart",
+          "line": 1.5,
+          "type": "over",
+          "result": "loss",
+          "actual": 1,
+          "stake": 5.0,
+          "payout": 0.0,
+          "edge": {
+            "median": 2.1,
+            "mean": 2.3,
+            "win_prob": 0.56
+          },
+          "tags": [
+            "MISS_REGISTERED",
+            "MINUTES_OK_VOLUME_LOW",
+            "LOW_REBOUND_ROLE_GUARD"
+          ]
+        },
+        {
+          "player": "Jalen Suggs",
+          "line": 2.5,
+          "type": "under",
+          "result": "loss",
+          "actual": 3,
+          "stake": 5.0,
+          "payout": 0.0,
+          "edge": {
+            "median": 2.2,
+            "mean": 2.4,
+            "win_prob": 0.54
+          },
+          "tags": [
+            "MISS_REGISTERED",
+            "HOOK_BURN",
+            "GUARD_REBOUND_VOLATILITY"
+          ]
+        }
+      ],
+      "model_notes": {
+        "primary_edge_driver": "inflated live total far above close",
+        "failure_mode": "micro rebound props on guards too fragile",
+        "takeaway": "Game environment was correctly capped, but low-threshold guard rebound props remained too noisy for clean LiveFlow deployment"
+      }
+    },
+    {
+      "game": "OKC @ WAS",
+      "final_score": {
+        "OKC": 132,
+        "WAS": 111
+      },
+      "team_stats": {
+        "OKC": {
+          "rebounds": 55,
+          "off_reb": 17,
+          "assists": 31,
+          "ts_pct": 62.1,
+          "points_in_paint": 64
+        },
+        "WAS": {
+          "rebounds": 34,
+          "off_reb": 9,
+          "assists": 28,
+          "ts_pct": 56.1,
+          "points_in_paint": 40
+        }
+      },
+      "key_players": {
+        "Isaiah_Hartenstein": {
+          "reb": 20,
+          "ast": 10
+        },
+        "Chet_Holmgren": {
+          "reb": 10,
+          "pts": 18
+        },
+        "Shai_Gilgeous_Alexander": {
+          "pts": 40,
+          "ast": 7,
+          "reb": 3
+        },
+        "Alex_Sarr": {
+          "reb": 5,
+          "ast": 8
+        }
+      },
+      "bets": [
+        {
+          "market": "total",
+          "line": 249.5,
+          "type": "under",
+          "result": "win",
+          "actual_total": 243,
+          "stake": 2.12,
+          "payout": 4.0,
+          "edge": {
+            "median": 239.7,
+            "mean": 241.2,
+            "win_prob": 0.59
+          },
+          "tags": [
+            "WIN_REGISTERED",
+            "LIVE_TOTAL_CAPTURE",
+            "BLOWOUT_DAMPENER_SUCCESS",
+            "LATE_PACE_COOLING"
+          ]
+        }
+      ],
+      "model_notes": {
+        "primary_edge_driver": "live total inflated off first-half pace",
+        "failure_mode": null,
+        "takeaway": "Even with elite OKC efficiency, the live number sat high enough for under value once second-half blowout drag was priced in"
+      }
+    }
+  ]
+}
