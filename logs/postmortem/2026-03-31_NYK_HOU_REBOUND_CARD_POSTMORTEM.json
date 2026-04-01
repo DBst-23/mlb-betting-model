@@ -1,0 +1,75 @@
+{
+  "entry_name": "NYK_HOU_REBOUND_CARD_POSTMORTEM_0331",
+  "sport": "NBA",
+  "date": "2026-03-31",
+  "game": "NYK @ HOU",
+  "final_score": {
+    "NYK": 94,
+    "HOU": 111
+  },
+  "card_review": {
+    "original_file": "logs/liveflow/2026-03-31_NYK_HOU_REBOUND_CARD.json",
+    "card_type": "pregame_rebound_card",
+    "stake": 10.0,
+    "payout_if_win": 34.30,
+    "result": "LOSS",
+    "legs": [
+      {
+        "player": "Karl-Anthony Towns",
+        "bet": "Over 10.5 Rebounds",
+        "projected_mean": 11.5,
+        "projected_median": 11,
+        "most_likely_exact": 11,
+        "projected_win_probability": 0.56,
+        "actual": 8,
+        "result": "LOSS",
+        "delta_vs_line": -2.5,
+        "delta_vs_mean": -3.5,
+        "notes": [
+          "Knicks lost by 17 and offense underperformed overall",
+          "Towns played 34 minutes but finished below role expectation",
+          "Houston controlled flow and suppressed clean finishing possessions"
+        ]
+      },
+      {
+        "player": "Alperen Sengun",
+        "bet": "Over 7.5 Rebounds",
+        "projected_mean": 10.2,
+        "projected_median": 10,
+        "most_likely_exact": 10,
+        "projected_win_probability": 0.68,
+        "actual": 5,
+        "result": "LOSS",
+        "delta_vs_line": -2.5,
+        "delta_vs_mean": -5.2,
+        "notes": [
+          "Houston won comfortably but rebound share spread across lineup",
+          "Amen Thompson, Tari Eason and bench wings absorbed more board volume than expected",
+          "Sengun posted 10 assists and offensive role tilted more toward facilitation than glass dominance"
+        ]
+      }
+    ]
+  },
+  "team_context": {
+    "knicks_rebounds": 41,
+    "rockets_rebounds": 38,
+    "knicks_offensive_rebounds": 12,
+    "rockets_offensive_rebounds": 6,
+    "model_takeaway": [
+      "Raw team rebound totals did not strongly favor Houston bigs",
+      "Game script and role redistribution broke the Sengun over thesis",
+      "Towns missed despite playable team rebound volume, indicating player-level role miss rather than pure environment failure"
+    ]
+  },
+  "variance_tags": [
+    "ROLE_REDISTRIBUTION",
+    "BIG_REBOUND_SHARE_MISS",
+    "BLOWOUT_FLOW_DISTORTION"
+  ],
+  "postmortem_summary": {
+    "card_alignment": "partial miss",
+    "key_failure_point": "Primary rebound concentration assumptions were too aggressive for both anchor bigs",
+    "action_item": "Increase penalty when opponent or same-team wings have multiple high-activity rebounders capable of siphoning uncontested boards"
+  },
+  "status": "finalized"
+}
