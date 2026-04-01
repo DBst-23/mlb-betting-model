@@ -1,0 +1,76 @@
+{
+  "entry_name": "CLE_LAL_REBOUND_CARD_POSTMORTEM_0331",
+  "sport": "NBA",
+  "date": "2026-03-31",
+  "game": "CLE @ LAL",
+  "final_score": {
+    "CLE": 113,
+    "LAL": 127
+  },
+  "card_review": {
+    "original_file": "logs/liveflow/2026-03-31_CLE_LAL_REBOUND_AND_POINTS_CARDS.json",
+    "card_type": "pregame_rebound_card",
+    "stake": 10.0,
+    "payout_if_win": 31.40,
+    "result": "LOSS",
+    "legs": [
+      {
+        "player": "Deandre Ayton",
+        "bet": "Over 7.5 Rebounds",
+        "projected_mean": 8.4,
+        "projected_median": 8,
+        "most_likely_exact": 8,
+        "projected_win_probability": 0.55,
+        "actual": 9,
+        "result": "WIN",
+        "delta_vs_line": 1.5,
+        "delta_vs_mean": 0.6,
+        "notes": [
+          "Ayton cleared in a strong interior role game",
+          "Lakers frontcourt held enough rebound share despite Luka-led scoring dominance",
+          "This leg aligned with pregame role and environment read"
+        ]
+      },
+      {
+        "player": "Evan Mobley",
+        "bet": "Over 7.5 Rebounds",
+        "projected_mean": 9.3,
+        "projected_median": 9,
+        "most_likely_exact": 9,
+        "projected_win_probability": 0.64,
+        "actual": 4,
+        "result": "LOSS",
+        "delta_vs_line": -3.5,
+        "delta_vs_mean": -5.3,
+        "notes": [
+          "Mobley played only 22 minutes",
+          "Jarrett Allen remained productive and Thomas Bryant added 25 bench minutes with 6 rebounds",
+          "Cleveland frontcourt rebound share fragmented more than expected",
+          "Game script and reduced Mobley minutes broke the over despite favorable pregame environment"
+        ]
+      }
+    ]
+  },
+  "team_context": {
+    "cavaliers_rebounds": 35,
+    "lakers_rebounds": 37,
+    "cavaliers_offensive_rebounds": 11,
+    "lakers_offensive_rebounds": 8,
+    "model_takeaway": [
+      "Ayton validation confirms Lakers-side big rebound thesis was sound",
+      "Mobley miss was driven more by minutes suppression and internal share dilution than total environment",
+      "Need stronger penalty when a target big can lose volume to another starting center plus active bench big minutes"
+    ]
+  },
+  "variance_tags": [
+    "MINUTES_SUPPRESSION",
+    "FRONTCOURT_SHARE_DILUTION",
+    "BENCH_BIG_MINUTES_SPIKE"
+  ],
+  "postmortem_summary": {
+    "card_alignment": "split result",
+    "key_failure_point": "Model overweighted Mobley's centralized rebound ownership under a dual-big plus Bryant bench-minute environment",
+    "action_item": "Increase downgrade when another center is active and rebound-capable bench big projects enough minutes to siphon glass share"
+  },
+  "status": "finalized"
+}
