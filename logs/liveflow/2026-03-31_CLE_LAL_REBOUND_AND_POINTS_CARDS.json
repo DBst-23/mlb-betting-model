@@ -1,0 +1,86 @@
+{
+  "entry_name": "CLE_LAL_REBOUND_AND_POINTS_CARDS_0331",
+  "sport": "NBA",
+  "date": "2026-03-31",
+  "game": "CLE @ LAL",
+  "entries": [
+    {
+      "card_type": "pregame_rebound_card",
+      "stake": 10.0,
+      "payout": 31.40,
+      "slip_grade": "B+",
+      "wagers": [
+        {
+          "player": "Deandre Ayton",
+          "bet": "Over 7.5 Rebounds",
+          "team": "LAL",
+          "mean": 8.4,
+          "median": 8,
+          "most_likely_exact": 8,
+          "win_probability": 0.55,
+          "edge_tier": "moderate"
+        },
+        {
+          "player": "Evan Mobley",
+          "bet": "Over 7.5 Rebounds",
+          "team": "CLE",
+          "mean": 9.3,
+          "median": 9,
+          "most_likely_exact": 9,
+          "win_probability": 0.64,
+          "edge_tier": "strong"
+        }
+      ],
+      "notes": [
+        "Confirmed lineup supported Cleveland frontcourt rebound environment",
+        "Mobley rated as the cleanest single rebound number on the board",
+        "Ayton remained the best Lakers-side rebound over"
+      ],
+      "status": "locked"
+    },
+    {
+      "card_type": "pregame_mixed_card",
+      "stake": 9.82,
+      "payout": 42.02,
+      "boost": "30%",
+      "slip_grade": "B",
+      "wagers": [
+        {
+          "player": "Donovan Mitchell",
+          "bet": "Under 4.5 Rebounds",
+          "team": "CLE",
+          "mean": 3.8,
+          "median": 4,
+          "most_likely_exact": 4,
+          "win_probability": 0.57,
+          "edge_tier": "moderate"
+        },
+        {
+          "player": "James Harden",
+          "bet": "Under 4.5 Rebounds",
+          "team": "CLE",
+          "mean": 4.0,
+          "median": 4,
+          "most_likely_exact": 4,
+          "win_probability": 0.54,
+          "edge_tier": "modest"
+        },
+        {
+          "player": "Darius Garland",
+          "bet": "Over 18.5 Points",
+          "team": "CLE",
+          "notes": [
+            "Locked by user",
+            "No point model distribution was logged in this card at lock time"
+          ]
+        }
+      ],
+      "notes": [
+        "Rebound under legs aligned with frontcourt share concentration thesis",
+        "Garland points leg included as user-selected scoring angle",
+        "Mixed card carries higher variance than the rebound-only card"
+      ],
+      "status": "locked"
+    }
+  ]
+}
