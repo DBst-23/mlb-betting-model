@@ -1,0 +1,39 @@
+{
+  "entry_name": "NYK_HOU_REBOUND_CARD_0331",
+  "sport": "NBA",
+  "date": "2026-03-31",
+  "game": "NYK @ HOU",
+  "market": "Player Rebounds",
+  "card_type": "pregame_rebound_card",
+  "wagers": [
+    {
+      "player": "Karl-Anthony Towns",
+      "bet": "Over 10.5 Rebounds",
+      "team": "NYK",
+      "mean": 11.5,
+      "median": 11,
+      "most_likely_exact": 11,
+      "win_probability": 0.56,
+      "edge_tier": "solid"
+    },
+    {
+      "player": "Alperen Sengun",
+      "bet": "Over 7.5 Rebounds",
+      "team": "HOU",
+      "mean": 10.2,
+      "median": 10,
+      "most_likely_exact": 10,
+      "win_probability": 0.68,
+      "edge_tier": "strong"
+    }
+  ],
+  "stake": 10.0,
+  "payout": 34.30,
+  "slip_grade": "A-",
+  "notes": [
+    "Two strongest rebound signals selected, one from each team",
+    "Sengun line improved from 8.5 to 7.5 before lock",
+    "Towns remained the Knicks primary rebound anchor at 10.5"
+  ],
+  "status": "locked"
+}
