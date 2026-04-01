@@ -1,0 +1,75 @@
+{
+  "entry_name": "CLE_LAL_MIXED_CARD_POSTMORTEM_0331",
+  "sport": "NBA",
+  "date": "2026-03-31",
+  "source_game_for_rebound_legs": "CLE @ LAL",
+  "source_game_for_points_leg": "POR @ LAC",
+  "card_review": {
+    "original_file": "logs/liveflow/2026-03-31_CLE_LAL_REBOUND_AND_POINTS_CARDS.json",
+    "card_type": "pregame_mixed_card",
+    "stake": 9.82,
+    "payout_if_win": 42.02,
+    "actual_paid": 41.65,
+    "boost": "30%",
+    "result": "WIN",
+    "legs": [
+      {
+        "player": "Donovan Mitchell",
+        "bet": "Under 4.5 Rebounds",
+        "projected_mean": 3.8,
+        "projected_median": 4,
+        "most_likely_exact": 4,
+        "projected_win_probability": 0.57,
+        "actual": 3,
+        "result": "WIN",
+        "delta_vs_line": -1.5,
+        "delta_vs_mean": -0.8,
+        "notes": [
+          "Guard rebound under aligned with frontcourt concentration thesis",
+          "Mitchell stayed in scorer/creator lane rather than glass lane"
+        ]
+      },
+      {
+        "player": "James Harden",
+        "bet": "Under 4.5 Rebounds",
+        "projected_mean": 4.0,
+        "projected_median": 4,
+        "most_likely_exact": 4,
+        "projected_win_probability": 0.54,
+        "actual": 0,
+        "result": "WIN",
+        "delta_vs_line": -4.5,
+        "delta_vs_mean": -4.0,
+        "notes": [
+          "Extremely clean outcome",
+          "Frontcourt ownership completely suppressed Harden's rebound path"
+        ]
+      },
+      {
+        "player": "Darius Garland",
+        "bet": "Over 18.5 Points",
+        "actual": 20,
+        "result": "WIN",
+        "notes": [
+          "User-selected scoring angle hit cleanly",
+          "Finished above line despite Clippers loss"
+        ]
+      }
+    ]
+  },
+  "postmortem_summary": {
+    "card_alignment": "full hit",
+    "key_validation": [
+      "Guard rebound unders were confirmed by real frontcourt glass concentration",
+      "Mixed-card construction with boost produced efficient risk-adjusted return",
+      "Rebound under thesis was materially stronger than the Mobley over thesis in the same environment"
+    ],
+    "action_item": "Upgrade confidence weighting for guard rebound unders when dual-big plus bench-big rebound ecosystems are active"
+  },
+  "variance_tags": [
+    "GUARD_REBOUND_SUPPRESSION_CONFIRMED",
+    "FRONTCOURT_OWNERSHIP_VALIDATED",
+    "BOOSTED_CARD_EXECUTION_WIN"
+  ],
+  "status": "finalized"
+}
