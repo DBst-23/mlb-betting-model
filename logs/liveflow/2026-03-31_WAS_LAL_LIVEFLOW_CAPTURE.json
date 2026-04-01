@@ -1,0 +1,34 @@
+{
+  "entry_name": "LIVEFLOW_CAPTURE_WAS_LAL_0331",
+  "sport": "NBA",
+  "date": "2026-03-31",
+  "game": "WAS @ LAL",
+  "market": "Full Game Total",
+  "bet": "Under 225.5",
+  "result": "WIN",
+  "final_score": {
+    "WAS": 101,
+    "LAL": 120
+  },
+  "final_total": 221,
+  "entry_odds_context": {
+    "model_signal_line": 225.5,
+    "market_dipped_to": 221.5,
+    "market_returned_to": 225.5
+  },
+  "model_read": {
+    "lean": "UNDER",
+    "signal_strength": "strong",
+    "notes": [
+      "Model identified value during fast-moving total market",
+      "Entry taken after market dip and before return to 225.5",
+      "Live-flow capture aligned with final outcome"
+    ]
+  },
+  "game_notes": [
+    "Lakers led comfortably and game script supported under",
+    "Final total stayed below closing threshold despite in-game volatility",
+    "Useful example of capturing mispriced live-flow reversion"
+  ],
+  "postmortem_status": "seeded_for_postmortem"
+}
