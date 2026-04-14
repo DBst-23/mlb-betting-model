@@ -1,0 +1,87 @@
+{
+  "entry_type": "NBA_PREGAME_FUN_CARD_LOG",
+  "date": "2026-04-14",
+  "game_clusters": [
+    "MIA @ CHA",
+    "POR @ PHX"
+  ],
+  "status": "LOCKED_IN",
+  "card_id": "FUN_CARD_2026_04_14_V1",
+  "classification": "FUN_CARD",
+  "stake": 1.0,
+  "multiplier": 10.65,
+  "minimum_prize": 10.65,
+  "gross_return_if_win": 10.65,
+  "net_profit_if_win": 9.65,
+  "legs": [
+    {
+      "game": "MIA @ CHA",
+      "player": "Davion Mitchell",
+      "team": "MIA",
+      "market": "Points",
+      "bet": "OVER",
+      "line": 8.5,
+      "source": "Fun Card",
+      "confidence_tier": "Low-Moderate",
+      "note": "Guard scoring spike path tied to play-in intensity and expanded creation burden."
+    },
+    {
+      "game": "MIA @ CHA",
+      "player": "Brandon Miller",
+      "team": "CHA",
+      "market": "Rebounds",
+      "bet": "UNDER",
+      "line": 5.5,
+      "source": "Model-aligned",
+      "confidence_tier": "Moderate",
+      "note": "Aligned with primary rebound fade thesis from pregame analysis."
+    },
+    {
+      "game": "MIA @ CHA",
+      "player": "Tyler Herro",
+      "team": "MIA",
+      "market": "Assists",
+      "bet": "OVER",
+      "line": 4.5,
+      "source": "Fun Card",
+      "confidence_tier": "Moderate",
+      "note": "Assist pathway supported by expected on-ball volume in competitive rotation."
+    },
+    {
+      "game": "POR @ PHX",
+      "player": "Dillon Brooks",
+      "team": "PHX",
+      "market": "Points",
+      "bet": "OVER",
+      "line": 11.5,
+      "source": "Fun Card",
+      "confidence_tier": "Low-Moderate",
+      "note": "Scoring volatility play dependent on shot volume and thin rotation environment."
+    },
+    {
+      "game": "POR @ PHX",
+      "player": "Mark Williams",
+      "team": "PHX",
+      "market": "Points + Rebounds",
+      "bet": "OVER",
+      "line": 19.5,
+      "source": "Fun Card",
+      "confidence_tier": "Moderate",
+      "note": "Interior workload thesis with combined-stat cushion versus pure points or rebounds silo."
+    }
+  ],
+  "portfolio_context": {
+    "card_type": "Longshot recreational exposure",
+    "bankroll_role": "Non-core",
+    "recommended_tracking_tag": "FUN_CARD_ONLY",
+    "risk_note": "Not part of primary edge portfolio. Track separately from main model-derived capital deployment."
+  },
+  "tags": [
+    "NBA_PREGAME",
+    "FUN_CARD",
+    "MIA_CHA",
+    "POR_PHX",
+    "NON_CORE_EXPOSURE",
+    "PLAY_IN_SLATE"
+  ]
+}
