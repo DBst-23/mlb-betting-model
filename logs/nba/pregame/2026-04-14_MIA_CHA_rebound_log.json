@@ -1,0 +1,146 @@
+{
+  "entry_type": "NBA_PREGAME_REBOUND_LOG",
+  "date": "2026-04-14",
+  "game": "MIA @ CHA",
+  "market_focus": "Rebounds",
+  "status": "LOCKED_IN",
+  "cards": [
+    {
+      "card_id": "MIA_CHA_REB_CARD_1",
+      "sportsbook": "HotStreak",
+      "stake": 10.0,
+      "odds_format": "american",
+      "price": "+222",
+      "gross_return_if_win": 32.18,
+      "net_profit_if_win": 22.18,
+      "legs": [
+        {
+          "player": "LaMelo Ball",
+          "team": "CHA",
+          "prop": "Rebounds",
+          "bet": "UNDER",
+          "line": 5.5,
+          "model_win_probability": 0.6,
+          "fair_odds_estimate": "-150",
+          "edge_tag": "GUARD_REBOUND_FADE"
+        },
+        {
+          "player": "Andrew Wiggins",
+          "team": "MIA",
+          "prop": "Rebounds",
+          "bet": "UNDER",
+          "line": 4.5,
+          "model_win_probability": 0.64,
+          "fair_odds_estimate": "-178",
+          "edge_tag": "WING_REBOUND_SUPPRESSION"
+        },
+        {
+          "player": "Moussa Diabate",
+          "team": "CHA",
+          "prop": "Rebounds",
+          "bet": "OVER",
+          "line": 8.5,
+          "model_win_probability": 0.57,
+          "fair_odds_estimate": "-133",
+          "edge_tag": "CENTER_REBOUND_VOLUME"
+        }
+      ],
+      "combined_model_probability": 0.219,
+      "parlay_fair_odds_estimate": "+357",
+      "book_price": "+222",
+      "card_grade": "B",
+      "card_summary": "Playable structure with improved survivability after laddering Diabate from 10.5 to 8.5. Wiggins under remains strong, LaMelo under is viable but more volatile due to long-rebound pathways."
+    },
+    {
+      "card_id": "MIA_CHA_REB_CARD_2",
+      "sportsbook": "Underdog",
+      "stake": 5.5,
+      "odds_format": "american",
+      "price": "+325",
+      "gross_return_if_win": 23.37,
+      "net_profit_if_win": 17.87,
+      "legs": [
+        {
+          "player": "Brandon Miller",
+          "team": "CHA",
+          "prop": "Rebounds",
+          "bet": "UNDER",
+          "line": 5.5,
+          "model_win_probability": 0.71,
+          "fair_odds_estimate": "-245",
+          "edge_tag": "WING_REBOUND_FADE"
+        },
+        {
+          "player": "LaMelo Ball",
+          "team": "CHA",
+          "prop": "Rebounds",
+          "bet": "UNDER",
+          "line": 5.5,
+          "model_win_probability": 0.6,
+          "fair_odds_estimate": "-150",
+          "edge_tag": "GUARD_REBOUND_FADE"
+        },
+        {
+          "player": "Andrew Wiggins",
+          "team": "MIA",
+          "prop": "Rebounds",
+          "bet": "UNDER",
+          "line": 4.5,
+          "model_win_probability": 0.64,
+          "fair_odds_estimate": "-178",
+          "edge_tag": "WING_REBOUND_SUPPRESSION"
+        }
+      ],
+      "combined_model_probability": 0.273,
+      "parlay_fair_odds_estimate": "+266",
+      "book_price": "+325",
+      "card_grade": "A-",
+      "card_summary": "Best EV card of the set. Miller under profiles as the strongest standalone rebound edge, while Wiggins under and LaMelo under fit the same rebound-distribution thesis."
+    }
+  ],
+  "portfolio_summary": {
+    "total_stake": 15.5,
+    "total_gross_return_if_both_win": 55.55,
+    "total_net_profit_if_both_win": 40.05,
+    "portfolio_grade": "B+"
+  },
+  "pregame_context": {
+    "expected_lineup_mia": [
+      "Davion Mitchell",
+      "Tyler Herro",
+      "Norman Powell",
+      "Andrew Wiggins",
+      "Bam Adebayo"
+    ],
+    "expected_lineup_cha": [
+      "LaMelo Ball",
+      "Kon Knueppel",
+      "Brandon Miller",
+      "Miles Bridges",
+      "Moussa Diabate"
+    ],
+    "thesis_points": [
+      "Miami center rebound environment remains concentrated through Bam/Ware interior roles, limiting spillover rebound equity for Wiggins.",
+      "Charlotte wing and guard rebound lines appear inflated relative to recent rebound chance conversion and role distribution.",
+      "Diabate retains clear center-volume upside, but 10.5 was too aggressive; 8.5 improves survivability materially.",
+      "Brandon Miller under 5.5 rebounds rated as the strongest individual edge among all locked positions."
+    ],
+    "supporting_signals": [
+      "LaMelo Ball recent rebound profile: 4.9 RPG, 8.8 rebound chances, 55.7% rebound chance conversion.",
+      "Andrew Wiggins recent rebound profile: 3.9 RPG, 8.1 rebound chances, 47.7% rebound chance conversion.",
+      "Moussa Diabate recent rebound profile: 8.1 RPG, 20.4 rebound chances, 39.9% rebound chance conversion.",
+      "Brandon Miller recent rebound profile: 4.1 RPG, 7.9 rebound chances, 52.7% rebound chance conversion."
+    ]
+  },
+  "analyst_note": "Card 2 graded as the stronger EV construction; Card 1 retained for Diabate ladder-down exposure and diversified outcome path.",
+  "tags": [
+    "NBA_PREGAME",
+    "REBOUND_EDGES",
+    "MIA_CHA",
+    "EDGE_CALL_ACTIVE",
+    "PORTFOLIO_LOG",
+    "WING_REBOUND_FADE",
+    "GUARD_REBOUND_FADE",
+    "CENTER_REBOUND_VOLUME"
+  ]
+}
