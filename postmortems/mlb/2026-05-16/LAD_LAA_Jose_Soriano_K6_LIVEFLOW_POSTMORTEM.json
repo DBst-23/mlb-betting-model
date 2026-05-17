@@ -1,0 +1,122 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_16_LAD_LAA_JOSE_SORIANO_K6",
+  "sport": "MLB",
+  "game_date": "2026-05-16",
+  "matchup": "Los Angeles Dodgers @ Los Angeles Angels",
+  "final_snapshot": {
+    "score_at_screenshot": "LAD 6 - LAA 2",
+    "inning_at_screenshot": "Bottom 7",
+    "market_platform": "Kalshi"
+  },
+  "investment": {
+    "market": "Jose Soriano 6+ strikeouts - YES",
+    "entry_odds": "-122",
+    "stake": 2.50,
+    "max_payout": 4.56,
+    "current_value_at_log": 4.51,
+    "profit_displayed_at_log": 2.01,
+    "result": "WIN",
+    "closing_status": "CASHED / NEAR_MAX_VALUE"
+  },
+  "model_context": {
+    "mode": "MLB LIVE-FLOW",
+    "anti_burn_protocol": true,
+    "primary_market_type": "pitcher_strikeouts",
+    "edge_inputs_used": [
+      "leash stability",
+      "K ceiling",
+      "live inning runway",
+      "stuff-over-command profile",
+      "market inflation detection"
+    ],
+    "pre_bet_model_projection": {
+      "mean_ks": 6.4,
+      "median_ks": 6,
+      "hit_probability_range": "57-60%",
+      "entry_odds": "-122",
+      "required_probability_at_entry": "55.0%",
+      "edge_classification": "thin positive EV with strong K ceiling"
+    }
+  },
+  "jose_soriano_final_line": {
+    "IP": 5.1,
+    "H": 1,
+    "R": 6,
+    "ER": 6,
+    "BB": 6,
+    "K": 6,
+    "HR": 0,
+    "pitches": 92,
+    "strikes": 48,
+    "batters_faced": 24,
+    "groundouts": 7,
+    "flyouts": 1,
+    "ERA_at_log": 10.13
+  },
+  "dodgers_offense_vs_soriano": {
+    "runs_charged_to_soriano": 6,
+    "hits_allowed_by_soriano": 1,
+    "walks_allowed_by_soriano": 6,
+    "team_risp": "1-for-6",
+    "team_lob": 5,
+    "home_runs": 0,
+    "run_creation_note": "Dodgers generated six runs despite only three team hits through the snapshot, driven heavily by walks, HBP, sacrifice fly, and inherited runners scoring after Soriano exited."
+  },
+  "angels_offense_context": {
+    "runs": 2,
+    "hits": 7,
+    "walks": 2,
+    "strikeouts": 6,
+    "home_runs": 0,
+    "team_risp": "1-for-8",
+    "team_lob": 7,
+    "notable_driver": "Jorge Soler doubled twice; Jo Adell drove in both Angels runs."
+  },
+  "liveflow_timeline": [
+    {
+      "checkpoint": "Pregame",
+      "market": "Soriano 6+ Ks",
+      "entry": "-122",
+      "read": "Initial edge was thin but playable due to K ceiling and projected median of 6."
+    },
+    {
+      "checkpoint": "Pre-first pitch market check",
+      "market": "Soriano 6+ Ks",
+      "current_price": "-112",
+      "read": "Small negative CLV versus entry, not enough to trigger cashout or cancellation. Anti-burn posture: hold only, no add."
+    },
+    {
+      "checkpoint": "Final Soriano K result",
+      "line": "5.1 IP, 1 H, 6 ER, 6 BB, 6 K, 92 pitches",
+      "read": "Ticket cashed exactly at 6 Ks despite major command volatility. K ceiling held, but run prevention collapsed through free passes and inherited runners."
+    }
+  ],
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "COMMAND_VOLATILITY_ACTIVE",
+    "STUFF_OVER_COMMAND_K_HIT",
+    "LEASH_SURVIVED_TO_K_THRESHOLD",
+    "NEGATIVE_CLV_SMALL",
+    "ANTI_BURN_NO_ADD_SUCCESS"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed with volatility warning",
+    "what_worked": [
+      "Median projection landed exactly on 6 Ks",
+      "K ceiling remained intact even with poor command",
+      "Anti-burn correctly avoided adding after small negative CLV",
+      "Leash was sufficient for Soriano to reach the K threshold"
+    ],
+    "what_to_modify": [
+      "Apply stronger command-volatility penalty when BB risk is elevated",
+      "Separate K ceiling edge from overall pitcher quality edge",
+      "Flag 6+ as playable but fragile when strike percentage projects below stability zone",
+      "For command-volatile pitchers, avoid ladders beyond median unless live CSW/strike rate confirms"
+    ],
+    "patch_recommendation": "KEEP K ceiling logic, ADD COMMAND_VOLATILITY_PENALTY for ladder expansion and stake sizing"
+  },
+  "final_status": "KEEP_WITH_MODIFICATION",
+  "confidence_level": "High for K threshold evaluation, moderate for pitcher quality/run prevention",
+  "notes": "This was a successful K-edge call but not a clean pitcher-performance call. Soriano cleared 6+ Ks while allowing six earned runs and six walks. Log as a stuff-over-command strikeout hit with command volatility requiring future stake/ladders adjustment."
+}
