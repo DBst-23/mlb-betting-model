@@ -1,0 +1,106 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_19_BOS_KC_RANGER_SUAREZ_K5",
+  "sport": "MLB",
+  "game_date": "2026-05-19",
+  "matchup": "Boston Red Sox @ Kansas City Royals",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "anti_burn_protocol": true,
+  "investment": {
+    "market": "Ranger Suarez 5+ strikeouts - YES",
+    "entry_odds": "+116",
+    "stake": 2.41,
+    "max_payout": 5.21,
+    "final_payout": 0.00,
+    "result": "LOSS",
+    "final_score_snapshot": "BOS 7 - KC 1",
+    "outcome_display": "Outcome is No"
+  },
+  "pregame_model_read": {
+    "edge_type": "RUNWAY_K_OVER",
+    "model_mean_ks": 5.6,
+    "model_median_ks": 5,
+    "projected_hit_probability_range": "59-63%",
+    "fair_price_range": "-144 to -170",
+    "entry_implied_probability": "46.3%",
+    "pre_bet_thesis": "Ranger Suarez projected as a leash-stable, contact-suppression arm with enough inning runway to accumulate 5 strikeouts against Kansas City. The edge was not modeled as a ceiling-whiff eruption, but as floor/runway accumulation."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Ranger Suarez",
+    "IP": 4.1,
+    "H": 4,
+    "R": 1,
+    "ER": 1,
+    "BB": 3,
+    "K": 3,
+    "HR": 0,
+    "pitches": 81,
+    "strikes": 46,
+    "strike_rate": "56.8%",
+    "groundouts": 5,
+    "flyouts": 3,
+    "batters_faced": 19,
+    "ERA_at_log": 2.08
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 81,
+    "swings": 30,
+    "called_strikes": 16,
+    "whiffs": 7,
+    "whiff_rate_on_swings": "23%",
+    "csw": "28% (23/81)",
+    "first_pitch_strike_rate": "58% (11/19)",
+    "zone_rate": "42%",
+    "chase_rate": "26%",
+    "average_ev_allowed": 88.2,
+    "hard_hit_bbe": "3 of 13",
+    "max_ev_allowed": 103.6,
+    "top_velocity": 93.7,
+    "pitch_notes": {
+      "sinker": "28 pitches, 1 K, 25% CSW; 90.6 mph avg; 43% zone, 13% chase, 50% strike rate",
+      "curveball": "16 pitches, 2 K, 44% CSW; 75.9 mph avg; best K pitch of outing",
+      "four_seam": "14 pitches, 0 K, 57% CSW; strong called-strike profile but limited whiff conversion",
+      "changeup": "12 pitches, 0 K, 0% CSW; negative contributor to K pathway",
+      "cutter": "11 pitches, 0 K, 9% CSW; highest contact damage cluster, 3 hits and 2 hard-hit balls"
+    }
+  },
+  "failure_diagnosis": {
+    "primary_failure": "Leash/runway failed due to pitch-count inflation and walk pressure before the fifth inning was completed.",
+    "secondary_failure": "Whiff sustainability was not strong enough to overcome reduced innings. Suarez generated only 7 whiffs on 30 swings and finished with 3 Ks.",
+    "command_issue": "Strike rate was only 56.8%, with 3 walks and 81 pitches through 4.1 IP.",
+    "pitch_specific_issue": "Curveball carried the K profile, but changeup and cutter produced minimal CSW and did not support accumulation.",
+    "contact_suppression_note": "Run prevention was fine at 1 ER, but contact suppression alone did not preserve leash because noncompetitive pitches and walks inflated the count."
+  },
+  "model_vs_actual": {
+    "projected_mean_ks": 5.6,
+    "projected_median_ks": 5,
+    "actual_ks": 3,
+    "projection_delta_vs_mean": -2.6,
+    "projection_delta_vs_median": -2,
+    "projected_runway": "6.0+ IP accumulation path",
+    "actual_runway": "4.1 IP hook due to 81 pitches and 3 BB"
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "RUNWAY_K_OVER_FAILED",
+    "LEASH_STABILITY_OVERESTIMATED",
+    "PITCH_COUNT_INFLATION",
+    "WALK_PRESSURE_ACTIVE",
+    "WHIFF_SUSTAINABILITY_INSUFFICIENT",
+    "CURVEBALL_ONLY_K_PATH",
+    "CHANGEUP_CSW_FAILURE",
+    "CUTTER_DAMAGE_CLUSTER",
+    "ANTI_BURN_REVIEW_REQUIRED"
+  ],
+  "patch_recommendations": [
+    "Add LIVE_RUNWAY_ABORT trigger: if strike rate below 58% and pitch count above 75 before completing 5 IP, downgrade all 5+ K tickets sharply.",
+    "Add SECONDARY_PITCH_SUPPORT requirement for runway K overs: at least two pitches must carry usable CSW, not just one breaking ball.",
+    "Add WALK_PRESSURE_PENALTY for low-strike-rate contact suppressors; weak contact is not enough if free passes erase inning runway.",
+    "Modify RUNWAY_K_OVER logic: require projected 5.2+ IP probability to remain live after 2nd/3rd inning checkpoints.",
+    "For Ranger Suarez specifically, tag as K-floor volatile when cutter/changeup CSW is weak and sinker chase is low."
+  ],
+  "final_status": "MODIFY",
+  "confidence_level": "High",
+  "notes": "This was a clean example of a correct broad concept failing in execution: the model identified a plus-price runway K edge, but overestimated leash stability. Suarez had a playable 28% CSW overall, but it was too concentrated in curveball/four-seam called strikes and not enough true whiff depth. Walk pressure and pitch-count inflation killed the accumulation path."
+}
