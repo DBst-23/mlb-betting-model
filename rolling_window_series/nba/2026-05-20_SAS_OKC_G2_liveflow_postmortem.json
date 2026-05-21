@@ -1,0 +1,85 @@
+{
+  "schema_version": "rolling_window_series.v1",
+  "sport": "NBA",
+  "series": "WCF_2026_SAS_OKC",
+  "game": 2,
+  "date": "2026-05-20",
+  "venue": "Paycom Center, Oklahoma City, OK",
+  "source_file": "20260520_SASOKC_book (1).pdf",
+  "final_score": {
+    "SAS": 113,
+    "OKC": 122,
+    "margin_OKC": 9,
+    "total": 235
+  },
+  "positions": [
+    {
+      "market": "spread",
+      "selection": "No - Oklahoma City wins by over 7.5 points",
+      "stake": 2.5,
+      "odds": -117,
+      "result": "loss",
+      "settlement_note": "OKC won by 9, so OKC did win by over 7.5. The NO side lost.",
+      "tag": "LOSS_REGISTERED"
+    },
+    {
+      "market": "team_total",
+      "selection": "San Antonio over 102.5 points",
+      "stake": 5.0,
+      "odds": -137,
+      "result": "win",
+      "settlement_note": "SAS scored 113, clearing 102.5 by +10.5 points.",
+      "tag": "GHOST_BET_HIT_REGISTERED"
+    }
+  ],
+  "quarter_scores": {
+    "SAS": [31, 20, 37, 25],
+    "OKC": [31, 31, 34, 26]
+  },
+  "key_box_score_signals": {
+    "SAS_turnovers": 21,
+    "OKC_turnovers": 10,
+    "SAS_turnover_points_allowed": 27,
+    "OKC_turnover_points_allowed": 10,
+    "SAS_fg_pct": 48.8,
+    "SAS_3p_pct": 40.0,
+    "SAS_3pm": 16,
+    "SAS_off_rebounds": 16,
+    "SAS_second_chance_points": 22,
+    "OKC_off_rebounds": 17,
+    "OKC_second_chance_points": 17,
+    "OKC_steals": 14,
+    "OKC_assists": 34,
+    "SGA_points": 30,
+    "SGA_assists": 9,
+    "Wembanyama_points": 21,
+    "Wembanyama_rebounds": 17,
+    "Wembanyama_assists": 6,
+    "Castle_points": 25,
+    "Castle_turnovers": 9,
+    "Hartenstein_rebounds": 13,
+    "Hartenstein_off_rebounds": 8
+  },
+  "model_read": {
+    "pregame_leak": "The spread position underestimated OKC's turnover-pressure floor and late offensive rebounding buffer. The model saw SAS money backing the spread and Game 1 rebounding dominance, but did not penalize SAS enough for ball-security risk without Fox and Castle primary-handler volatility.",
+    "liveflow_success": "The halftime SAS team-total over was correctly identified because the Spurs had 51 points despite 13 turnovers, strong offensive rebounding, perfect first-half FT shooting, and a clear second-half efficiency recovery path. They scored 62 in the second half.",
+    "primary_failure_mode": "Cover-side confusion plus pressure-adjusted margin miss: SAS offensive profile was strong enough for team total but not clean enough to stay inside +7.5 due to turnover bleed and OKC possession leverage.",
+    "patch_required": [
+      "PRESSURE_TURNOVER_TAX_V1",
+      "PRIMARY_HANDLER_ABSENCE_GATE",
+      "SPREAD_VS_TEAM_TOTAL_DECOUPLER",
+      "OFF_REB_CAN_SUPPORT_TT_NOT_SPREAD",
+      "LATE_MARGIN_FT_AND_OREB_BUFFER"
+    ]
+  },
+  "postmortem_tags": [
+    "ROLLING_WINDOW_SERIES",
+    "WCF_GAME_2",
+    "LIVEFLOW_GHOST_BET_HIT",
+    "SPREAD_LOSS_REGISTERED",
+    "SEVEN_LOSS_STREAK_AUDIT",
+    "TURNOVER_PRESSURE_LEAK",
+    "SAS_TT_OVER_VALIDATED",
+    "OKC_MARGIN_BUFFER_VALIDATED"
+  ]
+}
