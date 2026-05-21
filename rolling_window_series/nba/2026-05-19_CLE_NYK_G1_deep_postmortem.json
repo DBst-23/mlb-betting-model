@@ -1,0 +1,310 @@
+{
+  "schema_version": "rolling_window_series.v1",
+  "entry_id": "CLE_NYK_ECF_G1_2026_05_19_DEEP_POSTMORTEM",
+  "league": "NBA",
+  "series": "Eastern Conference Finals",
+  "game_number": 1,
+  "date": "2026-05-19",
+  "matchup": "CLE @ NYK",
+  "venue": "Madison Square Garden",
+  "final_score": {
+    "CLE": 104,
+    "NYK": 115,
+    "margin": "NYK +11",
+    "periods": {
+      "CLE": [16, 32, 35, 18, 3],
+      "NYK": [23, 23, 23, 32, 14]
+    },
+    "game_length": "OT"
+  },
+  "closing_market_snapshot": {
+    "moneyline": {
+      "CLE_best": "+205",
+      "NYK_best": "-214",
+      "market_range_CLE": ["+180", "+205"],
+      "market_range_NYK": ["-214", "-250"]
+    },
+    "spread": {
+      "consensus": "NYK -5.5 to -6.5",
+      "best_CLE": "+6.5 -105",
+      "best_NYK": "-5.5 -108",
+      "settled_result": "NYK covered most pregame spreads; OT margin distortion created spread failure for CLE/backdoor positions"
+    },
+    "total": {
+      "consensus": "217.5 to 219.5",
+      "result": 219,
+      "note": "Total landed near closing band; OT created upper-tail total pressure. Betano U219.5 survived while 217.5/218 pushed or lost depending book."
+    },
+    "team_totals_pregame": {
+      "NYK": {
+        "market_band": "111.5 to 112.5",
+        "result": 115,
+        "outcome": "Over"
+      },
+      "CLE": {
+        "market_band": "105.5 to 106.5",
+        "result": 104,
+        "outcome": "Under"
+      }
+    }
+  },
+  "core_game_story": {
+    "primary_read": "Cleveland controlled the middle of the game and led by 22 in the fourth, but New York flipped the game through pressure, Brunson isolation hunting, Cleveland turnover leakage, offensive rebounding/extra possessions, and overtime margin expansion.",
+    "critical_state": "CLE led 93-71 with 7:52 left in Q4 before NYK finished regulation plus OT on a 44-11 run.",
+    "model_relevance": "The model recognized NYK late-game pressure profile but underweighted collapse risk once CLE had a large fourth-quarter lead. OT margin distortion and Brunson switch-hunt pressure must be elevated in future playoff LIVE-FLOW states."
+  },
+  "team_efficiency_summary": {
+    "CLE": {
+      "possessions": 106,
+      "points": 104,
+      "points_per_possession": 0.981,
+      "efg_pct": 0.4835,
+      "ts_pct": 0.5149,
+      "shot_quality": 0.56,
+      "two_pt_fg": "20/40 50.0%",
+      "three_pt_fg": "16/51 31.37%",
+      "rim": "14/24 58.33%",
+      "rim_or_3_frequency": "82.42%"
+    },
+    "NYK": {
+      "possessions": 108,
+      "points": 115,
+      "points_per_possession": 1.065,
+      "efg_pct": 0.5281,
+      "ts_pct": 0.5476,
+      "shot_quality": 0.56,
+      "two_pt_fg": "32/56 57.14%",
+      "three_pt_fg": "10/33 30.30%",
+      "rim": "20/32 62.5%",
+      "rim_or_3_frequency": "73.03%"
+    },
+    "diagnostic": "Shot quality was equal at 0.56, but NYK won through two-point pressure, rim conversion, free throws, rebounding volume, and late turnover conversion rather than pure shot-quality dominance."
+  },
+  "rebounding_profile": {
+    "team_totals": {
+      "CLE": {
+        "rebounds": 49,
+        "defensive_rebounds": 34,
+        "offensive_rebounds": 15,
+        "fg_dreb_pct": "67.39%",
+        "fg_oreb_pct": "27.78%",
+        "z_bounds": 1,
+        "z_bound_pct": "1.92%"
+      },
+      "NYK": {
+        "rebounds": 58,
+        "defensive_rebounds": 41,
+        "offensive_rebounds": 17,
+        "fg_dreb_pct": "72.22%",
+        "fg_oreb_pct": "32.61%",
+        "z_bounds": 4,
+        "z_bound_pct": "10.00%"
+      }
+    },
+    "player_tracking_highlights": {
+      "Karl-Anthony Towns": {
+        "rebounds": 13,
+        "chances": 23,
+        "chance_pct": "56.5%",
+        "contested_rebounds": 7,
+        "contested_reb_pct": "53.8%",
+        "avg_reb_distance": 7.3
+      },
+      "Evan Mobley": {
+        "rebounds": 14,
+        "chances": 22,
+        "chance_pct": "63.6%",
+        "adjusted_chance_pct": "66.7%",
+        "avg_reb_distance": 6.2
+      },
+      "Josh Hart": {
+        "rebounds": 7,
+        "chances": 15,
+        "chance_pct": "46.7%",
+        "adjusted_chance_pct": "53.8%",
+        "avg_reb_distance": 4.1,
+        "prop_result": "Missed 9+ ladder despite viable chance volume; minutes capped at 30.5 and rebound tree condensed toward Towns/Robinson/Mobley zones."
+      },
+      "Mitchell Robinson": {
+        "rebounds": 6,
+        "chances": 8,
+        "chance_pct": "75.0%",
+        "contested_rebounds": 5,
+        "contested_reb_pct": "83.3%",
+        "avg_reb_distance": 3.4,
+        "diagnostic": "Elite per-minute rebound capture; Robinson minutes remain high-leverage for NYK rebound environment and Hart suppression."
+      },
+      "Jarrett Allen": {
+        "rebounds": 7,
+        "chances": 17,
+        "chance_pct": "41.2%",
+        "contested_rebounds": 6,
+        "contested_reb_pct": "85.7%"
+      }
+    },
+    "box_out_notes": {
+      "NYK": "OG Anunoby led with 5 box outs; Towns had 2; Hart, Brunson, Robinson, McBride each had 1. NYK generated more useful box-out-to-team-rebound conversion than raw box-out totals suggest.",
+      "CLE": "Mobley had 2 box outs, Allen 1, Merrill 1. CLE's box-out profile did not prevent NYK from winning total rebounds 58-49 and offensive rebounds 17-15."
+    },
+    "model_patch": "Hart rebound overs require a Robinson-minute displacement gate. If Robinson projects 14+ minutes with elite contested capture, reduce Hart rebound median by 0.8-1.4 unless Hart minutes project 38+."
+  },
+  "turnover_profile": {
+    "team_totals": {
+      "CLE": {
+        "turnovers": 21,
+        "live_ball_turnovers": 10,
+        "dead_ball_turnovers": 11,
+        "live_ball_to_pct": "47.62%",
+        "bad_pass": 6,
+        "lost_ball": 4
+      },
+      "NYK": {
+        "turnovers": 19,
+        "live_ball_turnovers": 11,
+        "dead_ball_turnovers": 8,
+        "live_ball_to_pct": "57.89%",
+        "bad_pass": 7,
+        "lost_ball": 4
+      }
+    },
+    "lineup_failure": "CLE lineups containing Mitchell/Strus/Merrill/Mobley/Harden and Mitchell/Allen/Strus/Mobley/Harden showed elevated live-ball leakage in short samples. Harden late-game ball security and defensive targeting became a dual liability.",
+    "model_patch": "Add PLAYOFF_PRESSURE_LIVEBALL_DECAY: when a team leads by 15+ in Q4 but has 15+ turnovers and opponent has elite pressure/scoring guard, reduce lead safety and spread-cover probability by 6-10 points."
+  },
+  "foul_profile": {
+    "team_totals": {
+      "CLE": {
+        "fouls": 29,
+        "shooting_fouls_committed": 9,
+        "loose_ball_fouls_committed": 6,
+        "fouls_drawn": 26
+      },
+      "NYK": {
+        "fouls": 26,
+        "shooting_fouls_committed": 11,
+        "loose_ball_fouls_committed": 3,
+        "fouls_drawn": 29
+      }
+    },
+    "interpretation": "Foul environment was high but not one-sided enough to explain the full comeback. The bigger betting impact came from late rim pressure and OT margin extension."
+  },
+  "phase_analysis": {
+    "q1": {
+      "score": "NYK 23-16",
+      "read": "NYK established defensive pressure early while CLE struggled from field. Early Knicks lead hinted at pressure upside but not full-game stability."
+    },
+    "q2": {
+      "score": "CLE 32-23",
+      "read": "Cleveland stabilized through Mitchell creation and three-point volume. Knicks offense showed rust and spacing issues."
+    },
+    "q3": {
+      "score": "CLE 35-23",
+      "read": "CLE appeared to break the game open. Model should have flagged potential CLE cover state but also monitored turnover accumulation and Harden defensive exposure."
+    },
+    "q4": {
+      "score": "NYK 32-18",
+      "read": "Game flipped. Brunson attack pressure and NYK defense overwhelmed CLE. This is the central model failure phase: large-lead safety was overestimated."
+    },
+    "ot": {
+      "score": "NYK 14-3",
+      "read": "OT created margin distortion. Pre-OT/live spread positions were punished by momentum cascade and Cleveland offensive collapse."
+    }
+  },
+  "betting_position_audit": {
+    "pregame_and_live_positions": [
+      {
+        "market": "Spread",
+        "position": "No - New York wins by over 9.5",
+        "stake": 5.00,
+        "price": "-108",
+        "result": "Loss",
+        "reason": "Final NYK +11 after OT margin distortion"
+      },
+      {
+        "market": "Spread",
+        "position": "No - New York wins by over 8.5",
+        "stake": 2.50,
+        "price": "+109",
+        "result": "Loss",
+        "reason": "Final NYK +11 after OT margin distortion"
+      },
+      {
+        "market": "Josh Hart rebounds",
+        "position": "Yes Hart 9+ rebounds",
+        "stake": 2.50,
+        "price": "+118",
+        "result": "Loss",
+        "actual": 7,
+        "reason": "Hart had 15 chances but only 30.5 minutes and rebound capture concentrated through Towns/Robinson"
+      },
+      {
+        "market": "James Harden assists",
+        "position": "Yes Harden 7+ assists",
+        "stake": 2.50,
+        "price": "-113",
+        "result": "Loss",
+        "reason": "Cleveland offense shifted toward Mitchell scoring/late breakdown; Harden had more turnovers than made field goals per recap context and assist flow did not materialize"
+      }
+    ],
+    "root_cause": "The card clustered around CLE staying inside margin plus Hart/Harden connective stats. All three depended on Cleveland offensive stability and non-collapse conditions, creating correlated downside exposure.",
+    "risk_patch": "LIVEFLOW_RISK_CLUSTER_LOCK must treat spread protection + opponent rebound/assist props as correlated when they depend on the same pace/lead state. Max two correlated open exposures."
+  },
+  "model_failure_tags": [
+    "LATE_GAME_COLLAPSE",
+    "OT_MARGIN_DISTORTION",
+    "BRUNSON_SWITCH_HUNT",
+    "HARDEN_DEFENSIVE_TARGETING",
+    "CLE_LIVEBALL_TURNOVER_DECAY",
+    "HART_REBOUND_DISPLACEMENT_BY_ROBINSON",
+    "CENTER_REBOUND_TREE_CONDENSED",
+    "SPREAD_PROTECTION_FAILURE",
+    "ASSIST_FLOW_MISREAD",
+    "RISK_CLUSTER_LOCK_VIOLATION"
+  ],
+  "model_success_tags": [
+    "NYK_TEAM_TOTAL_OVER_VALIDATED",
+    "CLE_TEAM_TOTAL_UNDER_VALIDATED",
+    "TOTAL_CLOSE_BAND_VALIDATED",
+    "NYK_REBOUND_IDENTITY_VALIDATED"
+  ],
+  "patch_queue": [
+    {
+      "patch": "PLAYOFF_LEAD_SAFETY_DECAY_V1",
+      "trigger": "Team leads by 15+ in Q4 while carrying 15+ turnovers or negative live-ball trend",
+      "effect": "Lower cover probability and raise comeback/OT tail probability"
+    },
+    {
+      "patch": "BRUNSON_SWITCH_HUNT_MULTIPLIER_V1",
+      "trigger": "Brunson vs weak lateral guard/older ball-handler defender in Q4/OT",
+      "effect": "Increase NYK late rim pressure, free throw rate, and opponent foul/turnover risk"
+    },
+    {
+      "patch": "ROBINSON_REBOUND_DISPLACEMENT_GATE_V1",
+      "trigger": "Mitchell Robinson 14+ projected minutes with high contested rebound capture",
+      "effect": "Reduce Hart/wing rebound over probability unless minutes and long-miss profile compensate"
+    },
+    {
+      "patch": "OT_MARGIN_DISTORTION_GUARDRAIL_V1",
+      "trigger": "Live spread ladder positions inside 10 points during late tied/comeback states",
+      "effect": "Reduce stake or avoid unless edge exceeds 8% and market price gives cushion"
+    }
+  ],
+  "game2_prep_implications": {
+    "CLE": [
+      "Must protect ball late; 21 turnovers is disqualifying for spread trust.",
+      "Mitchell remains primary scoring pressure point, but Harden must be treated as volatility source defensively and as a turnover risk.",
+      "Mobley rebound profile is stable and should remain a viable rebound anchor."
+    ],
+    "NYK": [
+      "Brunson late-game pressure is now elevated to primary series driver.",
+      "Towns plus Robinson gives NYK a more condensed and physical rebound tree than Hart ladder pricing implied.",
+      "NYK team total overs remain alive if market leaves 111.5-112.5 range and CLE late-game defense remains unstable."
+    ]
+  },
+  "log_status": "finalized",
+  "registered_under": [
+    "rolling_window_series/nba",
+    "Backtest_Logbook",
+    "NBA_B003_VOL_BUNDLE",
+    "CLE_NYK_ECF_SERIES_2026"
+  ]
+}
