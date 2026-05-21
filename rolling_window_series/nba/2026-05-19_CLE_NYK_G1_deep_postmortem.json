@@ -17,6 +17,11 @@
     },
     "game_length": "OT"
   },
+  "correction_note": {
+    "timestamp": "2026-05-21",
+    "correction": "No ghost bet existed for CLE@NYK Game 1. Prior wording implying a ghost/team-total win on this matchup was incorrect and has been removed from the position audit.",
+    "source_of_truth": "User position screenshots show only settled losses: Harden 7+ assists, Josh Hart 9+ rebounds, No NYK by over 8.5, and No NYK by over 9.5."
+  },
   "closing_market_snapshot": {
     "moneyline": {
       "CLE_best": "+205",
@@ -28,30 +33,32 @@
       "consensus": "NYK -5.5 to -6.5",
       "best_CLE": "+6.5 -105",
       "best_NYK": "-5.5 -108",
-      "settled_result": "NYK covered most pregame spreads; OT margin distortion created spread failure for CLE/backdoor positions"
+      "settled_result": "NYK covered most pregame spreads; OT margin distortion created spread failure for CLE/backdoor-style No positions."
     },
     "total": {
       "consensus": "217.5 to 219.5",
       "result": 219,
-      "note": "Total landed near closing band; OT created upper-tail total pressure. Betano U219.5 survived while 217.5/218 pushed or lost depending book."
+      "note": "Total landed near closing band; OT created upper-tail total pressure. No active ghost bet or logged official team-total position for this matchup."
     },
     "team_totals_pregame": {
       "NYK": {
         "market_band": "111.5 to 112.5",
         "result": 115,
-        "outcome": "Over"
+        "market_result_only": "Over",
+        "position_status": "No user bet / no ghost bet logged"
       },
       "CLE": {
         "market_band": "105.5 to 106.5",
         "result": 104,
-        "outcome": "Under"
+        "market_result_only": "Under",
+        "position_status": "No user bet / no ghost bet logged"
       }
     }
   },
   "core_game_story": {
     "primary_read": "Cleveland controlled the middle of the game and led by 22 in the fourth, but New York flipped the game through pressure, Brunson isolation hunting, Cleveland turnover leakage, offensive rebounding/extra possessions, and overtime margin expansion.",
     "critical_state": "CLE led 93-71 with 7:52 left in Q4 before NYK finished regulation plus OT on a 44-11 run.",
-    "model_relevance": "The model recognized NYK late-game pressure profile but underweighted collapse risk once CLE had a large fourth-quarter lead. OT margin distortion and Brunson switch-hunt pressure must be elevated in future playoff LIVE-FLOW states."
+    "model_relevance": "The model underweighted collapse risk once CLE had a large fourth-quarter lead. OT margin distortion and Brunson switch-hunt pressure must be elevated in future playoff LIVE-FLOW states."
   },
   "team_efficiency_summary": {
     "CLE": {
@@ -210,7 +217,7 @@
     }
   },
   "betting_position_audit": {
-    "pregame_and_live_positions": [
+    "official_user_positions": [
       {
         "market": "Spread",
         "position": "No - New York wins by over 9.5",
@@ -242,9 +249,10 @@
         "stake": 2.50,
         "price": "-113",
         "result": "Loss",
-        "reason": "Cleveland offense shifted toward Mitchell scoring/late breakdown; Harden had more turnovers than made field goals per recap context and assist flow did not materialize"
+        "reason": "Cleveland offense shifted toward Mitchell scoring/late breakdown; Harden assist flow did not materialize"
       }
     ],
+    "ghost_bet_status": "NONE. No ghost bet was placed or logged for CLE@NYK Game 1.",
     "root_cause": "The card clustered around CLE staying inside margin plus Hart/Harden connective stats. All three depended on Cleveland offensive stability and non-collapse conditions, creating correlated downside exposure.",
     "risk_patch": "LIVEFLOW_RISK_CLUSTER_LOCK must treat spread protection + opponent rebound/assist props as correlated when they depend on the same pace/lead state. Max two correlated open exposures."
   },
@@ -258,11 +266,10 @@
     "CENTER_REBOUND_TREE_CONDENSED",
     "SPREAD_PROTECTION_FAILURE",
     "ASSIST_FLOW_MISREAD",
-    "RISK_CLUSTER_LOCK_VIOLATION"
+    "RISK_CLUSTER_LOCK_VIOLATION",
+    "FALSE_GHOST_BET_LABEL_CORRECTED"
   ],
   "model_success_tags": [
-    "NYK_TEAM_TOTAL_OVER_VALIDATED",
-    "CLE_TEAM_TOTAL_UNDER_VALIDATED",
     "TOTAL_CLOSE_BAND_VALIDATED",
     "NYK_REBOUND_IDENTITY_VALIDATED"
   ],
@@ -297,10 +304,10 @@
     "NYK": [
       "Brunson late-game pressure is now elevated to primary series driver.",
       "Towns plus Robinson gives NYK a more condensed and physical rebound tree than Hart ladder pricing implied.",
-      "NYK team total overs remain alive if market leaves 111.5-112.5 range and CLE late-game defense remains unstable."
+      "NYK team total market result was over, but no active user/ghost position existed. Do not count it in betting ledger."
     ]
   },
-  "log_status": "finalized",
+  "log_status": "finalized_corrected",
   "registered_under": [
     "rolling_window_series/nba",
     "Backtest_Logbook",
