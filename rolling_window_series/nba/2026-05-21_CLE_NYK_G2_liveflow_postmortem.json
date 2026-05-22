@@ -1,0 +1,157 @@
+{
+  "series": "rolling_window_series",
+  "sport": "NBA",
+  "league_context": "2026 NBA Playoffs - Eastern Conference Finals",
+  "game_id": "CLE_NYK_G2_2026_05_21",
+  "date": "2026-05-21",
+  "matchup": "Cleveland Cavaliers @ New York Knicks",
+  "venue": "Madison Square Garden",
+  "officials": [
+    "Zach Zarba",
+    "James Williams",
+    "Sean Wright",
+    "Ray Acosta"
+  ],
+  "final_score": {
+    "CLE": 93,
+    "NYK": 109
+  },
+  "market_context": {
+    "pregame_reference_line": {
+      "spread": "NYK -5.5",
+      "total": "214.5 to 215.5 range",
+      "moneyline": "NYK favorite around -190 to -220 depending book"
+    },
+    "liveflow_entries": [
+      {
+        "market": "player_rebounds",
+        "selection": "Josh Hart 8+ rebounds",
+        "odds": "+113",
+        "stake": 7.2,
+        "result": "loss",
+        "actual": 4,
+        "diagnosis": "HART_SHOT_VOLUME_DISPLACEMENT_ON"
+      },
+      {
+        "market": "team_total",
+        "selection": "Cleveland over 106.5 points",
+        "odds": "+109",
+        "stake": 4.8,
+        "result": "loss",
+        "actual": 93,
+        "diagnosis": "CAVS_CREATION_FRAGILITY_ON"
+      },
+      {
+        "market": "team_total",
+        "selection": "New York over 109.5 points",
+        "odds": "-112",
+        "stake": 5.2,
+        "result": "loss",
+        "actual": 109,
+        "diagnosis": "LEAD_SUPPRESSION_UNDERCUT_ON / one-point hook miss"
+      }
+    ],
+    "portfolio_result": {
+      "record": "0-3",
+      "stake_total": 17.2,
+      "return_total": 0,
+      "net": -17.2
+    }
+  },
+  "box_score_summary": {
+    "cleveland": {
+      "points": 93,
+      "fg": "31/80",
+      "fg_pct": 38.8,
+      "three_pt": "9/35",
+      "three_pt_pct": 25.7,
+      "free_throws": "22/24",
+      "assists": 15,
+      "turnovers": 9,
+      "rebounds": 47,
+      "offensive_rebounds": 17
+    },
+    "new_york": {
+      "points": 109,
+      "fg": "43/83",
+      "fg_pct": 51.8,
+      "three_pt": "13/36",
+      "three_pt_pct": 36.1,
+      "free_throws": "10/15",
+      "assists": 33,
+      "turnovers": 10,
+      "rebounds": 43,
+      "offensive_rebounds": 8
+    }
+  },
+  "player_focus": {
+    "josh_hart": {
+      "final_line": "26 points, 4 rebounds, 7 assists",
+      "shot_profile": "21 FGA, 11 3PA",
+      "model_error": "Projected rebound role was not updated aggressively enough when Cleveland conceded open perimeter looks and Hart became a volume shooter instead of a weakside rebounder.",
+      "patch": "If Hart 3PA >= 5 by halftime and rebounds <= 2, downgrade rebound overs by 18% to 28%."
+    },
+    "karl_anthony_towns": {
+      "final_line": "20 points, 13 rebounds, 4 assists",
+      "model_note": "Actual rebound funnel moved toward KAT, not Hart. KAT defensive-board stability should have been the preferred Knicks rebound channel."
+    },
+    "jalen_brunson": {
+      "final_line": "18 points, 11 assists",
+      "model_note": "Brunson shifted into creator mode; Knicks scoring was distributed rather than Brunson-only."
+    },
+    "cleveland_creation": {
+      "harden": "17 points, 2 assists",
+      "mitchell": "14 points, 1 assist",
+      "model_note": "Cleveland failed to generate enough assisted shot quality; Harden/Mitchell assist suppression should have downgraded live CLE team total over."
+    }
+  },
+  "diagnostic_findings": [
+    {
+      "tag": "HART_SHOT_VOLUME_DISPLACEMENT_ON",
+      "finding": "Hart's offensive role displaced his rebound lane access. The model incorrectly treated Hart's minutes and weakside role as rebound-positive after shot-volume evidence showed otherwise.",
+      "severity": "high"
+    },
+    {
+      "tag": "CAVS_CREATION_FRAGILITY_ON",
+      "finding": "Cleveland's live total was over-attacked despite poor creation indicators: low assist volume, poor 3PT efficiency, and too much self-created late-clock offense.",
+      "severity": "high"
+    },
+    {
+      "tag": "LEAD_SUPPRESSION_UNDERCUT_ON",
+      "finding": "NYK over 109.5 lost by one point. Late lead state reduced urgency and created clock-bleed risk; team total overs need suppression when favorite leads by 15+ in the fourth.",
+      "severity": "medium"
+    },
+    {
+      "tag": "MARKET_SELECTION_FAILURE",
+      "finding": "The game-state read was stronger than the final bet selection. The portfolio over-weighted rebound and team-total overs without enough confirmation of repeatable possession quality.",
+      "severity": "high"
+    }
+  ],
+  "patches_to_apply": {
+    "LIVEFLOW_RULE_UPDATE": [
+      "No 2H or live team total over unless primary creator assists are flowing.",
+      "Require at least two reliable scoring lanes before entering live overs.",
+      "Avoid team total overs when lead state projects late clock bleed.",
+      "Current shot profile must support repeatable points, not just hot shooting."
+    ],
+    "REBOUND_RULE_UPDATE": [
+      "Do not play wing rebound overs when the opponent is intentionally using that player as the defensive concession shooter.",
+      "If player shot-volume spike emerges early, downgrade rebound projection immediately.",
+      "Separate minutes-based rebound projection from role-based rebound access."
+    ]
+  },
+  "model_grade": {
+    "read_quality": "medium-high",
+    "market_selection": "poor",
+    "execution_quality": "negative",
+    "risk_state": "cooldown_required",
+    "postmortem_priority": "high"
+  },
+  "next_actions": [
+    "Patch Hart rebound profile with shot-volume displacement gate.",
+    "Patch Cleveland team-total model with creation-fragility gate.",
+    "Patch live team total overs with late-lead suppression gate.",
+    "Limit next live slate to one confirmed edge only until model regains traction."
+  ],
+  "notes": "No ghost bet was placed on this matchup. All three tracked positions were live or pre-live exposures and finished as losses. The key lesson is not that the model missed the game script entirely; the leak was converting partial reads into the wrong markets."
+}
