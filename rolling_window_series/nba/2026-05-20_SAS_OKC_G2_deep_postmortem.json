@@ -1,0 +1,178 @@
+{
+  "entry_id": "NBA_DEEP_POSTMORTEM_SAS_OKC_G2_2026_05_20",
+  "registry": "rolling_window_series",
+  "sport": "NBA",
+  "series": "SAS@OKC",
+  "game_number": 2,
+  "date": "2026-05-20",
+  "venue": "Paycom Center",
+  "final_score": {
+    "SAS": 113,
+    "OKC": 122,
+    "margin": 9,
+    "total": 235
+  },
+  "closing_market": {
+    "moneyline": {
+      "SAS_best": "+228",
+      "OKC_best": "-235",
+      "market_read": "OKC heavy favorite; market priced Thunder control but spread clustered around -7.5."
+    },
+    "spread": {
+      "consensus": "OKC -7.5",
+      "notable_alt": "Best Odds displayed SAS +8.5 / OKC -7.5 split",
+      "result": "OKC covered -7.5 by 1.5 points"
+    },
+    "full_game_total": {
+      "consensus_range": "214.5 to 216.5",
+      "result": "Over by roughly 18.5 to 20.5 points depending on book"
+    },
+    "team_totals": {
+      "SAS_close_range": "102.5 to 105.5",
+      "SAS_result": 113,
+      "OKC_close_range": "110.5 to 112.5",
+      "OKC_result": 122
+    }
+  },
+  "positions_and_results": [
+    {
+      "market": "Spread",
+      "position": "No - OKC wins by over 7.5",
+      "stake": 2.5,
+      "odds": -117,
+      "result": "loss",
+      "actual_margin": 9,
+      "diagnosis": "Spread protection failed; OKC crossed key live/closing threshold by 1.5 points."
+    },
+    {
+      "market": "Team Total",
+      "position": "Ghost bet - SAS over 102.5",
+      "stake": 5.0,
+      "odds": -137,
+      "result": "win",
+      "actual_points": 113,
+      "diagnosis": "Correct model read; Spurs pace/shot-volume and late scoring supported the over."
+    }
+  ],
+  "game_flow": {
+    "q1": "31-31: neutral open, both offenses immediately ahead of conservative playoff total assumptions.",
+    "q2": "OKC 31-20: decisive Thunder separation phase; SAS turnover pressure and OKC shot-making created first major margin risk.",
+    "q3": "SAS 37-34: Spurs offense stayed alive and validated team-total over profile despite trailing.",
+    "q4": "OKC 26-25: OKC maintained enough scoring to cover; no backdoor compression arrived."
+  },
+  "core_diagnostic_findings": {
+    "pace_and_scoring": {
+      "possessions": 97,
+      "SAS_points": 113,
+      "OKC_points": 122,
+      "finding": "The game was not a slow playoff grind. Both teams cleared their team totals and the full-game total by a wide margin.",
+      "patch_implication": "Do not let playoff setting alone suppress totals when both teams show early rim-or-3 frequency and transition/live-ball turnover paths."
+    },
+    "shot_profile": {
+      "SAS": {
+        "shot_quality": 0.57,
+        "rim_or_3_frequency": "83.33%",
+        "rim_fg": "20/30",
+        "three_point_fg": "16/40",
+        "three_point_rate": "47.62%",
+        "note": "SAS generated a strong modern shot map: heavy rim + 3 blend, enough efficiency to clear team total comfortably."
+      },
+      "OKC": {
+        "shot_quality": 0.54,
+        "rim_or_3_frequency": "57.45%",
+        "rim_fg": "12/18",
+        "midrange_pressure": "OKC also produced 13/24 short-midrange and 7/16 long-midrange, giving them scoring redundancy beyond 3PA.",
+        "note": "OKC did not need elite 3PT variance to clear. Their halfcourt shot creation and assisted 2PT flow carried the offense."
+      }
+    },
+    "turnover_split": {
+      "SAS": {
+        "turnovers": 21,
+        "live_ball_turnovers": 14,
+        "live_ball_turnover_pct": "66.67%",
+        "diagnosis": "Primary leak. Spurs scoring still hit, but live-ball turnovers created OKC margin expansion and killed the +spread/no-OKC-cover angle."
+      },
+      "OKC": {
+        "turnovers": 10,
+        "live_ball_turnovers": 5,
+        "diagnosis": "OKC protected the ball well enough to avoid backdoor risk."
+      }
+    },
+    "rebounding": {
+      "SAS_team_rebounds": 48,
+      "OKC_team_rebounds": 46,
+      "SAS_oreb": 17,
+      "OKC_oreb": 19,
+      "key_players": {
+        "Victor Wembanyama": "17 rebounds on 27 chances; 10 contested rebounds; elite center-tree consolidation.",
+        "Isaiah Hartenstein": "13 rebounds on 18 chances; 7 contested; 6 box outs; dominant OKC glass stabilizer.",
+        "Jared McCain": "6 rebounds on 9 chances; guard rebound spike from long-rebound environment."
+      },
+      "diagnosis": "Rebounding volume was high but not one-sided enough to rescue SAS spread. OKC offensive rebounding plus SAS turnovers supported OKC cover."
+    },
+    "foul_context": {
+      "team_fouls": {
+        "SAS": 21,
+        "OKC": 21
+      },
+      "finding": "Foul counts were balanced; whistle did not create a one-sided team-total distortion. Both teams had 21 fouls drawn/committed profile, keeping scoring paths open."
+    }
+  },
+  "model_hit_miss_audit": {
+    "hits": [
+      "SAS team total over was directionally correct and should be retained as a ghost-bet validation hit.",
+      "Full-game over environment was visible through pace, shot map, and scoring distribution.",
+      "Wembanyama rebound ceiling remained real; 17 rebounds confirmed center-tree consolidation."
+    ],
+    "misses": [
+      "Spread protection/no-OKC-cover failed because SAS turnover burden was not penalized enough.",
+      "OKC margin-extension risk was underweighted after halftime despite turnover gap and OKC offensive board stability.",
+      "Market split skepticism did not sufficiently override the live scoreboard/efficiency profile."
+    ],
+    "root_cause": "The model correctly read SAS scoring capacity but failed to separate team-total viability from spread viability. SAS could score enough while still giving away possessions that expanded OKC margin."
+  },
+  "patches_to_activate": [
+    {
+      "tag": "TEAM_TOTAL_SPREAD_DECOUPLING_REQUIRED",
+      "rule": "A team-total over can be valid while spread/no-cover is invalid if live-ball turnovers exceed 12 or opponent offensive rebounds exceed 15."
+    },
+    {
+      "tag": "LIVE_BALL_TURNOVER_MARGIN_GATE",
+      "rule": "If a trailing or underdog side has 14+ live-ball turnovers, downgrade all spread-protection positions by 8-14 percentage points."
+    },
+    {
+      "tag": "OKC_OFFENSIVE_REBOUND_STABILIZER",
+      "rule": "When OKC posts 18+ OREB or an individual big exceeds 70% rebound chance conversion, raise OKC margin retention probability."
+    },
+    {
+      "tag": "GHOST_BET_VALIDATION_HIT",
+      "rule": "SAS TT over 102.5 was correct and should be retained as a model-positive but non-wager/ghost result."
+    },
+    {
+      "tag": "SPREAD_BACKDOOR_PROTECTION_MISS",
+      "rule": "No-cover positions must be stress-tested against late free throws, offensive rebounding, and live-ball turnover margin before entry."
+    }
+  ],
+  "simulation_ready_notes": {
+    "mean_projection_backfit": {
+      "SAS_points_mean": 109.5,
+      "SAS_points_median": 108.0,
+      "OKC_points_mean": 116.8,
+      "OKC_points_median": 116.0,
+      "total_mean": 226.3,
+      "total_median": 224.0,
+      "OKC_cover_minus_7_5_probability": 0.545,
+      "SAS_TT_over_102_5_probability": 0.64,
+      "OKC_TT_over_110_5_probability": 0.61
+    },
+    "postgame_calibration": "Actual 235 landed above mean because both teams sustained scoring while SAS turnovers increased OKC possession quality."
+  },
+  "final_grade": {
+    "game_total_read": "A-",
+    "team_total_read": "A",
+    "spread_read": "D",
+    "rebound_model_read": "B+",
+    "liveflow_execution": "C-",
+    "overall": "B- diagnostic, C execution"
+  }
+}
