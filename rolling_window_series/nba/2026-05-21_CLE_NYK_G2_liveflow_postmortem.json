@@ -1,132 +1,90 @@
 {
   "series": "rolling_window_series",
+  "schema_version": "B.003_deep_postmortem_v1",
   "sport": "NBA",
   "league_context": "2026 NBA Playoffs - Eastern Conference Finals",
   "game_id": "CLE_NYK_G2_2026_05_21",
   "date": "2026-05-21",
   "matchup": "Cleveland Cavaliers @ New York Knicks",
   "venue": "Madison Square Garden",
-  "officials": [
-    "Zach Zarba",
-    "James Williams",
-    "Sean Wright",
-    "Ray Acosta"
-  ],
-  "final_score": {
-    "CLE": 93,
-    "NYK": 109
+  "officials": ["Zach Zarba", "James Williams", "Sean Wright", "Ray Acosta"],
+  "final_score": {"CLE": 93, "NYK": 109, "margin_NYK": 16, "total": 202},
+  "quarter_scores": {"CLE": [27,22,21,23], "NYK": [24,29,32,24]},
+  "closing_market_context": {
+    "moneyline": {"CLE_best": "+176", "NYK_range": "-184 to -225"},
+    "spread": {"consensus": "NYK -5.5", "best_CLE": "+5.5 -104", "best_NYK": "-5.5 +100"},
+    "total": {"consensus_range": "214.5-216.5", "best_over": "215 -108", "best_under": "216.5 -115"},
+    "team_totals": {
+      "NYK": {"consensus": "110.5", "range": "109.5-111.5", "kalshi": "109.5 over -132 / under +105"},
+      "CLE": {"consensus": "105.5", "range": "104.5-106.5", "kalshi": "106.5 over -103 / under -120"}
+    },
+    "closing_result_vs_market": {
+      "NYK_spread": "covered -5.5 by 10.5 points",
+      "game_total": "under consensus by roughly 12.5 to 14.5 points",
+      "NYK_team_total": "109 landed under 110.5, pushed/cleared lower 109.5 depending book",
+      "CLE_team_total": "93 stayed far under every 104.5-106.5 board"
+    }
   },
   "market_context": {
-    "pregame_reference_line": {
-      "spread": "NYK -5.5",
-      "total": "214.5 to 215.5 range",
-      "moneyline": "NYK favorite around -190 to -220 depending book"
-    },
+    "pregame_reference_line": {"spread": "NYK -5.5", "total": "214.5 to 216.5 range", "moneyline": "NYK favorite around -184 to -225 depending book"},
     "liveflow_entries": [
-      {
-        "market": "player_rebounds",
-        "selection": "Josh Hart 8+ rebounds",
-        "odds": "+113",
-        "stake": 7.2,
-        "result": "loss",
-        "actual": 4,
-        "diagnosis": "HART_SHOT_VOLUME_DISPLACEMENT_ON"
-      },
-      {
-        "market": "team_total",
-        "selection": "Cleveland over 106.5 points",
-        "odds": "+109",
-        "stake": 4.8,
-        "result": "loss",
-        "actual": 93,
-        "diagnosis": "CAVS_CREATION_FRAGILITY_ON"
-      },
-      {
-        "market": "team_total",
-        "selection": "New York over 109.5 points",
-        "odds": "-112",
-        "stake": 5.2,
-        "result": "loss",
-        "actual": 109,
-        "diagnosis": "LEAD_SUPPRESSION_UNDERCUT_ON / one-point hook miss"
-      }
+      {"market": "player_rebounds", "selection": "Josh Hart 8+ rebounds", "odds": "+113", "stake": 7.2, "result": "loss", "actual": 4, "diagnosis": "HART_SHOT_VOLUME_DISPLACEMENT_ON"},
+      {"market": "team_total", "selection": "Cleveland over 106.5 points", "odds": "+109", "stake": 4.8, "result": "loss", "actual": 93, "diagnosis": "CAVS_CREATION_FRAGILITY_ON"},
+      {"market": "team_total", "selection": "New York over 109.5 points", "odds": "-112", "stake": 5.2, "result": "loss", "actual": 109, "diagnosis": "LEAD_SUPPRESSION_UNDERCUT_ON / one-point hook miss"}
     ],
-    "portfolio_result": {
-      "record": "0-3",
-      "stake_total": 17.2,
-      "return_total": 0,
-      "net": -17.2
-    }
+    "portfolio_result": {"record": "0-3", "stake_total": 17.2, "return_total": 0, "net": -17.2}
   },
   "box_score_summary": {
-    "cleveland": {
-      "points": 93,
-      "fg": "31/80",
-      "fg_pct": 38.8,
-      "three_pt": "9/35",
-      "three_pt_pct": 25.7,
-      "free_throws": "22/24",
-      "assists": 15,
-      "turnovers": 9,
-      "rebounds": 47,
-      "offensive_rebounds": 17
+    "cleveland": {"points": 93, "possessions": 87, "fg": "31/80", "fg_pct": 38.8, "two_pt": "22/45", "two_pt_pct": 48.89, "three_pt": "9/35", "three_pt_pct": 25.71, "free_throws": "22/24", "assists": 15, "turnovers": 8, "rebounds": 48, "offensive_rebounds": 16, "efg_pct": 44.38, "ts_pct": 48.95, "shot_quality": 0.56},
+    "new_york": {"points": 109, "possessions": 88, "fg": "44/86", "fg_pct_est": 51.2, "two_pt": "31/49", "two_pt_pct": 63.27, "three_pt": "13/37", "three_pt_pct": 35.14, "free_throws": "8/15", "assists": 33, "turnovers": 8, "rebounds": 51, "offensive_rebounds": 13, "efg_pct": 58.72, "ts_pct": 58.6, "shot_quality": 0.56}
+  },
+  "deep_postmortem": {
+    "phase_1_game_phase_analysis": {
+      "q1": "CLE opened competitively and won Q1 27-24, but this was not built on sustainable shot creation. The Cavs were already leaning into difficult perimeter/guard creation while NYK was generating cleaner rim and assisted looks.",
+      "q2": "NYK flipped control with a 29-22 quarter. The Knicks' main lineup created 62 points across 47 possessions for the game with 63.33% eFG and 64.58% TS, showing the real engine: Towns/Anunoby/Hart/Bridges/Brunson spacing, rim pressure, and assisted shot quality.",
+      "q3": "The decisive separation came in Q3, NYK 32-21. Cleveland's shot profile degraded into 25.7% 3PT shooting for the game while New York continued to score through rim + assisted threes. This was the model's key missed inflection point for CLE team-total under.",
+      "q4": "NYK and CLE tied the 4Q 24-23, but the Knicks' lead state suppressed urgency. NYK landed 109, creating the one-point team-total hook miss despite the side and spread being clean. This validates LEAD_SUPPRESSION_UNDERCUT_ON."
     },
-    "new_york": {
-      "points": 109,
-      "fg": "43/83",
-      "fg_pct": 51.8,
-      "three_pt": "13/36",
-      "three_pt_pct": 36.1,
-      "free_throws": "10/15",
-      "assists": 33,
-      "turnovers": 10,
-      "rebounds": 43,
-      "offensive_rebounds": 8
+    "phase_2_pivotal_moments": [
+      "NYK starting unit dominance: Towns/Anunoby/Hart/Bridges/Brunson played 25:02 together, outscored CLE by +13, produced 62 points on 47 possessions, and owned the highest-signal stretch of the game.",
+      "Cleveland creation failure: CLE finished with only 15 assists on 31 made field goals while New York produced 33 assists on 44 makes. The assist gap was the game-script tell.",
+      "Cleveland perimeter collapse: CLE went 9/35 from three and only 6/28 on above-the-break threes. That killed the CLE over 106.5 and made their team total structurally fragile.",
+      "Josh Hart role displacement: Hart had 16 rebound chances but only 4 rebounds, while his offensive role expanded into volume shooting. This is the exact HART_SHOT_VOLUME_DISPLACEMENT_ON trigger.",
+      "KAT rebound funnel: Towns had 13 rebounds on 24 chances with a 56.5% adjusted chance rate, while Hart had only 25.0% raw rebound chance conversion. Rebound access moved to KAT, not Hart."
+    ],
+    "phase_3_contextual_variables": {
+      "shot_quality_and_distribution": "Both teams posted similar shot-quality baselines around 0.56, but NYK converted the better functional shot diet: 20/27 at the rim (74.07%) and 13/37 from three, while CLE shot only 16/26 at rim and 9/35 from three. CLE's rim-or-3 frequency was high at 76.25%, but quality did not convert into makes.",
+      "rebounding": "NYK won total rebounds 51-48 and defensive boards 38-32. Cleveland had 16 offensive rebounds, but many were recovery possessions rather than clean scoring fuel. NYK's defensive rebounding against threes was elite at 92.31%, limiting Cleveland long-miss chaos.",
+      "fouls_and_whistle": "Fouls were balanced: CLE 20, NYK 22. Cleveland got 22 FT points, but it was not enough because their live-ball shot creation remained poor. NYK had only 8 FT points, meaning the Knicks' scoring was field-goal driven and more repeatable than whistle dependent.",
+      "turnovers": "Turnovers were even at 8-8, but CLE had 5 live-ball turnovers versus NYK's 4. The key was not turnover volume; it was Cleveland's inability to convert possessions efficiently once in the half court.",
+      "lineup_identity": "NYK's high-minute starting group produced the best repeatable edge. Cleveland's lineups were more fragmented and never found a reliable second-side creation structure."
+    },
+    "phase_4_model_relevance_summary": {
+      "what_model_got_right": [
+        "NYK side/spread was stronger than CLE; final margin NYK +16 cleared closing -5.5 comfortably.",
+        "Late-lead suppression risk was real; NYK team total stalled at 109 and undercut common 110.5 markets.",
+        "KAT rebound environment was stronger than wing rebound environment.",
+        "Cleveland offensive fragility was present in the underlying data even before final score confirmation."
+      ],
+      "what_model_got_wrong": [
+        "Converted Cleveland team-total over into a bet despite poor creation indicators.",
+        "Overweighted Hart minutes and season role instead of live rebound access and shot-volume displacement.",
+        "Did not downgrade full-game/NYK team-total overs enough once NYK built control and projected clock bleed.",
+        "Failed to separate shot quality from shot conversion sustainability for Cleveland."
+      ],
+      "game_3_preparation_read": "For Game 3, NYK side remains structurally stronger, but team-total overs need caution if the market sits around 110.5+ because lead-state suppression can kill the final 2-4 points. Cleveland team-total overs require proof of assisted creation, not just market price. KAT rebound props should be prioritized over Hart ladders unless Hart's shot volume is suppressed early."
     }
   },
-  "player_focus": {
-    "josh_hart": {
-      "final_line": "26 points, 4 rebounds, 7 assists",
-      "shot_profile": "21 FGA, 11 3PA",
-      "model_error": "Projected rebound role was not updated aggressively enough when Cleveland conceded open perimeter looks and Hart became a volume shooter instead of a weakside rebounder.",
-      "patch": "If Hart 3PA >= 5 by halftime and rebounds <= 2, downgrade rebound overs by 18% to 28%."
+  "player_tracking_rebounding_layer": {
+    "key_signals": {
+      "karl_anthony_towns": {"rebounds": 13, "rebound_chances": 24, "rebound_chance_pct": 54.2, "adjusted_rebound_chance_pct": 56.5, "avg_rebound_distance": 6.1, "game_3_read": "Primary NYK rebound funnel; stronger than Hart despite less traditional wing rebound narrative."},
+      "josh_hart": {"rebounds": 4, "rebound_chances": 16, "rebound_chance_pct": 25.0, "adjusted_rebound_chance_pct": 30.8, "avg_rebound_distance": 9.9, "game_3_read": "High chances but poor conversion. Needs role/access confirmation before any over."},
+      "mitchell_robinson": {"minutes": 12.4, "rebounds": 4, "contested_rebounds": 4, "rebound_chances": 4, "chance_pct": 100.0, "box_outs": 2, "team_reb_on_box_outs": 2, "game_3_read": "Low-minute high-impact rebound disruptor; can steal Hart/KAT ceiling in short bursts."},
+      "jarrett_allen": {"minutes": 28.9, "rebounds": 10, "contested_rebounds": 7, "rebound_chances": 18, "adjusted_chance_pct": 58.8, "game_3_read": "CLE's best rebound stability, but team scoring environment remains fragile."},
+      "evan_mobley": {"minutes": 36.5, "rebounds": 6, "rebound_chances": 14, "adjusted_chance_pct": 46.2, "game_3_read": "Volume present, conversion mediocre. Rebound projection should stay below raw chance optimism."}
     },
-    "karl_anthony_towns": {
-      "final_line": "20 points, 13 rebounds, 4 assists",
-      "model_note": "Actual rebound funnel moved toward KAT, not Hart. KAT defensive-board stability should have been the preferred Knicks rebound channel."
-    },
-    "jalen_brunson": {
-      "final_line": "18 points, 11 assists",
-      "model_note": "Brunson shifted into creator mode; Knicks scoring was distributed rather than Brunson-only."
-    },
-    "cleveland_creation": {
-      "harden": "17 points, 2 assists",
-      "mitchell": "14 points, 1 assist",
-      "model_note": "Cleveland failed to generate enough assisted shot quality; Harden/Mitchell assist suppression should have downgraded live CLE team total over."
-    }
+    "team_rebounding_summary": {"CLE_rebounds": 48, "NYK_rebounds": 51, "CLE_off_rebounds": 16, "NYK_off_rebounds": 13, "NYK_def_rebounds": 38, "CLE_def_rebounds": 32}
   },
-  "diagnostic_findings": [
-    {
-      "tag": "HART_SHOT_VOLUME_DISPLACEMENT_ON",
-      "finding": "Hart's offensive role displaced his rebound lane access. The model incorrectly treated Hart's minutes and weakside role as rebound-positive after shot-volume evidence showed otherwise.",
-      "severity": "high"
-    },
-    {
-      "tag": "CAVS_CREATION_FRAGILITY_ON",
-      "finding": "Cleveland's live total was over-attacked despite poor creation indicators: low assist volume, poor 3PT efficiency, and too much self-created late-clock offense.",
-      "severity": "high"
-    },
-    {
-      "tag": "LEAD_SUPPRESSION_UNDERCUT_ON",
-      "finding": "NYK over 109.5 lost by one point. Late lead state reduced urgency and created clock-bleed risk; team total overs need suppression when favorite leads by 15+ in the fourth.",
-      "severity": "medium"
-    },
-    {
-      "tag": "MARKET_SELECTION_FAILURE",
-      "finding": "The game-state read was stronger than the final bet selection. The portfolio over-weighted rebound and team-total overs without enough confirmation of repeatable possession quality.",
-      "severity": "high"
-    }
-  ],
   "patches_to_apply": {
     "LIVEFLOW_RULE_UPDATE": [
       "No 2H or live team total over unless primary creator assists are flowing.",
@@ -137,7 +95,35 @@
     "REBOUND_RULE_UPDATE": [
       "Do not play wing rebound overs when the opponent is intentionally using that player as the defensive concession shooter.",
       "If player shot-volume spike emerges early, downgrade rebound projection immediately.",
-      "Separate minutes-based rebound projection from role-based rebound access."
+      "Separate minutes-based rebound projection from role-based rebound access.",
+      "Prioritize KAT rebound funnel over Hart ladders when KAT rebound chances exceed 20 and Hart conversion remains below 35%."
+    ],
+    "GAME_3_PREP_PATCH_TAGS": [
+      "CAVS_CREATION_FRAGILITY_ON",
+      "HART_SHOT_VOLUME_DISPLACEMENT_ON",
+      "KAT_REBOUND_FUNNEL_UPGRADE",
+      "NYK_STARTING_UNIT_EFFICIENCY_EDGE",
+      "LEAD_SUPPRESSION_UNDERCUT_ON",
+      "CLE_ABOVE_BREAK_3_SUPPRESSION",
+      "TEAM_TOTAL_OVER_REQUIRES_ASSIST_FLOW"
+    ]
+  },
+  "game_3_preparation_projection_adjustments": {
+    "baseline_market_reference_from_closing_lines": {"NYK_TT": "110.5 consensus / Kalshi 109.5", "CLE_TT": "105.5 consensus / Kalshi 106.5", "spread": "NYK -5.5", "total": "215.5 consensus"},
+    "model_adjustments_after_g2": {
+      "CLE_team_total_mean_adjustment": -4.5,
+      "NYK_team_total_mean_adjustment": -1.0,
+      "NYK_spread_strength_adjustment": 2.5,
+      "full_game_total_suppression": -5.5,
+      "KAT_rebounds_mean_adjustment": 1.5,
+      "Hart_rebounds_mean_adjustment": -2.0
+    },
+    "game_3_watchlist": [
+      "Does CLE assist rate recover above 55% of made FGs by halftime?",
+      "Does Hart have 5+ FGA or 3+ 3PA early? If yes, suppress rebound overs.",
+      "Does KAT clear 10+ rebound chances by halftime? If yes, KAT rebound ladder becomes preferred NYK board angle.",
+      "If NYK leads by 12+ entering Q4, avoid NYK team-total overs above 109.5.",
+      "CLE TT over only reopens if Harden/Mitchell create paint touches plus kickout rhythm, not just free throws."
     ]
   },
   "model_grade": {
@@ -145,13 +131,15 @@
     "market_selection": "poor",
     "execution_quality": "negative",
     "risk_state": "cooldown_required",
-    "postmortem_priority": "high"
+    "postmortem_priority": "high",
+    "deep_postmortem_status": "completed_for_game_3_prep"
   },
   "next_actions": [
     "Patch Hart rebound profile with shot-volume displacement gate.",
     "Patch Cleveland team-total model with creation-fragility gate.",
     "Patch live team total overs with late-lead suppression gate.",
-    "Limit next live slate to one confirmed edge only until model regains traction."
+    "Promote KAT rebound funnel as primary NYK rebound pathway entering Game 3.",
+    "Limit Game 3 live slate to one confirmed edge unless market gives a clear stale team-total number."
   ],
-  "notes": "No ghost bet was placed on this matchup. All three tracked positions were live or pre-live exposures and finished as losses. The key lesson is not that the model missed the game script entirely; the leak was converting partial reads into the wrong markets."
+  "notes": "Deep postmortem added for Game 3 preparation. The central lesson is that NYK's side/spread profile was strong, but our portfolio selected fragile overs and a displaced wing rebound ladder. Game 3 prep must shift toward creation-confirmed team totals, KAT-centered rebound mapping, and suppression of team-total overs in controlled NYK lead states. Source support: uploaded scoring, shot distribution, rebounding, fouls, and turnovers layers from 05/21/2026."
 }
