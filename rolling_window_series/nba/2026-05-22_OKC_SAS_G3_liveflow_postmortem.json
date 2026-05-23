@@ -1,0 +1,140 @@
+{
+  "schema_version": "B.003_liveflow_postmortem_v1",
+  "entry_type": "rolling_window_series_liveflow_postmortem",
+  "sport": "NBA",
+  "league_context": "Western Conference Finals",
+  "game_id": "2026-05-22_OKC_SAS_G3",
+  "date": "2026-05-22",
+  "matchup": "Oklahoma City Thunder at San Antonio Spurs",
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "officials": ["Marc Davis", "Courtney Kirkland", "Justin Van Duyne", "Brent Barnaky"],
+  "final_score": {
+    "okc": 123,
+    "sas": 108,
+    "margin_okc": 15,
+    "total": 231
+  },
+  "quarter_scores": {
+    "okc": [26, 32, 37, 28],
+    "sas": [31, 20, 33, 24]
+  },
+  "pregame_market_context": {
+    "okc_team_total_position": {
+      "side": "YES_OKC_OVER_108_5",
+      "stake": 3.72,
+      "odds": -112,
+      "result": "WIN",
+      "payout": 7.05,
+      "profit": 3.33,
+      "roi_pct": 89.52
+    }
+  },
+  "liveflow_positions": [
+    {
+      "timestamp_context": "halftime",
+      "score_at_entry": "OKC 58 - SAS 51",
+      "market": "SAS team total over 110.5",
+      "side": "NO",
+      "stake": 10.0,
+      "average_odds": -133,
+      "trades": 2,
+      "result": "WIN",
+      "payout": 17.57,
+      "profit": 7.57,
+      "roi_pct": 75.7,
+      "closing_result": "SAS finished 108, under 110.5 by 2.5"
+    }
+  ],
+  "model_snapshots": [
+    {
+      "phase": "halftime",
+      "score": "OKC 58 - SAS 51",
+      "our_sas_tt_line": "105.5-108.5",
+      "market_sas_tt": 110.5,
+      "projected_sas_mean": 106.8,
+      "projected_sas_median": 107,
+      "model_probability_sas_under_110_5": 0.71,
+      "model_probability_sas_over_110_5": 0.29,
+      "edge_direction": "SAS_TT_UNDER",
+      "edge_quality": "high"
+    },
+    {
+      "phase": "early_4q_11_06",
+      "score": "OKC 97 - SAS 84",
+      "market_sas_tt": 110.5,
+      "required_sas_points_to_lose_no": 27,
+      "game_state_read": "SAS needed 27 points in 11:06 while trailing by 13 with inefficient halfcourt offense and foul pressure on Castle/Keldon/Wembanyama.",
+      "edge_direction": "SAS_TT_UNDER_CONFIRMED"
+    }
+  ],
+  "final_box_summary": {
+    "okc_fg_pct": 0.481,
+    "okc_3p_pct": 0.447,
+    "okc_ft": "28/33",
+    "sas_fg_pct": 0.425,
+    "sas_3p_pct": 0.317,
+    "sas_ft": "27/33",
+    "okc_turnovers": 11,
+    "sas_turnovers": 15,
+    "okc_points_off_turnovers": 16,
+    "sas_points_off_turnovers": 20,
+    "okc_second_chance_points": 22,
+    "sas_second_chance_points": 17,
+    "okc_points_in_paint": 42,
+    "sas_points_in_paint": 40
+  },
+  "key_player_notes": {
+    "okc": {
+      "shai_gilgeous_alexander": "26 PTS, 12 AST, 12/12 FT; late-game stabilization through free throws and table-setting.",
+      "jared_mccain": "24 PTS off bench; major spacing and shot-creation swing.",
+      "jaylin_williams": "18 PTS, 5/6 3PT; key bench variance spike that pushed OKC scoring above baseline.",
+      "hartenstein": "8 rebounds, 5 fouls; relevant to rebound redistribution and late frontcourt foul risk."
+    },
+    "sas": {
+      "wembanyama": "26 PTS but only 4 REB; scoring remained alive, rebounding muted.",
+      "castle": "14 PTS, 7 AST, 5 PF; whistle volume helped but foul pressure reduced clean late-game ceiling.",
+      "fox": "15 PTS, 7 REB, 6 AST; active but not enough downhill FT creation.",
+      "keldon_johnson": "5 fouls in 11:40; reduced Spurs physical pressure and rotation flexibility."
+    }
+  },
+  "phase_analysis": {
+    "q1": "SAS jumped to a 15-point lead behind Fox pace, Wembanyama early shot-making, and OKC turnovers. OKC bench threes reduced damage and kept game within 5 by quarter end.",
+    "q2": "Game flipped. OKC won 32-20 behind 63.2% shooting and 71.4% from three. SAS shot 31.2% and committed five turnovers for 12 OKC points.",
+    "q3": "Whistle-heavy quarter. OKC scored 37, SAS scored 33, but OKC maintained separation. SAS needed free throws to stay alive while OKC kept hitting enough perimeter shots.",
+    "q4": "OKC closed 28-24. SAS reached 108, falling short of the 110.5 live team total. Late bench points moved OKC to 123 and full-game total to 231."
+  },
+  "betting_results": {
+    "record": "2-0 tracked positions",
+    "total_staked": 13.72,
+    "total_payout": 24.62,
+    "net_profit": 10.90,
+    "roi_pct": 79.45,
+    "positions": [
+      "OKC over 108.5 TT YES -112: WIN",
+      "SAS over 110.5 TT NO avg -133: WIN"
+    ]
+  },
+  "model_diagnostics": {
+    "successful_reads": [
+      "Halftime SAS team total under edge was real and survived fourth-quarter foul risk.",
+      "OKC team total over 108.5 pre/live position was correctly identified as structurally strong.",
+      "SAS offensive output depended too heavily on whistle and difficult halfcourt looks.",
+      "OKC bench shooting depth created ceiling pressure on OKC scoring lanes."
+    ],
+    "miss_or_caution_zones": [
+      "Full-game under would have been fragile due to OKC bench and late reserve scoring.",
+      "SAS under survived but only by 2.5 points; late garbage-time threes remained a real tail risk.",
+      "Need better late-game reserve-scoring volatility detection when favorite lead is 14+ inside final two minutes."
+    ],
+    "patch_tags": [
+      "LIVEFLOW_STRIPPED_MODE_CONFIRMED",
+      "SAS_HALFTIME_TT_SUPPRESSION_EDGE",
+      "OKC_BENCH_SPACING_CEILING_SPIKE",
+      "FOUL_GAME_TOTAL_TAIL_RISK",
+      "GARBAGE_TIME_TOTAL_INFLATION_RISK",
+      "TEAM_TOTAL_ISOLATION_EDGE_VALIDATED"
+    ]
+  },
+  "log_status": "finalized_light_postmortem",
+  "deep_postmortem_status": "scheduled_for_follow_up"
+}
