@@ -7,7 +7,12 @@
   "date": "2026-05-22",
   "matchup": "Oklahoma City Thunder at San Antonio Spurs",
   "venue": "Frost Bank Center, San Antonio, TX",
-  "officials": ["Marc Davis", "Courtney Kirkland", "Justin Van Duyne", "Brent Barnaky"],
+  "officials": [
+    "Marc Davis",
+    "Courtney Kirkland",
+    "Justin Van Duyne",
+    "Brent Barnaky"
+  ],
   "final_score": {
     "okc": 123,
     "sas": 108,
@@ -15,8 +20,18 @@
     "total": 231
   },
   "quarter_scores": {
-    "okc": [26, 32, 37, 28],
-    "sas": [31, 20, 33, 24]
+    "okc": [
+      26,
+      32,
+      37,
+      28
+    ],
+    "sas": [
+      31,
+      20,
+      33,
+      24
+    ]
   },
   "pregame_market_context": {
     "okc_team_total_position": {
@@ -28,6 +43,199 @@
       "profit": 3.33,
       "roi_pct": 89.52
     }
+  },
+  "b003_premarket_stress_test": {
+    "model_version": "B.003_LIVEFLOW_PREMARKET",
+    "entry_type": "premarket_projection_vs_actual_stress_test",
+    "projection_timestamp_context": "pre-market Game 3 forecast before final market scan",
+    "pregame_projection": {
+      "projected_score": {
+        "okc": 114,
+        "sas": 109
+      },
+      "mean_score": {
+        "okc": 113.8,
+        "sas": 109.1
+      },
+      "median_score": {
+        "okc": 113,
+        "sas": 108
+      },
+      "spread_fair": "OKC -4.5",
+      "spread_mean": "OKC by 4.7",
+      "spread_median": "OKC by 4",
+      "total_fair": 222.5,
+      "total_mean": 222.8,
+      "total_median": 222,
+      "moneyline_probability": {
+        "okc": 0.61,
+        "sas": 0.39
+      },
+      "team_totals": {
+        "okc": {
+          "mean": 113.8,
+          "median": 113,
+          "fair_line": 113.5,
+          "over_111_5_probability": 0.58
+        },
+        "sas": {
+          "mean": 109.1,
+          "median": 108,
+          "fair_line": 109.0,
+          "over_107_5_probability": 0.55
+        }
+      }
+    },
+    "actual_result": {
+      "final_score": {
+        "okc": 123,
+        "sas": 108
+      },
+      "actual_spread": "OKC by 15",
+      "actual_total": 231
+    },
+    "projection_delta": {
+      "okc_score_delta_vs_mean": 9.2,
+      "sas_score_delta_vs_mean": -1.1,
+      "total_delta_vs_mean": 8.2,
+      "spread_delta_toward_okc_vs_mean": 10.3
+    },
+    "market_validation": {
+      "okc_moneyline": {
+        "model_probability": 0.61,
+        "fair_price": "-156",
+        "actual_result": "WIN",
+        "grade": "A",
+        "diagnosis": "Correct directional read. OKC was the cleaner side and won by margin."
+      },
+      "okc_team_total": {
+        "model_mean": 113.8,
+        "model_median": 113,
+        "actual": 123,
+        "grade": "A+",
+        "diagnosis": "Strongest game-level scoring hit. OKC cleared by 9.2 points over model mean and 9.5 over fair line."
+      },
+      "sas_team_total": {
+        "model_mean": 109.1,
+        "model_median": 108,
+        "actual": 108,
+        "grade": "A",
+        "diagnosis": "Pregame caution was correct. SAS landed almost exactly on the modeled median and below the live 110.5 strike line."
+      },
+      "full_game_total": {
+        "model_mean": 222.8,
+        "actual": 231,
+        "grade": "B+",
+        "diagnosis": "Over direction was valid, but only with playable pregame entry at 219.5 or lower. Live market inflation reduced edge quality."
+      },
+      "spread_margin": {
+        "model_mean": "OKC by 4.7",
+        "actual": "OKC by 15",
+        "grade": "C",
+        "diagnosis": "Correct side but under-projected separation by 10.3 points."
+      }
+    },
+    "scenario_tree_review": {
+      "closest_realized_path": "Scenario B/C hybrid despite Fox active",
+      "diagnosis": "Fox played and Harper played, but SAS still behaved like a creation-fragile team once OKC pressure settled in. The model over-credited Fox as a stabilizer and underweighted OKC guard-depth pressure plus bench shooting ceiling.",
+      "scenario_correction": "Fox active should not automatically stabilize SAS if OKC pressure, live-ball turnovers, and bench spacing are simultaneously elevated."
+    },
+    "player_prop_stress_test": {
+      "sga_points": {
+        "projected_mean": 32.5,
+        "projected_median": 32,
+        "actual": 26,
+        "result": "under_projection_miss_for_points",
+        "note": "Usage converted more through assists and FT stabilization than raw scoring."
+      },
+      "sga_assists": {
+        "projected_mean": 6.6,
+        "projected_median": 6,
+        "actual": 12,
+        "result": "strong_hit",
+        "note": "Jalen Williams absence boost to facilitation was validated."
+      },
+      "wembanyama_rebounds": {
+        "projected_mean": 14.9,
+        "projected_median": 15,
+        "actual": 4,
+        "result": "major_miss",
+        "note": "Largest model failure. Rebound tree collapsed due to OKC efficiency, spacing, Wembanyama contest load, and FT-heavy rhythm disruption."
+      },
+      "hartenstein_rebounds": {
+        "projected_mean": 9.1,
+        "projected_median": 9,
+        "actual": 6,
+        "result": "miss",
+        "note": "Foul/minute drag and rebound redistribution reduced ceiling."
+      },
+      "chet_rebounds": {
+        "projected_mean": 7.2,
+        "projected_median": 7,
+        "actual": 3,
+        "result": "miss",
+        "note": "Frontcourt rebound volume was lower than expected while OKC perimeter/bench rebounding absorbed chances."
+      },
+      "castle_points": {
+        "projected_mean": 19.8,
+        "projected_median": 19,
+        "actual": 14,
+        "result": "under",
+        "note": "FT volume helped but field-goal efficiency and foul pressure limited ceiling."
+      },
+      "jared_mccain_points": {
+        "projected_mean": 9.8,
+        "projected_median": 9,
+        "actual": 24,
+        "result": "major_over_hit",
+        "note": "Jalen Williams absence boost was directionally right, but model underweighted McCain bench scoring ceiling."
+      }
+    },
+    "primary_model_leak": {
+      "leak_name": "Elite big rebound tree overconfidence under opponent efficiency spike",
+      "description": "The model projected Wembanyama and OKC frontcourt rebounds from prior chance volume without sufficiently suppressing rebound opportunity when opponent 3P efficiency, FT rate, and spacing/contest load all spiked.",
+      "failed_assumptions": [
+        "Wembanyama minutes and prior rebound chance dominance would carry forward directly.",
+        "Fox active would stabilize SAS offense enough to preserve competitive rebound flow.",
+        "OKC frontcourt rebounds would remain concentrated through Hartenstein/Chet instead of spreading to guards/wings/bench."
+      ]
+    },
+    "patch_recommendations": {
+      "new_patch_tag": "REBOUND_TREE_SUPPRESSION_WHEN_OPP_3P_FT_EFFICIENCY_SPIKES",
+      "trigger_conditions": {
+        "opponent_3pt_rate_high": true,
+        "opponent_ft_rate_high": true,
+        "primary_big_contest_load_high": true,
+        "team_defensive_rebound_chances_suppressed": true,
+        "foul_environment_disruptive": true
+      },
+      "recommended_effect": {
+        "elite_big_rebound_mean_penalty": -2.0,
+        "elite_big_rebound_ceiling_penalty": -3.5,
+        "ladder_rebound_probability_penalty": {
+          "12_plus": -0.12,
+          "14_plus": -0.18,
+          "16_plus": -0.22
+        }
+      },
+      "secondary_patch_tags": [
+        "FOX_ACTIVE_DOES_NOT_EQUAL_SAS_STABILITY",
+        "OKC_BENCH_CREATION_CEILING_UPGRADE",
+        "JALEN_WILLIAMS_OUT_ASSIST_REDISTRIBUTION_VALIDATED",
+        "LIVE_TOTAL_MARKET_INFLATION_CAUTION"
+      ]
+    },
+    "final_grades": {
+      "ml_direction": "A",
+      "okc_team_total": "A+",
+      "sas_team_total_caution": "A",
+      "full_game_total": "B+",
+      "spread_margin": "C",
+      "rebound_props": "D-",
+      "injury_scenario_tree": "B-",
+      "liveflow_execution": "A"
+    },
+    "stress_test_summary": "B.003 correctly identified OKC as the clean side, OKC team total strength, and SAS team total fragility. The main failure was rebound modeling, especially Wembanyama, where prior chance dominance was not sufficiently suppressed by OKC efficiency, spacing, foul environment, and defensive contest load."
   },
   "liveflow_positions": [
     {
@@ -107,7 +315,7 @@
     "record": "2-0 tracked positions",
     "total_staked": 13.72,
     "total_payout": 24.62,
-    "net_profit": 10.90,
+    "net_profit": 10.9,
     "roi_pct": 79.45,
     "positions": [
       "OKC over 108.5 TT YES -112: WIN",
@@ -132,9 +340,13 @@
       "OKC_BENCH_SPACING_CEILING_SPIKE",
       "FOUL_GAME_TOTAL_TAIL_RISK",
       "GARBAGE_TIME_TOTAL_INFLATION_RISK",
-      "TEAM_TOTAL_ISOLATION_EDGE_VALIDATED"
+      "TEAM_TOTAL_ISOLATION_EDGE_VALIDATED",
+      "REBOUND_TREE_SUPPRESSION_WHEN_OPP_3P_FT_EFFICIENCY_SPIKES",
+      "FOX_ACTIVE_DOES_NOT_EQUAL_SAS_STABILITY",
+      "OKC_BENCH_CREATION_CEILING_UPGRADE",
+      "JALEN_WILLIAMS_OUT_ASSIST_REDISTRIBUTION_VALIDATED"
     ]
   },
-  "log_status": "finalized_light_postmortem",
+  "log_status": "finalized_light_postmortem_with_b003_premarket_stress_test_appended",
   "deep_postmortem_status": "scheduled_for_follow_up"
 }
