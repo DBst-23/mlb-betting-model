@@ -1,0 +1,96 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_27_ARI_SF_TREVOR_MCDONALD_K5",
+  "sport": "MLB",
+  "game_date": "2026-05-27",
+  "matchup": "Arizona Diamondbacks @ San Francisco Giants",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Trevor McDonald 5+ strikeouts - YES",
+    "entry_odds": "+139",
+    "stake": 2.50,
+    "max_payout": 5.99,
+    "final_payout": 5.99,
+    "profit": 3.49,
+    "result": "WIN",
+    "score_snapshot": "AZ 3 - SF 2",
+    "outcome_display": "Outcome is Yes"
+  },
+  "pregame_model_read": {
+    "edge_type": "PRICE_DISLOCATION_K_EDGE",
+    "model_mean_ks": 4.9,
+    "model_median_ks": "4-5",
+    "projected_5plus_probability": "50-53%",
+    "entry_implied_probability": "41.8%",
+    "closing_market_observed": "5+ moved from +139 entry to approximately +128 pregame",
+    "clv_result": "positive",
+    "pre_bet_thesis": "Not a pure dominance profile, but a strong price-gap opportunity with enough leash and strike efficiency to clear 5+ if early command held."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Trevor McDonald",
+    "decision": "L",
+    "IP": 6.1,
+    "H": 6,
+    "R": 3,
+    "ER": 2,
+    "BB": 2,
+    "K": 6,
+    "HR": 0,
+    "pitches": 86,
+    "strikes": 62,
+    "strike_rate": "72.1%",
+    "groundouts": 7,
+    "flyouts": 3,
+    "batters_faced": 28
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 86,
+    "swings": 38,
+    "called_strikes": 24,
+    "whiffs": 10,
+    "whiff_rate_on_swings": "26%",
+    "csw": "40% (34/86)",
+    "zone_rate": "59%",
+    "chase_rate": "31%",
+    "strike_rate": "72%",
+    "first_pitch_strike_rate": "79% (22/28)",
+    "average_ev_allowed": 84.8,
+    "hard_hit_bbe": "7 of 19",
+    "max_ev_allowed": 108.8,
+    "top_velocity": 94.6,
+    "pitch_notes": {
+      "sinker": "52 pitches, 4 K, 40% CSW, 77% strike rate; primary runway and strike-stealing pitch",
+      "slider": "21 pitches, 2 K, 38% CSW; best secondary putaway offering",
+      "changeup": "13 pitches, 38% CSW; useful contact suppressor vs opposite-handed hitters"
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "CLV_POSITIVE",
+    "PRICE_DISLOCATION_CONFIRMED",
+    "LEASH_STABILITY_CONFIRMED",
+    "STRIKE_EFFICIENCY_CONFIRMED",
+    "SINKER_RUNWAY_PROFILE",
+    "SECONDARY_SLIDER_SUPPORT",
+    "PLUS_MONEY_EDGE_CAPTURED"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed",
+    "what_worked": [
+      "The model correctly identified that the plus-money price overstated failure probability.",
+      "McDonald's strike efficiency preserved deep enough runway to clear the number.",
+      "72% strike rate and 79% first-pitch strike rate stabilized the outing.",
+      "Sinker-slider sequencing generated enough called strikes to support the ladder."
+    ],
+    "what_to_keep": [
+      "PRICE_DISLOCATION_K_EDGE classification for young pitchers with stable strike efficiency.",
+      "Leash/runway evaluation as a stronger factor than raw strikeout upside.",
+      "Positive CLV tracking on plus-money strikeout ladders."
+    ],
+    "patch_recommendation": "Increase confidence weighting when a developing SP demonstrates elite strike efficiency and first-pitch strike control despite only moderate raw whiff rates."
+  },
+  "final_status": "KEEP",
+  "confidence_level": "Moderate-High",
+  "notes": "Trevor McDonald exceeded the 5+ threshold with 6 strikeouts. The wager succeeded through command stability, strike efficiency, and leash preservation rather than overpowering whiff dominance. This validates the LIVE-FLOW price-dislocation framework for selective plus-money strikeout ladders."
+}
