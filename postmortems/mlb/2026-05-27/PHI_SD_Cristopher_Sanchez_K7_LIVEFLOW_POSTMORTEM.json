@@ -1,0 +1,98 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_27_PHI_SD_CRISTOPHER_SANCHEZ_K7",
+  "sport": "MLB",
+  "game_date": "2026-05-27",
+  "matchup": "Philadelphia Phillies @ San Diego Padres",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Cristopher Sanchez 7+ strikeouts - YES",
+    "entry_odds": "-117",
+    "stake": 10.00,
+    "max_payout": 18.60,
+    "final_payout": 18.60,
+    "profit": 8.60,
+    "result": "WIN",
+    "score_snapshot": "PHI 3 - SD 0",
+    "outcome_display": "Outcome is Yes"
+  },
+  "pregame_model_read": {
+    "edge_type": "STRUCTURAL_K_EDGE",
+    "model_mean_ks": 6.8,
+    "model_median_ks": "6-7",
+    "projected_7plus_probability": "55-58%",
+    "entry_implied_probability": "53.9%",
+    "closing_market_observed": "7+ moved from -117 entry to roughly -143 before first pitch",
+    "clv_result": "positive",
+    "pre_bet_thesis": "Best whiff sustainability and leash profile on the slate. Recent ceiling form plus Padres swing-and-miss profile supported a 7+ threshold despite the higher ladder line."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Cristopher Sanchez",
+    "decision": "W",
+    "IP": 7.0,
+    "H": 6,
+    "R": 0,
+    "ER": 0,
+    "BB": 0,
+    "K": 9,
+    "HR": 0,
+    "pitches": 100,
+    "strikes": 67,
+    "strike_rate": "67.0%",
+    "groundouts": 7,
+    "flyouts": 3,
+    "batters_faced": 27
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 100,
+    "swings": 50,
+    "called_strikes": 17,
+    "whiffs": 18,
+    "whiff_rate_on_swings": "36%",
+    "csw": "35% (35/100)",
+    "zone_rate": "54%",
+    "chase_rate": "35%",
+    "strike_rate": "67%",
+    "first_pitch_strike_rate": "48% (13/27)",
+    "average_ev_allowed": 89.8,
+    "hard_hit_bbe": "8 of 18",
+    "max_ev_allowed": 109.7,
+    "top_velocity": 97.3,
+    "pitch_notes": {
+      "changeup": "42 pitches, 5 K, 48% whiffs per swing, 33% CSW; primary kill pitch and biggest edge driver",
+      "sinker": "42 pitches, 2 K, 38% CSW, 76% strike rate; command/runway stabilizer",
+      "slider": "16 pitches, 2 K, 40% whiffs per swing, 31% CSW; secondary K support"
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "CLV_POSITIVE",
+    "STRUCTURAL_K_EDGE_CONFIRMED",
+    "WHIFF_SUSTAINABILITY_CONFIRMED",
+    "LEASH_STABILITY_CONFIRMED",
+    "CHANGEUP_KILL_PITCH_CONFIRMED",
+    "SECONDARY_PITCH_SUPPORT_CONFIRMED",
+    "NO_WALK_RUNWAY_EXTENSION",
+    "ANTI_BURN_SUCCESS"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed",
+    "what_worked": [
+      "The deeper web/data review correctly elevated Sanchez as the cleanest structural K edge.",
+      "The 7+ ladder was justified by true whiff depth, not only price movement.",
+      "Positive CLV confirmed the market moved toward the model after entry.",
+      "Zero walks and 67% strike rate preserved the full seven-inning runway.",
+      "Three-pitch K support prevented single-pitch dependency."
+    ],
+    "what_to_keep": [
+      "STRUCTURAL_K_EDGE classification for pitchers with leash + multiple K pitches + matchup whiff pockets.",
+      "SECONDARY_PITCH_SUPPORT requirement as a green-light factor.",
+      "CLV tracking from initial identification to entry to pre-first-pitch board."
+    ],
+    "patch_recommendation": "KEEP and upgrade Sanchez-style profile as premium K archetype: high CSW, 2+ strikeout pitches, low BB risk, stable 95+ pitch leash."
+  },
+  "final_status": "KEEP",
+  "confidence_level": "High",
+  "notes": "This was the cleanest model win of the card. Sanchez cleared 7+ comfortably with 9 strikeouts, 35% CSW, 36% whiff rate on swings, zero walks, and full 7.0 IP leash. The postmortem confirms the model's main slate ranking was correct."
+}
