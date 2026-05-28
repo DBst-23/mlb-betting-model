@@ -1,0 +1,104 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_27_NYY_KC_GERRIT_COLE_K5",
+  "sport": "MLB",
+  "game_date": "2026-05-27",
+  "matchup": "New York Yankees @ Kansas City Royals",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "portfolio_context": {
+    "daily_mlb_k_card_record": "3-0",
+    "other_wins_logged": [
+      "Cristopher Sanchez 7+ Ks",
+      "Trevor McDonald 5+ Ks"
+    ]
+  },
+  "investment": {
+    "market": "Gerrit Cole 5+ strikeouts - YES",
+    "entry_odds": "+100",
+    "stake": 3.69,
+    "max_payout": 7.41,
+    "final_payout": 7.41,
+    "profit": 3.72,
+    "result": "WIN",
+    "score_snapshot": "NYY 7 - KC 0",
+    "outcome_display": "Outcome is Yes"
+  },
+  "pregame_model_read": {
+    "edge_type": "PRICE_TO_THRESHOLD_K_EDGE",
+    "model_mean_ks": 5.7,
+    "model_median_ks": 5,
+    "projected_5plus_probability": "56-60%",
+    "entry_implied_probability": "50.0%",
+    "pre_bet_thesis": "The Cole 5+ market was a threshold mispricing. The play was not built as an aggressive ceiling ladder because of possible post-ramp leash concerns, but plus money on 5+ created strong price-to-probability value."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Gerrit Cole",
+    "decision": "W",
+    "IP": 6.2,
+    "H": 4,
+    "R": 0,
+    "ER": 0,
+    "BB": 0,
+    "K": 10,
+    "HR": 0,
+    "pitches": 79,
+    "strikes": 59,
+    "strike_rate": "74.7%",
+    "groundouts": 1,
+    "flyouts": 2,
+    "batters_faced": 23
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 79,
+    "swings": 43,
+    "called_strikes": 16,
+    "whiffs": 15,
+    "whiff_rate_on_swings": "35%",
+    "csw": "39% (31/79)",
+    "zone_rate": "53%",
+    "chase_rate": "46%",
+    "strike_rate": "75%",
+    "first_pitch_strike_rate": "70% (16/23)",
+    "average_ev_allowed": 86.0,
+    "hard_hit_bbe": "3 of 13",
+    "max_ev_allowed": 105.4,
+    "top_velocity": 98.4,
+    "pitch_notes": {
+      "four_seam_fastball": "32 pitches, 4 K, 96.4 mph avg, 31% CSW; fastball established velocity floor and strike pressure.",
+      "slider": "19 pitches, 3 K, 60% whiffs per swing, 47% CSW; main putaway pitch.",
+      "changeup": "14 pitches, 2 K, 44% whiffs per swing, 43% CSW; excellent secondary support.",
+      "knuckle_curve": "12 pitches, 1 K, 50% CSW; added third/fourth pitch K depth.",
+      "sinker": "2 pitches, no K impact."
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "PRICE_TO_THRESHOLD_CONFIRMED",
+    "PLUS_MONEY_EDGE_CAPTURED",
+    "LEASH_CONCERN_FALSE_ALARM",
+    "ELITE_STRIKE_EFFICIENCY",
+    "WHIFF_SUSTAINABILITY_CONFIRMED",
+    "MULTI_PITCH_K_DEPTH_CONFIRMED",
+    "NO_WALK_RUNWAY_EXTENSION",
+    "KC_CONTACT_SUPPRESSION_CONFIRMED"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed strongly",
+    "what_worked": [
+      "The model correctly identified plus money on Cole 5+ as a price-to-threshold error.",
+      "Leash concern was overcautious; Cole delivered 6.2 IP on only 79 pitches.",
+      "Zero walks and 75% strike rate created elite runway stability.",
+      "Cole exceeded the threshold by five strikeouts, finishing with 10 Ks.",
+      "Multiple pitches generated K support, preventing single-pitch dependency."
+    ],
+    "what_to_modify": [
+      "When Cole-type veterans show normal velo and strike efficiency early, upgrade post-ramp leash assumptions faster in LIVEFLOW.",
+      "Do not over-penalize post-ramp status if pitch count efficiency is elite through first two innings."
+    ],
+    "patch_recommendation": "KEEP PRICE_TO_THRESHOLD_K_EDGE. Add VETERAN_RAMP_CLEARANCE override when early velocity, strike rate, and pitch economy confirm normal workload viability."
+  },
+  "final_status": "KEEP_WITH_MINOR_UPGRADE",
+  "confidence_level": "High",
+  "notes": "This was the best price-to-threshold result on the card. Cole's 5+ at +100 closed as a major value because the actual outing produced 10 Ks, 39% CSW, 35% whiff rate on swings, zero walks, and only 79 pitches through 6.2 IP. The model correctly captured the baseline threshold edge while appropriately avoiding unnecessary ladder exposure."
+}
