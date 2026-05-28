@@ -1,0 +1,79 @@
+LIVE_TOTAL_COLLAPSE_MISPRICE:
+  status: ACTIVE
+  sport_scope:
+    - WNBA
+    - NBA_LiveFlow_conditional
+  nba_workflow_inclusion: CONDITIONAL_NOT_DIRECT_COPY
+  rationale: >
+    Include this in NBA workflow only as a modified conditional module. NBA games are 48 minutes,
+    not 40, so halftime leaves 24 minutes instead of 20. That extra time increases comeback,
+    pace, foul-extension, and 3PT variance risk. The WNBA trigger is valid, but NBA requires
+    a stronger game-state filter before attacking live No Over or 4Q Under markets.
+  origin_case:
+    game: Washington Mystics at Seattle Storm
+    league: WNBA
+    date: 2026-05-27
+    venue: Climate Pledge Arena
+    live_entry: No Over 156.5
+    entry_price: +152
+    final_score: Mystics 78, Storm 64
+    final_total: 142
+    margin_to_line: -14.5
+    halftime_score: Mystics 48, Storm 29
+    halftime_lead: 19
+    third_quarter_score: Mystics 18, Storm 16
+    fourth_quarter_score: Mystics 12, Storm 19
+  trigger_conditions:
+    - halftime_lead >= 15
+    - trailing_team_q2_points <= 12
+    - trailing_team_fg_pct <= 40
+    - live_total_within_3_points_of_pregame_total
+    - leading_team_has_no_pace_incentive
+  action:
+    - attack_no_over
+    - prioritize_plus_money
+    - consider_4q_under_if_3q_confirms_suppression
+    - consider_trailing_team_total_under
+    - avoid_if_trailing_team_has_elite_3pt_volume_or_ft_pressure
+  confidence_boost:
+    base: 0.08
+    if_3Q_total_needed_gte_44: 0.06
+    if_trailing_team_3pt_pct_lte_25: 0.04
+  nba_adjustment_layer:
+    reason: >
+      NBA has longer game length and larger late-game scoring volatility. A 15-point halftime lead
+      in NBA is not equivalent to a 15-point halftime lead in WNBA because NBA has 24 minutes left,
+      more possessions, more 3PT comeback paths, and more foul-extension scenarios.
+    nba_required_modifiers:
+      - halftime_lead >= 18
+      - trailing_team_q2_points <= 22
+      - trailing_team_halftime_fg_pct <= 41
+      - trailing_team_halftime_3pt_pct <= 30
+      - live_total_within_4_points_of_pregame_total
+      - leading_team_halfcourt_rate_high_or_pace_down_after_lead
+      - no_elite_late_game_creation_cluster_for_trailing_team
+    nba_no_bet_filters:
+      - trailing_team_top_10_3pa_rate
+      - trailing_team_elite_ft_rate_or_bonus_pressure
+      - leading_team_fast_pace_even_with_lead
+      - spread_compression_in_3q_first_4_minutes
+      - star_rotation_expected_to_play_full_4q
+      - live_total_already_repriced_down_by_10_or_more_points
+  permanent_tags:
+    - LIVE_TOTAL_COLLAPSE_MISPRICE
+    - PREGAME_TOTAL_ANCHOR_FAILURE
+    - BLOWOUT_TOTAL_ANCHOR_MISS
+    - NO_OVER_PLUS_MONEY_ATTACK
+    - WNBA_TO_NBA_CONDITIONAL_TRANSFER
+
+PREGAME_TOTAL_ANCHOR_FAILURE:
+  status: ACTIVE
+  description: >
+    Live market fails to reduce total enough after offensive collapse, blowout game state,
+    and reduced leading-team pace incentive.
+  best_market:
+    - No Over live total
+    - 4Q Under
+    - Team total Under trailing team
+  linked_patch:
+    - LIVE_TOTAL_COLLAPSE_MISPRICE
