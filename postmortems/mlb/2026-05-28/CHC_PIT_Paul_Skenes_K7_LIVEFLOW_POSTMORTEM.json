@@ -1,0 +1,98 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_28_CHC_PIT_PAUL_SKENES_K7",
+  "sport": "MLB",
+  "game_date": "2026-05-28",
+  "matchup": "Chicago Cubs @ Pittsburgh Pirates",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Paul Skenes 7+ strikeouts - YES",
+    "entry_odds": "+113",
+    "stake": 3.40,
+    "max_payout": 7.27,
+    "final_payout": 7.27,
+    "profit": 3.87,
+    "result": "WIN",
+    "score_snapshot": "CHC 7 - PIT 2",
+    "outcome_display": "Outcome is Yes"
+  },
+  "pregame_model_read": {
+    "edge_type": "THRESHOLD_VALUE_K_EDGE",
+    "model_mean_ks": 7.9,
+    "model_median_ks": 8,
+    "projected_7plus_probability": "57-61%",
+    "entry_implied_probability": "46.9%",
+    "pre_bet_thesis": "7+ was below the projected median and offered plus-money cushion. The model warned against 8+/9+ public-ceiling ladders but supported 7+ as the clean threshold-value entry."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Paul Skenes",
+    "decision": "L",
+    "IP": 5.1,
+    "H": 4,
+    "R": 3,
+    "ER": 1,
+    "BB": 3,
+    "K": 10,
+    "HR": 0,
+    "pitches": 103,
+    "strikes": 62,
+    "strike_rate": "60.2%",
+    "groundouts": 3,
+    "flyouts": 1,
+    "batters_faced": 23,
+    "ERA_at_log": 1.69
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 103,
+    "swings": 49,
+    "called_strikes": 13,
+    "whiffs": 20,
+    "whiff_rate_on_swings": "41%",
+    "csw": "32% (33/103)",
+    "zone_rate": "46%",
+    "chase_rate": "29%",
+    "strike_rate": "60%",
+    "first_pitch_strike_rate": "61% (14/23)",
+    "average_ev_allowed": 79.9,
+    "hard_hit_bbe": "0 of 10",
+    "max_ev_allowed": 92.6,
+    "top_velocity": 99.4,
+    "pitch_notes": {
+      "four_seam_fastball": "37 pitches, 4 K, 97.4 mph avg, 27% CSW; velocity intact but not the only K driver.",
+      "sweeper": "23 pitches, 2 K, 40% whiffs per swing, 39% CSW; strong secondary swing-miss weapon.",
+      "changeup": "21 pitches, 3 K, 67% whiffs per swing, 38% CSW; major putaway pitch vs LHH-heavy looks.",
+      "splitter": "9 pitches, 0 K, 22% CSW; limited direct K impact.",
+      "slider": "8 pitches, 1 K, 50% whiffs per swing, 38% CSW; strong small-sample support.",
+      "sinker": "5 pitches, no K impact."
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "THRESHOLD_VALUE_CONFIRMED",
+    "PLUS_MONEY_EDGE_CAPTURED",
+    "WHIFF_SUSTAINABILITY_CONFIRMED",
+    "MULTI_PITCH_K_DEPTH_CONFIRMED",
+    "CONTACT_SUPPRESSION_CONFIRMED",
+    "PUBLIC_CEILING_LADDER_AVOIDED",
+    "PITCH_COUNT_INFLATION_PRESENT_BUT_K_CEILING_HELD"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed strongly",
+    "what_worked": [
+      "The model correctly prioritized 7+ as the best threshold-value entry instead of chasing higher ladders.",
+      "Skenes finished with 10 Ks, clearing the 7+ line by three strikeouts.",
+      "Whiff sustainability was elite: 20 whiffs on 49 swings and 32% CSW overall.",
+      "Multi-pitch K depth was confirmed through four-seam, sweeper, changeup, and slider production.",
+      "Contact suppression was elite with 0 hard-hit balls on 10 BBE and 79.9 avg EV allowed."
+    ],
+    "what_to_modify": [
+      "Continue respecting pitch-count inflation risk for higher ladders: 103 pitches by 5.1 IP would have made live 11+/12+ ladders dangerous.",
+      "Keep separating Skenes threshold value from public ceiling tax."
+    ],
+    "patch_recommendation": "KEEP THRESHOLD_VALUE_K_EDGE for elite arms when the offered line is below model median and plus money is available. Maintain anti-burn restriction on 9+ ladders unless live pitch economy is also clean."
+  },
+  "final_status": "KEEP",
+  "confidence_level": "High",
+  "notes": "This was a clean LIVE-FLOW threshold-value win. The 7+ market at +113 was below the model median and offered major implied-probability cushion. Skenes reached 10 Ks despite 3 BB and 103 pitches, confirming that elite whiff depth can overcome moderate pitch-count inflation at the correct threshold."
+}
