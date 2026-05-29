@@ -1,0 +1,113 @@
+{
+  "log_id": "ROLLING_WINDOW_SERIES_NBA_20260528_OKC_SAS_G6_POSTMORTEM",
+  "sport": "NBA",
+  "series": "Western Conference Finals",
+  "game_number": 6,
+  "date": "2026-05-28",
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "teams": {
+    "away": "Oklahoma City Thunder",
+    "home": "San Antonio Spurs"
+  },
+  "final_score": {
+    "okc": 91,
+    "sas": 118,
+    "margin_sas": 27,
+    "total": 209
+  },
+  "bet_ticket": {
+    "market": "Spread",
+    "selection": "No - San Antonio wins by over 3.5 points",
+    "equivalent_position": "OKC +3.5",
+    "stake": 7.50,
+    "odds": -112,
+    "result": "LOSS",
+    "payout": 0.00,
+    "closing_context": "Market showed SAS -3.5 / OKC +3.5 pregame; SAS won by 27. Ticket graded correctly at $0 payout."
+  },
+  "closing_lines_snapshot": {
+    "main_spread": "SAS -3.5 / OKC +3.5",
+    "moneyline": "SAS -161 / OKC +134",
+    "total": 218.5,
+    "team_totals_observed": {
+      "sas": 112.5,
+      "okc": 107.5
+    }
+  },
+  "quarter_scores": {
+    "q1": {"okc": 22, "sas": 35},
+    "q2": {"okc": 31, "sas": 25},
+    "q3": {"okc": 13, "sas": 32},
+    "q4": {"okc": 25, "sas": 26}
+  },
+  "core_box_score": {
+    "okc": {
+      "fg": "35/94",
+      "fg_pct": 37.2,
+      "three_pt": "10/40",
+      "three_pct": 25.0,
+      "ft": "11/12",
+      "rebounds": 42,
+      "assists": 22,
+      "turnovers": 13,
+      "points_in_paint": 38,
+      "fast_break_points": 10
+    },
+    "sas": {
+      "fg": "41/88",
+      "fg_pct": 46.6,
+      "three_pt": "15/41",
+      "three_pct": 36.6,
+      "ft": "21/25",
+      "rebounds": 52,
+      "assists": 30,
+      "turnovers": 13,
+      "points_in_paint": 44,
+      "fast_break_points": 18
+    }
+  },
+  "player_notes": {
+    "victor_wembanyama": "28 points, 10 rebounds, 4 made threes, 3 blocks; created first-quarter spacing spike and second-half rim suppression.",
+    "shai_gilgeous_alexander": "15 points on 6/18 FG, 0/5 from three, -28; OKC primary creation failed under length and crowd pressure.",
+    "stephon_castle": "17 points, 9 assists, 5 rebounds; stabilizing connector and advantage passer.",
+    "dylan_harper": "18 points off bench on 6/9 FG; major secondary scoring source.",
+    "cason_wallace": "11 points, all in first half, strong Q2 response but did not carry into second-half scoring."
+  },
+  "phase_analysis": {
+    "opening_phase_q1": "SAS opened with a home-elimination surge. Wembanyama hit three first-quarter threes and SAS scored 35 while OKC shot 1/6 from deep. The original live read correctly identified WEMBY_SPACING_SPIKE but underestimated the durability of the pressure effect.",
+    "middle_phase_q2": "OKC responded 31-25, cutting halftime deficit to seven. Cason Wallace and bench spacing created temporary regression, but it was a partial correction rather than true control flip.",
+    "decisive_phase_q3": "SAS won the third quarter 32-13. OKC shot 6/28 and 0/8 from three in the quarter, while SAS generated 14 free throw attempts and controlled the glass 20-11. This was the cover-kill segment.",
+    "closing_phase_q4": "Game state became extended garbage time. SAS still won the fourth 26-25 and margin stayed well outside OKC +3.5 range."
+  },
+  "model_diagnostic": {
+    "pregame_model_error": "Undervalued SAS elimination-home ceiling and overtrusted OKC baseline superiority despite Jalen Williams limitation/questionable context.",
+    "liveflow_error": "After Q1, the model warned no chase but still allowed the original OKC +3.5 exposure to remain without sufficient hedge/kill-switch tagging. Q2 response created false recovery signal.",
+    "key_blind_spots": [
+      "Home elimination surge not given enough pregame weight",
+      "Wembanyama perimeter-spacer mode not treated as high-leverage volatility event",
+      "OKC wing-health/rotation instability underestimated",
+      "Third-quarter collapse probability underpriced",
+      "SGA suppression under length and crowd pressure underestimated"
+    ]
+  },
+  "patches_to_activate": [
+    "ELIMINATION_HOME_SURGE_V1",
+    "WEMBY_SPACING_SPIKE_GATE",
+    "Q1_HEATER_DURABILITY_CHECK",
+    "Q2_FALSE_RECOVERY_GUARD",
+    "STAR_SUPPRESSION_UNDER_LENGTH_GATE",
+    "LIMITED_WING_ROTATION_DOWNGRADE",
+    "THIRD_QUARTER_COLLAPSE_RISK_BOOST"
+  ],
+  "bet_result_tags": [
+    "MISS_REGISTERED",
+    "SPREAD_LOSS",
+    "LIVEFLOW_SINGLE_FIRE_LOSS",
+    "ELIMINATION_HOME_SURGE_MISPRICED",
+    "WEMBY_SPACING_SPIKE_CONFIRMED",
+    "Q3_COLLAPSE_EVENT",
+    "FALSE_Q2_RECOVERY_SIGNAL",
+    "ROLLING_WINDOW_SERIES_LOGGED"
+  ],
+  "next_game_directive": "For Game 7 prep, do not default to OKC bounce-back without pricing SAS home-elimination proof, Wembanyama spacing ceiling, and OKC star suppression risk. Require independent edge above market before re-entering OKC spread."
+}
