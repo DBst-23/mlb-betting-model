@@ -1,0 +1,18 @@
+{
+  "log_id": "ROLLING_WINDOW_SERIES_NBA_20260528_OKC_SAS_G6_DEEP_POSTMORTEM",
+  "created_from": "official_box_plus_user_tracking_tables",
+  "sport": "NBA",
+  "series": "OKC_SAS_WCF_2026",
+  "game_number": 6,
+  "date": "2026-05-28",
+  "venue": "Frost Bank Center, San Antonio, TX",
+  "final": {"OKC": 91, "SAS": 118, "margin_SAS": 27, "total": 209},
+  "quarter_scores": {"Q1": {"OKC": 22, "SAS": 35}, "Q2": {"OKC": 31, "SAS": 25}, "Q3": {"OKC": 13, "SAS": 32}, "Q4": {"OKC": 25, "SAS": 26}},
+  "bet_audit": {"position": "OKC +3.5 via No: SAS wins by over 3.5", "stake": 7.50, "odds": -112, "result": "LOSS", "payout": 0.00, "classification": "MODEL_ERROR_NOT_BAD_BEAT"},
+  "team_efficiency": {"possessions": 98, "OKC": {"points": 91, "points_per_100": 92.9, "efg_pct": 42.11, "ts_pct": 45.50, "three_pt": "10/41", "non_heave_3pt_pct": 24.39, "rim_fg": "12/26", "rim_pct": 46.15, "turnovers": 13, "live_ball_to_pct": 53.85, "rebounds_tracking_total": 48}, "SAS": {"points": 118, "points_per_100": 120.4, "efg_pct": 54.49, "ts_pct": 59.00, "three_pt": "15/42", "non_heave_3pt_pct": 35.71, "rim_fg": "13/20", "rim_pct": 65.00, "turnovers": 13, "live_ball_to_pct": 69.23, "rebounds_tracking_total": 58}},
+  "rebounding_tracking_core": {"Wembanyama": {"reb": 10, "chances": 22, "chance_pct": 45.5, "adjusted_chance_pct": 52.6, "box_outs": 2}, "Holmgren": {"reb": 11, "chances": 19, "chance_pct": 57.9}, "Jaylin_Williams": {"reb": 9, "chances": 11, "chance_pct": 81.8}, "Kornet": {"reb": 5, "chances": 11, "box_outs": 4}, "Hartenstein": {"reb": 5, "chances": 10, "minutes": 16.1}},
+  "phase_analysis": {"Q1": "SAS opened 35-22 with 8 made threes in 14 attempts and Wembanyama spacing OKC out of normal coverage. Castle produced early connective passing and the Spurs led wire-to-wire.", "Q2": "OKC won 31-25 and cut the game to 60-53, but the recovery was bench/role driven, not SGA driven. This created the false recovery signal.", "Q3": "The decisive segment: SAS 32, OKC 13. OKC went 6/28 FG and 0/8 from three while SAS created 14 free throw attempts and won the quarter by 19.", "Q4": "Garbage-time state. SAS maintained control, OKC starters were pulled or limited, and the spread was dead."},
+  "diagnostic_findings": ["SAS shot quality and spacing were sustainable enough to outlast early variance label", "OKC shot quality was not terrible at 0.53 but conversion collapsed: 42.11 eFG and 24.39 non-heave 3PT", "SAS had similar shot quality at 0.54 but much better conversion: 54.49 eFG and 59.00 TS", "Rebounding tilted SAS: tracking total 58-48 and Wembanyama/Kornet structure created interior control despite Holmgren counting 11 boards", "OKC main creator suppression was confirmed: SGA 15 points on 6/18 and 0/5 from three", "Jalen Williams limitation created rotation instability and weakened OKC secondary creation", "Q2 recovery should not have overridden Q1 structural warning"],
+  "new_or_confirmed_tags": ["ELIMINATION_HOME_SURGE_V1_CONFIRMED", "WEMBY_SPACING_SPIKE_GATE_CONFIRMED", "Q2_FALSE_RECOVERY_SIGNAL", "Q3_COLLAPSE_EVENT", "STAR_SUPPRESSION_UNDER_LENGTH_GATE", "LIMITED_WING_ROTATION_DOWNGRADE", "REBOUND_STRUCTURE_TILT_SAS", "RIM_DETERRENCE_CASCADE", "MODEL_ERROR_NOT_BAD_BEAT"],
+  "game7_prep_directive": "Game 7 must start from a recalibrated series prior. Do not auto-bet OKC revenge without pricing SAS structural spacing, Wembanyama high-leverage rim/3PT duality, Castle creation, OKC wing-health limitation, and third-quarter collapse risk. Require market edge after our own projected line."
+}
