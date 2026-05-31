@@ -1,0 +1,97 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_31_ATL_CIN_SPENCER_STRIDER_K7",
+  "sport": "MLB",
+  "game_date": "2026-05-31",
+  "matchup": "Atlanta Braves @ Cincinnati Reds",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Spencer Strider 7+ strikeouts - YES",
+    "entry_odds": "-108",
+    "stake": 6.00,
+    "max_payout": 11.59,
+    "final_payout": 11.59,
+    "profit": 5.59,
+    "result": "WIN",
+    "outcome_display": "Outcome is Yes"
+  },
+  "pregame_model_read": {
+    "edge_type": "STRUCTURAL_K_EDGE",
+    "model_mean_ks": 8.1,
+    "model_median_ks": 8,
+    "projected_7plus_probability": "57-61%",
+    "entry_implied_probability": "51.9%",
+    "price_context": "Initial board showed Strider 7+ at -112; entry improved to -108 before later buy price moved to -121.",
+    "clv_result": "positive",
+    "pre_bet_thesis": "Strider 7+ was below the projected median and under the max-pay threshold. Reds matchup supplied strikeout pockets while anti-burn protocol avoided the 8+/9+ ladder chase."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Spencer Strider",
+    "decision": "L",
+    "IP": 5.0,
+    "H": 7,
+    "R": 4,
+    "ER": 3,
+    "BB": 2,
+    "K": 8,
+    "HR": 0,
+    "pitches": 90,
+    "strikes": 58,
+    "strike_rate": "64.4%",
+    "groundouts": 3,
+    "flyouts": 4,
+    "batters_faced": 24,
+    "ERA_at_log": 5.40
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 90,
+    "swings": 41,
+    "called_strikes": 16,
+    "whiffs": 13,
+    "whiff_rate_on_swings": "32%",
+    "csw": "32% (29/90)",
+    "zone_rate": "44%",
+    "chase_rate": "24%",
+    "strike_rate": "64%",
+    "first_pitch_strike_rate": "58% (14/24)",
+    "average_ev_allowed": 89.1,
+    "hard_hit_bbe": "5 of 14",
+    "max_ev_allowed": 111.5,
+    "top_velocity": 98.0,
+    "pitch_notes": {
+      "four_seam_fastball": "49 pitches, 4 K, 95.8 mph avg, 33% CSW; primary volume and strikeout platform.",
+      "slider": "26 pitches, 4 K, 46% whiffs per swing, 31% CSW; putaway pitch carried the finish.",
+      "changeup": "8 pitches, 0 K, 25% CSW; low direct K impact.",
+      "curveball": "7 pitches, 0 K, 43% CSW; useful supporting strike shape."
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "CLV_POSITIVE",
+    "STRUCTURAL_K_EDGE_CONFIRMED",
+    "THRESHOLD_BELOW_MEDIAN_CONFIRMED",
+    "WHIFF_SUSTAINABILITY_CONFIRMED",
+    "FASTBALL_SLIDER_K_CORE",
+    "ANTI_BURN_LADDER_AVOIDANCE_SUCCESS",
+    "DAMAGE_ALLOWED_BUT_K_PATH_HELD"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed",
+    "what_worked": [
+      "The model correctly prioritized 7+ as the clean threshold instead of overextending into ladders.",
+      "Strider cleared the target with 8 strikeouts despite allowing 4 runs and 7 hits.",
+      "The fastball-slider core produced all 8 strikeouts.",
+      "Positive CLV was captured from -108 entry to later -121 board price.",
+      "32% CSW and 32% whiff rate on swings were sufficient to validate the structural K profile."
+    ],
+    "what_to_monitor": [
+      "Run prevention/leash volatility remains active when hard contact rises.",
+      "First-pitch strike rate was adequate but not elite; high ladders remain anti-burn fades unless early CSW is nuclear."
+    ],
+    "patch_recommendation": "KEEP Strider threshold profile as actionable when 7+ is below median and price is within threshold. Maintain restriction against 8+/9+ ladders when hard-contact risk is elevated."
+  },
+  "final_status": "KEEP",
+  "confidence_level": "High",
+  "notes": "This was a disciplined threshold win. Strider hit 8 Ks, clearing the 7+ entry while the model correctly avoided unnecessary ladder exposure. The outing confirms fastball-slider K sustainability even when run prevention is imperfect."
+}
