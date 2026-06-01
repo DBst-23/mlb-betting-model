@@ -1,0 +1,45 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_31_STL_CHC_MATTHEW_LIBERATORE_K5",
+  "sport": "MLB",
+  "game_date": "2026-05-31",
+  "matchup": "St. Louis Cardinals @ Chicago Cubs",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Matthew Liberatore 5+ strikeouts - YES",
+    "entry_odds": "-112",
+    "stake": 5.00,
+    "max_payout": 9.47,
+    "current_value_snapshot": 4.56,
+    "result": "PENDING_OR_NOT_FINALIZED_IN_USER_DATA"
+  },
+  "pregame_model_read": {
+    "edge_type": "STRUCTURAL_THRESHOLD_K_EDGE",
+    "model_mean_ks": 5.4,
+    "model_median_ks": 5,
+    "projected_5plus_probability": "~61%",
+    "entry_implied_probability": "52.8%",
+    "price_context": "Kalshi board showed Liberatore 5+ at -112, 6+ at +173, 7+ at +351. Entry was taken at -112 and later screen showed current buy at -117.",
+    "clv_result": "mild_positive",
+    "pre_bet_thesis": "Liberatore 5+ was identified as the cleaner structural threshold in the Cubs/Cardinals add-on audit, supported by moderate-high leash and a realistic five-strikeout runway."
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "STRUCTURAL_THRESHOLD_K_EDGE",
+    "MILD_CLV_POSITIVE",
+    "PENDING_FINAL_STATLINE",
+    "NO_LADDER_CHASE"
+  ],
+  "model_evaluation": {
+    "signal_result": "pending final pitcher line",
+    "what_worked_pre_entry": [
+      "The 5+ threshold sat at the model median with meaningful edge over implied probability.",
+      "The model correctly preferred Liberatore 5+ over higher ladder exposure.",
+      "Market tick from -112 to -117 suggests mild positive CLV."
+    ],
+    "patch_recommendation": "Await final statline before assigning HIT_REGISTERED or MISS_REGISTERED. Track whether curveball/changeup usage produced enough putaway endings."
+  },
+  "final_status": "PENDING_FINALIZATION",
+  "confidence_level": "Medium",
+  "notes": "User locked Matthew Liberatore 5+ at -112 for $5. Final statline was not supplied in the postmortem request. This placeholder log captures the investment, thesis, CLV, and pending status for later completion."
+}
