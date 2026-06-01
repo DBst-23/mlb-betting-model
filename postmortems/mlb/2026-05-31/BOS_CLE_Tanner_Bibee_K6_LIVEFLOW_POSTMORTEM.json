@@ -1,0 +1,99 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_05_31_BOS_CLE_TANNER_BIBEE_K6",
+  "sport": "MLB",
+  "game_date": "2026-05-31",
+  "matchup": "Boston Red Sox @ Cleveland Guardians",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Tanner Bibee 6+ strikeouts - YES",
+    "entry_odds": "+152",
+    "stake": 3.00,
+    "max_payout": 7.56,
+    "final_payout": 0.00,
+    "profit": -3.00,
+    "result": "LOSS",
+    "outcome_display": "Outcome is No"
+  },
+  "pregame_model_read": {
+    "edge_type": "PRICE_DISLOCATION_K_EDGE",
+    "model_mean_ks": 6.1,
+    "model_median_ks": 6,
+    "projected_6plus_probability": "51-55%",
+    "entry_implied_probability": "39.7%",
+    "price_context": "Entry captured +152; later board showed +145, producing mild positive CLV.",
+    "clv_result": "mild_positive",
+    "pre_bet_thesis": "Bibee 6+ was identified as a price-dislocation edge. The 5+ was overpriced at -143, while 6+ at +152 gave plus-money cushion at the model median."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Tanner Bibee",
+    "IP": 6.0,
+    "H": 6,
+    "R": 3,
+    "ER": 3,
+    "BB": 1,
+    "K": 5,
+    "HR": 1,
+    "pitches": 90,
+    "strikes": 62,
+    "strike_rate": "68.9%",
+    "groundouts": 7,
+    "flyouts": 3,
+    "batters_faced": 24,
+    "ERA_at_log": 4.50
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 90,
+    "swings": 48,
+    "called_strikes": 14,
+    "whiffs": 13,
+    "whiff_rate_on_swings": "27%",
+    "csw": "30% (27/90)",
+    "zone_rate": "51%",
+    "chase_rate": "30%",
+    "strike_rate": "69%",
+    "first_pitch_strike_rate": "67% (16/24)",
+    "average_ev_allowed": 90.6,
+    "hard_hit_bbe": "8 of 18",
+    "max_ev_allowed": 107.9,
+    "top_velocity": 96.4,
+    "pitch_notes": {
+      "sinker": "35 pitches, 1 K, 20% CSW, 57% strike rate; overused and contact-heavy with 8 BBE and 5 hard-hit balls.",
+      "cutter": "19 pitches, 2 K, 44% whiffs per swing, 47% CSW; best strikeout pitch in the outing.",
+      "changeup": "16 pitches, 0 K, 19% CSW; contact-managed but not a putaway weapon.",
+      "curveball": "7 pitches, 1 K, 57% CSW; strong small-sample shape.",
+      "four_seam_fastball": "7 pitches, 0 K, 14% CSW; limited K support and one max-EV contact event.",
+      "sweeper": "6 pitches, 1 K, 50% CSW; useful small-sample support."
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "HOOK_BURN",
+    "MILD_CLV_POSITIVE",
+    "PRICE_DISLOCATION_PROCESS_VALID",
+    "CONTACT_SUPPRESSION_FAILURE",
+    "SINKER_OVERUSE_EVENT",
+    "PUTAWAY_CONVERSION_SHORTFALL",
+    "K_PATH_PRESENT_RESULT_LOSS"
+  ],
+  "model_evaluation": {
+    "signal_result": "process valid, result missed by one strikeout",
+    "what_worked": [
+      "The price-dislocation read was valid: +152 gave meaningful implied-probability cushion and later moved to +145.",
+      "Bibee delivered the leash required for the ticket with 6.0 IP and 90 pitches.",
+      "Strike efficiency was strong: 69% strike rate and 67% first-pitch strike rate.",
+      "CSW reached 30%, keeping the K path alive."
+    ],
+    "what_failed": [
+      "Contact suppression failed: 18 BBE, 8 hard-hit balls, and 90.6 avg EV allowed.",
+      "Sinker overusage created too many balls in play and not enough strikeout endings.",
+      "Cutter/curve/sweeper showed K quality, but usage distribution was not enough to create the sixth strikeout.",
+      "The outcome missed by one K, classifying as a hook burn rather than a bad-process miss."
+    ],
+    "patch_recommendation": "Add SINKER_OVERUSE_K_DAMPENER for Bibee-style profiles when the primary sinker usage projects above 35% and opponent contact quality is moderate/high. Require stronger putaway-pitch usage confidence before attacking 6+ ladders at median."
+  },
+  "final_status": "PATCH_REQUIRED",
+  "confidence_level": "Medium",
+  "notes": "Bibee's 6+ ticket lost by one strikeout. The process had value due to plus-money pricing and mild CLV, but the model underestimated sinker-driven contact volume and hard-hit leakage. Future Bibee-type 6+ bets should require stronger evidence that cutter/curve/sweeper usage will carry the strikeout pathway."
+}
