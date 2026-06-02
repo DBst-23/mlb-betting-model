@@ -1,0 +1,96 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_06_01_TEX_STL_JACOB_DEGROM_K7",
+  "sport": "MLB",
+  "game_date": "2026-06-01",
+  "matchup": "Texas Rangers @ St. Louis Cardinals",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Jacob deGrom 7+ strikeouts - YES",
+    "entry_odds": "+118",
+    "stake": 6.00,
+    "max_payout": 13.12,
+    "final_payout": 13.12,
+    "profit": 7.12,
+    "result": "WIN",
+    "outcome_display": "Outcome is Yes"
+  },
+  "pregame_model_read": {
+    "edge_type": "STRUCTURAL_K_EDGE_WITH_PRICE_DISLOCATION",
+    "model_mean_ks": 7.4,
+    "model_median_ks": 7,
+    "projected_7plus_probability_pre_adjustment": "~59%",
+    "projected_7plus_probability_after_matchup_adjustment": "56-58%",
+    "entry_implied_probability": "45.9%",
+    "pre_bet_thesis": "deGrom 7+ at +118 was the cleanest board edge. The Cardinals matchup was not a blind smash spot due to possible pitch-count drag, but deGrom's chase/whiff profile and median-aligned 7+ threshold preserved strong value. The model avoided 8+/9+ ladder exposure."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Jacob deGrom",
+    "decision": "W",
+    "IP": 5.0,
+    "H": 4,
+    "R": 0,
+    "ER": 0,
+    "BB": 1,
+    "K": 8,
+    "HR": 0,
+    "pitches": 91,
+    "strikes": 59,
+    "strike_rate": "64.8%",
+    "batters_faced": 21,
+    "ERA_at_log": 0.00
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 91,
+    "swings": 47,
+    "called_strikes": 12,
+    "whiffs": 18,
+    "whiff_rate_on_swings": "38%",
+    "csw": "33% (30/91)",
+    "zone_rate": "51%",
+    "chase_rate": "29%",
+    "strike_rate": "65%",
+    "first_pitch_strike_rate": "57% (12/21)",
+    "average_ev_allowed": 96.0,
+    "hard_hit_bbe": "8 of 12",
+    "max_ev_allowed": 103.2,
+    "top_velocity": 99.2,
+    "pitch_notes": {
+      "four_seam_fastball": "40 pitches, 1 K, 97.6 mph avg, 25% CSW. Fastball carried velocity but was not the main strikeout finisher.",
+      "slider": "24 pitches, 3 K, 40% whiffs per swing, 29% CSW. Primary putaway weapon vs right-handed bats.",
+      "changeup": "17 pitches, 2 K, 67% whiffs per swing, 35% CSW. Strong secondary whiff driver, especially vs left-handed bats.",
+      "curveball": "10 pitches, 2 K, 70% CSW. Small-volume but elite finish/steal-strike weapon."
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "HIT_REGISTERED",
+    "STRUCTURAL_K_EDGE_CONFIRMED",
+    "PRICE_DISLOCATION_CONFIRMED",
+    "MEDIAN_THRESHOLD_CONFIRMED",
+    "WHIFF_SUSTAINABILITY_CONFIRMED",
+    "CSW_GREEN_ZONE_CONFIRMED",
+    "LADDER_AVOIDANCE_SUCCESS",
+    "PITCH_COUNT_DRAG_MANAGED",
+    "HARD_CONTACT_PRESENT_BUT_K_PATH_HELD"
+  ],
+  "model_evaluation": {
+    "signal_result": "signal confirmed",
+    "what_worked": [
+      "The model correctly held the 7+ threshold and avoided overextending to 8+/9+ despite plus pricing.",
+      "deGrom finished with 8 strikeouts in only 5.0 innings, confirming K efficiency even with pitch-count drag.",
+      "Whiff quality was excellent: 18 whiffs and 38% whiff rate on swings.",
+      "CSW reached 33%, clearing the green-zone threshold.",
+      "The slider/changeup/curveball group generated 7 of the 8 strikeouts, validating the pitch-mix thesis."
+    ],
+    "risks_that_showed": [
+      "Pitch count reached 91 after only 5.0 innings, confirming pregame concerns about Cardinals pitch-count drag.",
+      "Hard contact was present: 8 hard-hit balls out of 12 BBE and 96.0 average EV allowed.",
+      "Fastball was velocity-positive but not a dominant K finisher in this outing."
+    ],
+    "patch_recommendation": "KEEP deGrom 7+ as actionable when market prices him at plus money near median. Maintain anti-burn restriction against 8+/9+ ladder adds unless live pitch count is efficient and CSW is nuclear through 2 innings."
+  },
+  "final_status": "KEEP",
+  "confidence_level": "High",
+  "notes": "Clean threshold win. The Cardinals matchup created pitch-count pressure exactly as flagged, but deGrom's secondary pitch whiff profile overcame it. The result validates the decision to bet 7+ only and avoid ladder exposure."
+}
