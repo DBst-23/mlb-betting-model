@@ -1,0 +1,100 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_06_06_CLE_TEX_TANNER_BIBEE_K6",
+  "sport": "MLB",
+  "game_date": "2026-06-06",
+  "matchup": "Cleveland Guardians @ Texas Rangers",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Tanner Bibee 6+ strikeouts - YES",
+    "entry_odds": "+134",
+    "stake": 3.00,
+    "max_payout": 7.02,
+    "final_payout": 0.00,
+    "profit": -3.00,
+    "result": "LOSS",
+    "outcome_display": "Outcome is No"
+  },
+  "pregame_model_read": {
+    "edge_type": "SECONDARY_PLUS_MONEY_THRESHOLD_STAB",
+    "model_mean_ks": 5.8,
+    "model_median_ks": 6,
+    "projected_6plus_probability": "46-50%",
+    "entry_implied_probability": "42.7%",
+    "pre_bet_thesis": "Bibee 6+ at +134 was a secondary plus-money position. The model preferred 6+ over the juiced 5+ market because it offered cleaner price shape, but tagged the play with sinker-overuse/contact-volume risk after prior misses."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Tanner Bibee",
+    "decision": "W",
+    "IP": 8.0,
+    "H": 3,
+    "R": 0,
+    "ER": 0,
+    "BB": 2,
+    "K": 3,
+    "HR": 0,
+    "pitches": 87,
+    "strikes": 54,
+    "strike_rate": "62.1%",
+    "groundouts": 8,
+    "flyouts": 6,
+    "batters_faced": 27,
+    "ERA_at_log": 0.00
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 87,
+    "swings": 36,
+    "called_strikes": 18,
+    "whiffs": 6,
+    "whiff_rate_on_swings": "17%",
+    "csw": "28% (24/87)",
+    "zone_rate": "57%",
+    "chase_rate": "22%",
+    "strike_rate": "62%",
+    "first_pitch_strike_rate": "56% (15/27)",
+    "average_ev_allowed": 90.6,
+    "hard_hit_bbe": "9 of 22",
+    "max_ev_allowed": 105.2,
+    "top_velocity": 95.4,
+    "pitch_notes": {
+      "sinker": "30 pitches, 0 K, 0 whiffs on 11 swings, 30% CSW. Heavy usage again suppressed K ceiling even while run prevention remained excellent.",
+      "cutter": "27 pitches, 1 K, 33% whiffs on swings, 33% CSW. Best functional putaway pitch but not enough by itself.",
+      "changeup": "11 pitches, 1 K, 33% whiffs on swings, 18% CSW. Low-volume secondary piece.",
+      "curveball": "9 pitches, 0 K, 0 whiffs on 5 swings, 22% CSW. Did not create chase or whiff value.",
+      "sweeper": "5 pitches, 1 K, 33% whiffs on swings, 20% CSW. Low-volume flash only.",
+      "four_seam_fastball": "5 pitches, 0 K, 0 whiffs on 2 swings, 20% CSW. Minimal role."
+    }
+  },
+  "diagnostic_tags": [
+    "SECONDARY_POSITION_LOSS",
+    "MISS_REGISTERED",
+    "FULL_RUNWAY_NO_K_CONVERSION",
+    "SINKER_OVERUSE_CONTACT_VOLUME_RISK_CONFIRMED",
+    "CONTACT_SUPPRESSION_CONFIRMED",
+    "RUN_PREVENTION_STRONG_BUT_K_EDGE_FAILED",
+    "WHIFF_RATE_BELOW_THRESHOLD",
+    "CHASE_RATE_BELOW_THRESHOLD",
+    "MEDIAN_PROJECTION_MISS",
+    "PATCH_REQUIRED"
+  ],
+  "model_evaluation": {
+    "signal_result": "failed",
+    "what_failed": [
+      "Bibee delivered an elite real-life start but only 3 strikeouts across 8.0 innings.",
+      "The model correctly flagged sinker-overuse/contact-volume risk, but still allowed the secondary 6+ position.",
+      "Whiff rate reached only 17% on swings, below the required level for a 6+ strikeout ticket.",
+      "Chase rate was only 22%, limiting expansion and putaway opportunities.",
+      "Sinker was the highest-usage pitch at 34% and produced zero whiffs, reinforcing the contact-management profile.",
+      "Bibee's contact suppression and efficiency created innings, but the same efficiency came through balls in play rather than strikeout accumulation."
+    ],
+    "what_was_correct": [
+      "The model avoided the expensive 5+ at -161 and limited exposure to a small plus-money secondary stake.",
+      "The pregame patch tag correctly identified sinker-heavy contact risk as the main danger.",
+      "Leash/runway was not the problem; he threw 87 pitches and completed 8 innings."
+    ],
+    "patch_recommendation": "Upgrade Bibee's sinker-heavy profile to a hard filter: do not play 6+ unless recent cutter/curve/sweeper whiff indicators are elevated or the opponent has a clear swing-and-miss profile. Treat Bibee more as a run-prevention/inning-efficiency arm than an automatic K-over arm when sinker usage projects above 28-30%."
+  },
+  "final_status": "PATCH_REQUIRED",
+  "confidence_level": "Low after result",
+  "notes": "This loss is a classic full-runway K miss. Bibee was excellent as a pitcher but not as a strikeout prop. The key lesson is that efficiency and innings do not equal K runway when the pitch mix leans sinker/contact management."
+}
