@@ -1,0 +1,101 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_06_06_PIT_ATL_SPENCER_STRIDER_K7",
+  "sport": "MLB",
+  "game_date": "2026-06-06",
+  "matchup": "Pittsburgh Pirates @ Atlanta Braves",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Spencer Strider 7+ strikeouts - YES",
+    "entry_odds": "+109",
+    "stake": 10.00,
+    "max_payout": 20.94,
+    "final_payout": 0.00,
+    "profit": -10.00,
+    "result": "LOSS",
+    "outcome_display": "Outcome is No"
+  },
+  "pregame_model_read": {
+    "edge_type": "STRUCTURAL_K_EDGE_WITH_PRICE_DISLOCATION",
+    "model_mean_ks": 7.9,
+    "model_median_ks": 8,
+    "projected_7plus_probability": "59-62%",
+    "entry_implied_probability": "47.8%",
+    "pre_bet_thesis": "Strider 7+ at +109 was identified as the cleanest threshold edge on the board. The thesis relied on Strider's normal whiff engine, median projection near 8, and Pittsburgh K pockets. The model intentionally avoided 8+ ladder exposure pregame."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Spencer Strider",
+    "decision": "W",
+    "IP": 5.0,
+    "H": 5,
+    "R": 3,
+    "ER": 3,
+    "BB": 2,
+    "K": 3,
+    "HR": 0,
+    "pitches": 84,
+    "strikes": 49,
+    "strike_rate": "58.3%",
+    "groundouts": 2,
+    "flyouts": 5,
+    "batters_faced": 21,
+    "ERA_at_log": 5.40,
+    "wild_pitch": 1
+  },
+  "pitch_mix_and_whiff_data": {
+    "all_pitches": 84,
+    "swings": 43,
+    "called_strikes": 6,
+    "whiffs": 6,
+    "whiff_rate_on_swings": "14%",
+    "csw": "14% (12/84)",
+    "zone_rate": "45%",
+    "chase_rate": "22%",
+    "strike_rate": "58%",
+    "first_pitch_strike_rate": "38% (8/21)",
+    "average_ev_allowed": 90.6,
+    "hard_hit_bbe": "7 of 16",
+    "max_ev_allowed": 108.5,
+    "top_velocity": 96.7,
+    "pitch_notes": {
+      "four_seam_fastball": "36 pitches, 1 K, 94.8 mph avg, 0 whiffs on 20 swings, 11% CSW. Primary failure point; fastball did not miss bats.",
+      "slider": "21 pitches, 1 K, 15% whiffs on swings, 10% CSW. Slider lacked normal chase/finish profile and averaged 1.0 mph below year average.",
+      "changeup": "16 pitches, 0 K, 33% whiff on swings but only 19% CSW. Not enough volume or strike quality to rescue the K path.",
+      "curveball": "11 pitches, 1 K, 50% whiff on swings, 27% CSW. Best small-sample bat-missing pitch but not used enough to drive the ticket."
+    }
+  },
+  "diagnostic_tags": [
+    "EDGE_CALL_ACTIVE",
+    "MISS_REGISTERED",
+    "WHIFF_COLLAPSE",
+    "CSW_COLLAPSE",
+    "FASTBALL_PUTAWAY_FAILURE",
+    "SLIDER_SHAPE_OR_COMMAND_FAILURE",
+    "FIRST_PITCH_STRIKE_FAILURE",
+    "CONTACT_VOLUME_RISK_REALIZED",
+    "PITCH_COUNT_DRAG",
+    "PRIMARY_POSITION_LOSS",
+    "PROCESS_PATCH_REQUIRED"
+  ],
+  "model_evaluation": {
+    "signal_result": "failed",
+    "what_failed": [
+      "Strider produced only 3 strikeouts across 5.0 innings despite a median projection near 8.",
+      "Overall CSW collapsed to 14%, far below the 31%+ green-zone requirement.",
+      "Overall whiff rate was only 14% on swings, also far below the K-over threshold.",
+      "The four-seam fastball generated zero whiffs on 20 swings and only 11% CSW.",
+      "Slider averaged 83.3 mph, down 1.0 mph from year average, and produced only 10% CSW.",
+      "First-pitch strike rate was only 38%, creating count leverage issues and limiting putaway sequences.",
+      "The model over-weighted season-level Strider K reputation and under-weighted day-of stuff/command risk."
+    ],
+    "what_was_correct": [
+      "The model correctly avoided the 8+ ladder, which would have increased loss exposure.",
+      "Pittsburgh did not need to suppress innings dramatically; the miss was driven by whiff collapse and pitch execution, not a short leash alone.",
+      "Pregame price showed theoretical edge, but the live indicators invalidated the thesis early."
+    ],
+    "patch_recommendation": "Add STRIDER_VOLATILITY_GATE: when Strider is priced as a primary position, require either confirmed recent CSW/whiff form or reduce stake size if his fastball/slider velocity trend is down. Add live kill-switch if through 2 innings CSW < 24%, first-pitch strike < 50%, or fastball whiff rate is near zero."
+  },
+  "final_status": "PATCH_REQUIRED",
+  "confidence_level": "Low after result",
+  "notes": "This was a full process miss on the primary position. The failure was not caused by leash collapse; he threw 84 pitches and reached 5.0 innings. The failure was a bat-missing collapse, led by a four-seam fastball with zero whiffs and an overall 14% CSW."
+}
