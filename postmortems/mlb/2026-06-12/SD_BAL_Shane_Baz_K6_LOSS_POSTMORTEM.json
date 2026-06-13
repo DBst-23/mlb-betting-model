@@ -1,0 +1,81 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_06_12_SD_BAL_SHANE_BAZ_K6_LOSS",
+  "sport": "MLB",
+  "game_date": "2026-06-12",
+  "matchup": "San Diego Padres @ Baltimore Orioles",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Shane Baz 6+ strikeouts - YES",
+    "entry_odds": "+139",
+    "stake": 5.0,
+    "max_payout": 11.99,
+    "final_payout": 0.0,
+    "profit": -5.0,
+    "roi_percent": -100.0,
+    "result": "LOSS",
+    "outcome_display": "Outcome is No"
+  },
+  "pregame_model_read": {
+    "edge_type": "BEST_BOARD_VALUE_PLUS_MONEY_MODEL_MEDIAN",
+    "model_mean_ks": 6.5,
+    "model_median_ks": 6,
+    "projected_6plus_probability": "60-63%",
+    "entry_implied_probability": "41.8%",
+    "edge_points": "+18 to +21",
+    "pre_bet_thesis": "Baz was priced as the best visible board value at +139 for 6+ with a model median around the threshold. The play depended on whiff-path activation and normal strikeout conversion against San Diego."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Shane Baz",
+    "decision": "W",
+    "IP": 5.0,
+    "H": 6,
+    "R": 3,
+    "ER": 2,
+    "BB": 2,
+    "K": 1,
+    "HR": 0,
+    "pitches": 103,
+    "strikes": 62,
+    "strike_rate": "60.2%",
+    "groundouts": 6,
+    "flyouts": 5,
+    "batters_faced": 24,
+    "ERA_at_log": 3.60
+  },
+  "advanced_pitching_snapshot": {
+    "top_ev_allowed": 111.2,
+    "top_velocity": 97.7,
+    "all_pitches": 103,
+    "swings": 47,
+    "called_strikes": 12,
+    "whiffs": 13,
+    "whiff_rate_on_swings": "28% (13/47)",
+    "csw": "24% (25/103)",
+    "zone_rate": "40%",
+    "zone_swing_rate": "71%",
+    "chase_rate": "29%",
+    "strike_rate_statcast": "60%",
+    "first_pitch_strike_rate": "54% (13/24)",
+    "bbe": 20,
+    "hits_allowed_bbe": 6,
+    "hard_hit_bbe": 8,
+    "average_ev_allowed": 89.5
+  },
+  "pitch_type_breakdown": {
+    "knuckle_curve": {"usage":"31% (32)","avg_velocity":84.9,"year_velocity_delta":"-0.5","strikeouts":0,"swings":15,"called_strikes":3,"whiffs":"27% (4/15)","csw":"22% (7/32)","bbe":7,"hard_hit":3,"avg_ev":82.8,"zone_rate":41,"chase_rate":26,"strike_rate":56},
+    "four_seam_fastball": {"usage":"31% (32)","avg_velocity":95.6,"year_velocity_delta":"-0.6","strikeouts":1,"swings":13,"called_strikes":5,"whiffs":"23% (3/13)","csw":"25% (8/32)","bbe":4,"hard_hit":1,"avg_ev":92.4,"zone_rate":31,"chase_rate":32,"strike_rate":56},
+    "sinker": {"usage":"20% (21)","avg_velocity":94.5,"year_velocity_delta":"-0.9","strikeouts":0,"swings":9,"called_strikes":2,"whiffs":"11% (1/9)","csw":"14% (3/21)","bbe":4,"hard_hit":2,"avg_ev":93.9,"zone_rate":43,"chase_rate":25,"strike_rate":57},
+    "cutter": {"usage":"15% (15)","avg_velocity":89.2,"year_velocity_delta":"-0.3","strikeouts":0,"swings":9,"called_strikes":2,"whiffs":"56% (5/9)","csw":"47% (7/15)","bbe":4,"hard_hit":2,"avg_ev":97.4,"zone_rate":53,"chase_rate":43,"strike_rate":87},
+    "changeup": {"usage":"3% (3)","avg_velocity":87.0,"year_velocity_delta":"-1.5","strikeouts":0,"swings":1,"called_strikes":0,"whiffs":"0% (0/1)","csw":"0% (0/3)","bbe":1,"hard_hit":0,"avg_ev":78.1,"zone_rate":33,"chase_rate":0,"strike_rate":33}
+  },
+  "diagnostic_tags": ["LOSS","BEST_BOARD_VALUE_FAILED","RUNWAY_PRESENT_BUT_K_CONVERSION_SHORT","CSW_YELLOW_RED","ONE_K_ONLY","CONTACT_SUPPRESSION_FAILED","WHIFFS_PRESENT_NO_PUTAWAY","PADRES_CONTACT_GAMEPLAN_SUCCESS","NO_7_PLUS_RULE_CONFIRMED"],
+  "model_evaluation": {
+    "signal_result": "fail",
+    "what_worked": ["Stake was controlled at standard size rather than laddered.","No 7+ ladder was correct because Baz finished with only 1 strikeout.","Cutter generated whiffs, showing some bat-missing existed in the profile."],
+    "what_failed": ["Strikeout conversion collapsed despite 103 pitches and 24 batters faced.","Overall CSW was only 24%, below the green zone required for a strong K path.","Baz produced 13 whiffs but only one strikeout, indicating poor putaway sequencing and/or Padres contact survival in two-strike counts.","Knuckle curve and sinker consumed 53 pitches but produced zero strikeouts."],
+    "risk_notes": ["This was a severe conversion miss, not a leash miss.","The profile should be tagged as whiffs-present-no-putaway because raw whiffs were not absent, but they failed to compound into strikeouts.","Future Baz overs should require early live two-strike conversion confirmation rather than relying solely on whiff projection."],
+    "patch_recommendation": "Add WHIFFS_PRESENT_NO_PUTAWAY penalty: when a pitcher has volatile putaway history or opponent contact survival risk, require live confirmation of strikeout conversion before standard staking 6+ markets. Penalize large pitch-count/workload profiles that produce whiffs without terminal Ks."
+  },
+  "final_status": "CLEAN_LOSS_LOGGED"
+}
