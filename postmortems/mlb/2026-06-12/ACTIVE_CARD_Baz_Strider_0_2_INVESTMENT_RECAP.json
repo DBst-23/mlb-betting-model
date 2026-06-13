@@ -1,0 +1,63 @@
+{
+  "log_id": "MLB_ACTIVE_CARD_RECAP_2026_06_12_BAZ_STRIDER_0_2",
+  "sport": "MLB",
+  "game_date": "2026-06-12",
+  "market_platform": "Kalshi",
+  "card_result": "0-2",
+  "total_stake": 9.6,
+  "total_payout": 0.0,
+  "net_profit": -9.6,
+  "roi_percent": -100.0,
+  "positions": [
+    {
+      "pitcher": "Shane Baz",
+      "matchup": "San Diego Padres @ Baltimore Orioles",
+      "market": "6+ strikeouts YES",
+      "entry_odds": "+139",
+      "stake": 5.0,
+      "max_payout": 11.99,
+      "actual_ks": 1,
+      "result": "LOSS",
+      "primary_failure_tag": "WHIFFS_PRESENT_NO_PUTAWAY"
+    },
+    {
+      "pitcher": "Spencer Strider",
+      "matchup": "Atlanta Braves @ New York Mets",
+      "market": "7+ strikeouts YES",
+      "entry_odds": "+152",
+      "stake": 4.6,
+      "max_payout": 11.6,
+      "actual_ks": 3,
+      "result": "LOSS",
+      "primary_failure_tag": "STRIDER_FASTBALL_DECAY_LOCKOUT"
+    }
+  ],
+  "card_level_diagnosis": {
+    "summary": "The 06/12 card lost both investment positions despite plus-money entries and pregame model edge. The shared issue was overreliance on projected K conversion without sufficient protection against live conversion decay and pitcher-specific failure modes.",
+    "baz_lesson": "Baz had runway and whiffs but did not convert them into terminal strikeouts. Future Baz-like profiles need two-strike finish confirmation or reduced pregame stake.",
+    "strider_lesson": "Strider repeated the prior burn profile with fastball velocity down, low fastball whiff, early damage, and lost inning runway. He now requires live fastball confirmation before any 7+ exposure.",
+    "process_grade": "C+",
+    "price_capture_grade": "A-",
+    "execution_grade": "B",
+    "model_signal_grade": "D",
+    "risk_control_grade": "B+"
+  },
+  "new_or_promoted_tags": [
+    "WHIFFS_PRESENT_NO_PUTAWAY",
+    "RUNWAY_PRESENT_BUT_K_CONVERSION_SHORT",
+    "STRIDER_FASTBALL_DECAY_LOCKOUT",
+    "EARLY_DAMAGE_RUNWAY_LOSS",
+    "NO_LADDER_RULE_CONFIRMED"
+  ],
+  "rule_updates": [
+    {
+      "rule": "Baz-style conversion filter",
+      "description": "When a pitcher projects well by whiff but has unstable putaway or opponent contact survival risk, avoid standard stake unless live two-strike conversion confirms. Raw whiffs alone are insufficient."
+    },
+    {
+      "rule": "Strider lockout filter",
+      "description": "Do not pregame Strider 7+ until fastball velocity/whiff profile returns. If fastball velocity is down at least 1 mph from baseline or CSW is below 31%, downgrade or pass."
+    }
+  ],
+  "final_status": "CARD_RECAP_LOGGED"
+}
