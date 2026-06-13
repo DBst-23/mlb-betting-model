@@ -1,0 +1,80 @@
+{
+  "log_id": "MLB_LIVEFLOW_POSTMORTEM_2026_06_12_ATL_NYM_SPENCER_STRIDER_K7_LOSS",
+  "sport": "MLB",
+  "game_date": "2026-06-12",
+  "matchup": "Atlanta Braves @ New York Mets",
+  "market_platform": "Kalshi",
+  "mode": "MLB LIVE-FLOW",
+  "investment": {
+    "market": "Spencer Strider 7+ strikeouts - YES",
+    "entry_odds": "+152",
+    "stake": 4.6,
+    "max_payout": 11.6,
+    "final_payout": 0.0,
+    "profit": -4.6,
+    "roi_percent": -100.0,
+    "result": "LOSS",
+    "outcome_display": "Outcome is No"
+  },
+  "pregame_model_read": {
+    "edge_type": "PLUS_MONEY_MEDIAN_RULE_STRIDER_BURN_RETEST",
+    "model_mean_ks": 7.2,
+    "model_median_ks": 7,
+    "projected_7plus_probability": "55-58%",
+    "entry_implied_probability": "39.7%",
+    "edge_points": "+15 to +18",
+    "pre_bet_thesis": "Strider 7+ at +152 was treated as a controlled redemption spot with plus-money median value, but carried an explicit prior burn penalty tied to CSW collapse and fastball/slider conversion instability."
+  },
+  "actual_pitching_line": {
+    "pitcher": "Spencer Strider",
+    "decision": "L",
+    "IP": 3.0,
+    "H": 6,
+    "R": 7,
+    "ER": 7,
+    "BB": 1,
+    "K": 3,
+    "HR": 3,
+    "pitches": 68,
+    "strikes": 43,
+    "strike_rate": "63.2%",
+    "groundouts": 2,
+    "flyouts": 1,
+    "batters_faced": 17,
+    "ERA_at_log": 21.00
+  },
+  "advanced_pitching_snapshot": {
+    "top_ev_allowed": 109.1,
+    "top_velocity": 96.6,
+    "all_pitches": 68,
+    "swings": 33,
+    "called_strikes": 10,
+    "whiffs": 9,
+    "whiff_rate_on_swings": "27% (9/33)",
+    "csw": "28% (19/68)",
+    "zone_rate": "47%",
+    "zone_swing_rate": "72%",
+    "chase_rate": "28%",
+    "strike_rate_statcast": "63%",
+    "first_pitch_strike_rate": "71% (12/17)",
+    "bbe": 12,
+    "hits_allowed_bbe": 6,
+    "hard_hit_bbe": 5,
+    "average_ev_allowed": 87.4
+  },
+  "pitch_type_breakdown": {
+    "four_seam_fastball": {"usage":"44% (30)","avg_velocity":93.7,"year_velocity_delta":"-1.6","strikeouts":2,"swings":14,"called_strikes":6,"whiffs":"14% (2/14)","csw":"27% (8/30)","bbe":7,"hard_hit":4,"avg_ev":94.0,"zone_rate":57,"chase_rate":15,"strike_rate":67},
+    "slider": {"usage":"41% (28)","avg_velocity":83.0,"year_velocity_delta":"-1.1","strikeouts":1,"swings":17,"called_strikes":3,"whiffs":"41% (7/17)","csw":"36% (10/28)","bbe":4,"hard_hit":1,"avg_ev":80.0,"zone_rate":43,"chase_rate":50,"strike_rate":71},
+    "curveball": {"usage":"9% (6)","avg_velocity":75.6,"year_velocity_delta":"-2.6","strikeouts":0,"swings":2,"called_strikes":1,"whiffs":"0% (0/2)","csw":"17% (1/6)","bbe":1,"hard_hit":0,"avg_ev":70.2,"zone_rate":50,"chase_rate":0,"strike_rate":50},
+    "changeup": {"usage":"6% (4)","avg_velocity":86.5,"year_velocity_delta":"+1.0","strikeouts":0,"swings":0,"called_strikes":0,"whiffs":"--","csw":"0% (0/4)","bbe":0,"hard_hit":0,"avg_ev":null,"zone_rate":0,"chase_rate":0,"strike_rate":0}
+  },
+  "diagnostic_tags": ["LOSS","STRIDER_BURN_RETEST_FAILED","EARLY_HOOK_DAMAGE","VELO_DOWN","FASTBALL_DAMAGE","HOME_RUN_VOLATILITY","CSW_BELOW_GREEN","RUNWAY_LOST_TO_RUN_PREVENTION","NO_8_PLUS_RULE_CONFIRMED"],
+  "model_evaluation": {
+    "signal_result": "fail_confirmed_burn_tag",
+    "what_worked": ["The model correctly marked Strider as volatile and avoided an 8+ ladder.","Slider whiff quality was usable at 41% whiffs and 36% CSW.","First-pitch strike rate was strong at 71%, so the issue was not simply falling behind."],
+    "what_failed": ["Fastball velocity was down 1.6 mph versus season average and generated only 2 whiffs on 14 swings.","Strider allowed 3 home runs and 7 earned runs, cutting off inning runway at 3.0 IP.","Overall CSW reached only 28%, below the 31%+ green zone for a 7+ strikeout path.","The same burn family reappeared: fastball whiff/finish instability and damage risk prevented threshold pursuit."],
+    "risk_notes": ["This was both a quality and runway failure. Strider had only 68 pitches and 17 batters faced because run prevention collapsed.","The slider was fine, but the fastball no longer supported the historical K ceiling in this start.","Until fastball velo/whiff returns, Strider should no longer be treated as a plus-money median auto-play."],
+    "patch_recommendation": "Promote STRIDER_BURN_RETEST to STRIDER_FASTBALL_DECAY_LOCKOUT: require pregame or live confirmation that four-seam velocity is near season baseline and early fastball whiff rate is active before taking 7+ markets. If fastball velo is -1.0 mph or worse and CSW <31% through two innings, no add-ons and consider future downgrade."
+  },
+  "final_status": "CLEAN_LOSS_LOGGED"
+}
