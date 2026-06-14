@@ -1,0 +1,154 @@
+{
+  "log_id": "MLB_K_PROPS_POSTMORTEM_2026_06_13_SKUBAL_CASTILLO",
+  "sport": "MLB",
+  "game_date": "2026-06-13",
+  "market_platform": "Kalshi",
+  "card_result": "0-2",
+  "total_stake": 10.0,
+  "total_payout": 0.0,
+  "net_profit": -10.0,
+  "roi_percent": -100.0,
+  "positions": [
+    {
+      "pitcher": "Tarik Skubal",
+      "team": "Detroit Tigers",
+      "opponent": "Cleveland Guardians",
+      "market": "6+ strikeouts YES",
+      "entry_odds": "-108",
+      "stake": 5.0,
+      "max_payout": 9.66,
+      "actual_ks": 4,
+      "result": "LOSS",
+      "final_line": {
+        "ip": 4.2,
+        "hits": 5,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 4,
+        "home_runs": 1,
+        "pitches": 80,
+        "strikes": 53,
+        "batters_faced": 21,
+        "groundouts": 6,
+        "flyouts": 2
+      },
+      "pitch_profile": {
+        "all_pitch_csw_percent": 30,
+        "swinging_strikes": 9,
+        "called_strikes": 15,
+        "total_csw": 24,
+        "whiff_rate_on_swings_percent": 24,
+        "strike_rate_percent": 66,
+        "first_pitch_strike_percent": 67,
+        "chase_percent": 33,
+        "avg_exit_velocity_allowed": 77.9,
+        "hard_hit_bbe": 5,
+        "avg_velocity": 93.1
+      },
+      "diagnosis": {
+        "summary": "Skubal had clean raw stuff and a playable 30% CSW profile, but Cleveland contact management and shortened runway capped the ticket at 4 Ks. The model correctly identified stuff/strike quality but overestimated leash-to-K conversion against a contact-control opponent.",
+        "primary_failure_tag": "CSW_OK_CONTACT_TEAM_RUNWAY_CAP",
+        "secondary_tags": [
+          "ACE_FLOOR_MISPRICED_BUT_OPPONENT_CONTACT_CAP",
+          "LEASH_SHORT_OF_MODEL_BASELINE",
+          "FOUR_SEAM_LOW_PUTAWAY",
+          "CLEVELAND_CONTACT_SUPPRESSION_CONFIRMED"
+        ]
+      }
+    },
+    {
+      "pitcher": "Luis Castillo",
+      "team": "Seattle Mariners",
+      "opponent": "Washington Nationals",
+      "market": "6+ strikeouts YES",
+      "entry_odds": "+207",
+      "stake": 5.0,
+      "max_payout": 15.38,
+      "actual_ks": 4,
+      "result": "LOSS",
+      "final_line": {
+        "ip": 5.2,
+        "hits": 7,
+        "runs": 5,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 4,
+        "home_runs": 1,
+        "pitches": 84,
+        "strikes": 55,
+        "batters_faced": 27,
+        "groundouts": 7,
+        "flyouts": 1
+      },
+      "pitch_profile": {
+        "all_pitch_csw_percent": 23,
+        "swinging_strikes": 7,
+        "called_strikes": 12,
+        "total_csw": 19,
+        "whiff_rate_on_swings_percent": 16,
+        "strike_rate_percent": 65,
+        "first_pitch_strike_percent": 70,
+        "chase_percent": 34,
+        "avg_exit_velocity_allowed": 82.1,
+        "hard_hit_bbe": 4,
+        "avg_velocity": 91.1
+      },
+      "diagnosis": {
+        "summary": "Castillo reached a usable innings runway but never generated the needed swing-and-miss conversion. The plus-money price was strong, but the live profile showed only 23% CSW and 16% whiffs on swings, making the pregame 6+ thesis too dependent on median conversion that did not appear.",
+        "primary_failure_tag": "PRICE_EDGE_NO_WHIFF_CONVERSION",
+        "secondary_tags": [
+          "RUNWAY_PRESENT_K_OUTPUT_SHORT",
+          "FOUR_SEAM_VOLUME_LOW_CSW",
+          "SLIDER_CONTACT_SURVIVAL",
+          "PLUS_MONEY_MEDIAN_VALUE_MISS"
+        ]
+      }
+    }
+  ],
+  "pregame_thesis": {
+    "skubal": {
+      "model_mean": 6.9,
+      "model_median": 7,
+      "model_probability": "67-70% for 6+",
+      "edge_estimate": "+15-18 pts",
+      "thesis": "Primary anchor with ace price soft at -108. Expected stable leash and enough whiff quality to clear 6+."
+    },
+    "castillo": {
+      "model_mean": 5.8,
+      "model_median": 6,
+      "model_probability": "50-54% for 6+",
+      "edge_estimate": "+17-21 pts",
+      "thesis": "Plus-money median dislocation at +207. Needed normal Castillo whiff conversion and 5.2-6.0 inning runway."
+    }
+  },
+  "actual_vs_model": {
+    "skubal_delta_to_threshold": -2,
+    "castillo_delta_to_threshold": -2,
+    "shared_failure": "Both pitchers finished at 4 Ks, missing the required threshold by 2 despite different pregame archetypes.",
+    "card_level_signal": "Model overstated 6+ conversion in spots where opponent contact suppression or pitcher whiff conversion risk should have reduced probability."
+  },
+  "patch_recommendations": [
+    {
+      "patch": "Contact-team conversion haircut",
+      "description": "Against low-K/contact-control opponents, reduce 6+ K probability by 6-10 points unless pitcher has a recent 32%+ CSW baseline and 13+ swinging-strike expectation."
+    },
+    {
+      "patch": "Plus-money median value cap",
+      "description": "For pitchers projected 5.6-5.9 mean at a 6+ threshold, do not allow price alone to upgrade to standard stake unless recent whiff conversion and opponent K profile both support the median."
+    },
+    {
+      "patch": "LiveFlow conversion stoplight",
+      "description": "If through 2 IP CSW is below 27% or swinging strikes are below 5, downgrade all 6+ tickets even with innings runway."
+    }
+  ],
+  "new_tags": [
+    "CSW_OK_CONTACT_TEAM_RUNWAY_CAP",
+    "PRICE_EDGE_NO_WHIFF_CONVERSION",
+    "RUNWAY_PRESENT_K_OUTPUT_SHORT",
+    "CONTACT_TEAM_CONVERSION_HAIRCUT",
+    "PLUS_MONEY_MEDIAN_VALUE_CAP"
+  ],
+  "final_status": "LOGGED_CLEAN",
+  "confidence": "HIGH"
+}
