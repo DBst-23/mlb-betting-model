@@ -1,0 +1,126 @@
+{
+  "log_id": "MLB_K_PROPS_ACTIVE_CARD_2026_06_13_SKUBAL_CASTILLO_FULL",
+  "sport": "MLB",
+  "game_date": "2026-06-13",
+  "market_platform": "Kalshi",
+  "repo": "DBst-23/mlb-betting-model",
+  "card_result": "0-2",
+  "total_stake": 10.0,
+  "total_payout": 0.0,
+  "net_profit": -10.0,
+  "roi_percent": -100.0,
+  "positions": [
+    {
+      "pitcher": "Luis Castillo",
+      "matchup": "Seattle vs Washington",
+      "market": "Luis Castillo 6+ strikeouts YES",
+      "entry_odds": "+207",
+      "stake": 5.0,
+      "max_payout": 15.38,
+      "actual_ks": 4,
+      "result": "LOSS",
+      "final_pitching_line": {
+        "ip": 5.2,
+        "hits": 7,
+        "runs": 5,
+        "earned_runs": 2,
+        "walks": 2,
+        "strikeouts": 4,
+        "home_runs": 1,
+        "era": 3.18,
+        "pitches": 84,
+        "strikes": 55,
+        "groundouts": 7,
+        "flyouts": 1,
+        "batters_faced": 27
+      },
+      "pitch_mix": {
+        "four_seam": {"usage_percent": 51, "count": 43, "avg_velocity": 95.2, "ks": 2, "swings": 23, "called_strikes": 5, "whiffs": 4, "csw_percent": 21},
+        "slider": {"usage_percent": 33, "count": 28, "avg_velocity": 85.1, "ks": 2, "swings": 14, "called_strikes": 4, "whiffs": 3, "csw_percent": 25},
+        "changeup": {"usage_percent": 8, "count": 7, "avg_velocity": 86.6, "ks": 0, "swings": 3, "called_strikes": 2, "whiffs": 0, "csw_percent": 29},
+        "sinker": {"usage_percent": 7, "count": 6, "avg_velocity": 95.5, "ks": 0, "swings": 3, "called_strikes": 1, "whiffs": 0, "csw_percent": 17},
+        "all": {"pitches": 84, "ks": 4, "swings": 43, "called_strikes": 12, "whiffs": 7, "csw_percent": 23, "strike_rate_percent": 65, "first_pitch_strike_percent": 70, "chase_percent": 34}
+      },
+      "contact_profile": {
+        "bbe": 20,
+        "hits": 7,
+        "hard_hit": 4,
+        "avg_ev": 82.1
+      },
+      "diagnosis": {
+        "failure_mode": "PRICE_EDGE_NO_WHIFF_CONVERSION",
+        "summary": "Castillo had playable innings runway but did not produce enough swing-and-miss to convert the 6+ threshold. The +207 price was strong, but 23% CSW and 7 total whiffs made the ticket overly dependent on median conversion that never arrived.",
+        "key_lessons": [
+          "Strong plus-money price alone cannot override weak whiff conversion risk.",
+          "Castillo 6+ needs recent swing-miss confirmation, not just matchup/runway projection.",
+          "Four-seam heavy usage with only 21% CSW creates a K ceiling cap."
+        ],
+        "tags": ["PRICE_EDGE_NO_WHIFF_CONVERSION", "RUNWAY_PRESENT_K_OUTPUT_SHORT", "FOUR_SEAM_VOLUME_LOW_CSW", "PLUS_MONEY_MEDIAN_VALUE_CAP"]
+      }
+    },
+    {
+      "pitcher": "Tarik Skubal",
+      "matchup": "Detroit vs Cleveland",
+      "market": "Tarik Skubal 6+ strikeouts YES",
+      "entry_odds": "-108",
+      "stake": 5.0,
+      "max_payout": 9.66,
+      "actual_ks": 4,
+      "result": "LOSS",
+      "final_pitching_line": {
+        "ip": 4.2,
+        "hits": 5,
+        "runs": 3,
+        "earned_runs": 2,
+        "walks": 1,
+        "strikeouts": 4,
+        "home_runs": 1,
+        "era": 3.86,
+        "pitches": 80,
+        "strikes": 53,
+        "groundouts": 6,
+        "flyouts": 2,
+        "batters_faced": 21
+      },
+      "pitch_mix": {
+        "four_seam": {"usage_percent": 29, "count": 23, "avg_velocity": 97.9, "velocity_delta": 1.3, "ks": 1, "swings": 12, "called_strikes": 2, "whiffs": 1, "csw_percent": 13},
+        "slider": {"usage_percent": 25, "count": 20, "avg_velocity": 90.0, "velocity_delta": 0.7, "ks": 1, "swings": 9, "called_strikes": 7, "whiffs": 3, "csw_percent": 50},
+        "changeup": {"usage_percent": 24, "count": 19, "avg_velocity": 88.9, "velocity_delta": 2.3, "ks": 2, "swings": 10, "called_strikes": 2, "whiffs": 5, "csw_percent": 37},
+        "sinker": {"usage_percent": 19, "count": 15, "avg_velocity": 98.0, "velocity_delta": 1.6, "ks": 0, "swings": 7, "called_strikes": 2, "whiffs": 0, "csw_percent": 13},
+        "curveball": {"usage_percent": 4, "count": 3, "avg_velocity": 80.4, "ks": 0, "swings": 0, "called_strikes": 2, "whiffs": 0, "csw_percent": 67},
+        "all": {"pitches": 80, "ks": 4, "swings": 38, "called_strikes": 15, "whiffs": 9, "csw_percent": 30, "strike_rate_percent": 66, "first_pitch_strike_percent": 67, "chase_percent": 33}
+      },
+      "contact_profile": {
+        "bbe": 15,
+        "hits": 5,
+        "hard_hit": 5,
+        "avg_ev": 77.9
+      },
+      "diagnosis": {
+        "failure_mode": "CSW_OK_CONTACT_TEAM_RUNWAY_CAP",
+        "summary": "Skubal's stuff was intact and his secondary pitches were effective, but the fastball/sinker did not generate putaway value. Cleveland's contact profile and a 4.2 inning runway capped the ticket at 4 Ks despite a 30% CSW overall.",
+        "key_lessons": [
+          "Cleveland-style contact teams require a conversion haircut even against elite arms.",
+          "30% CSW is not enough when runway falls under 5 IP and fastball putaway is weak.",
+          "Ace floor edge still needs opponent contact suppression adjustment."
+        ],
+        "tags": ["CSW_OK_CONTACT_TEAM_RUNWAY_CAP", "CONTACT_TEAM_CONVERSION_HAIRCUT", "ACE_FLOOR_MISPRICED_BUT_OPPONENT_CONTACT_CAP", "FOUR_SEAM_LOW_PUTAWAY"]
+      }
+    }
+  ],
+  "card_level_diagnosis": {
+    "summary": "Both 06/13 positions landed on 4 strikeouts and missed by 2. The card was correctly price-conscious but overestimated 6+ conversion under two different failure modes: Skubal was capped by opponent contact/runway; Castillo was capped by weak whiff conversion despite runway.",
+    "model_patch": "Require at least two of three green signals before standard-stake 6+ exposure: opponent K profile, pitcher recent CSW/whiff form, and leash stability. Strong price alone cannot supply the second signal.",
+    "risk_control_note": "Stake sizing was controlled at $5 each. The failure was model gate selection, not bankroll discipline.",
+    "next_slate_adjustment": "Apply contact-team haircut and plus-money median value cap before ranking 6+ threshold props."
+  },
+  "new_or_promoted_tags": [
+    "CSW_OK_CONTACT_TEAM_RUNWAY_CAP",
+    "PRICE_EDGE_NO_WHIFF_CONVERSION",
+    "RUNWAY_PRESENT_K_OUTPUT_SHORT",
+    "CONTACT_TEAM_CONVERSION_HAIRCUT",
+    "PLUS_MONEY_MEDIAN_VALUE_CAP",
+    "FOUR_SEAM_LOW_PUTAWAY"
+  ],
+  "final_status": "FULL_POSTMORTEM_LOGGED"
+}
