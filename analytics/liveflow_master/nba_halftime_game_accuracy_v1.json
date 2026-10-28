@@ -1,0 +1,180 @@
+{
+  "schema_version": "1.0.0",
+  "registry_name": "SharpEdge NBA LIVE-FLOW consolidated halftime game-level accuracy",
+  "last_updated": "2026-10-28",
+  "definitions": {
+    "signed_error": "prediction minus official final actual",
+    "absolute_error": "absolute value of signed error",
+    "market_direction_result": "counterfactual grading of projection-vs-bookline direction; NOT documented pick/ROI",
+    "one_game_per_checkpoint": "Game key uniquely identifies match and halftime checkpoint; repeat ingestion must upsert, not append",
+    "inclusion_policy": "A row may contribute to retrospective error metrics with caveat but only contemporaneously verified frozen forecasts with accurate market/official state enter ranked verified out-of-sample edge tables. No ROI without independently confirmed betting ticket."
+  },
+  "games": [
+    {
+      "game_id": "NBA_2026-10-27_POR_at_LAL_HT",
+      "date": "2026-10-27",
+      "sport": "NBA",
+      "away_team": "POR",
+      "home_team": "LAL",
+      "checkpoint": "halftime",
+      "source_postmortem": "postmortems/nba_2026-10-27_POR_at_LAL_liveflow_halftime.md",
+      "mode": "historical_replay_ghost",
+      "forecast_evidence": "conversation_transcription_unverified_source_file",
+      "market_evidence": "user_screenshot",
+      "market_score_integrity": "MISMATCH",
+      "market_score_reported": {
+        "POR": 68,
+        "LAL": 75
+      },
+      "official_score_at_checkpoint": {
+        "POR": 68,
+        "LAL": 73
+      },
+      "score_discrepancy_points": 2,
+      "prediction_status": "provisional_not_calibrated",
+      "wager_status": "no_confirmed_wager",
+      "regulation_only": true,
+      "final_result": {
+        "POR": 136,
+        "LAL": 129,
+        "total": 265,
+        "LAL_margin": -7,
+        "second_half_total": 124
+      },
+      "projected": {
+        "POR": 123,
+        "LAL": 133,
+        "total": 256,
+        "LAL_margin": 10,
+        "second_half_total": 115
+      },
+      "errors_signed_projection_minus_actual": {
+        "POR": -13,
+        "LAL": 4,
+        "total": -9,
+        "LAL_margin": 17,
+        "second_half_total": -9
+      },
+      "errors_absolute": {
+        "POR": 13,
+        "LAL": 4,
+        "total": 9,
+        "LAL_margin": 17,
+        "second_half_total": 9
+      },
+      "market_snapshots": {
+        "full_game_total": {
+          "line": 254.5,
+          "over_american": -115,
+          "under_american": -115,
+          "over_settlement": "win",
+          "under_settlement": "loss",
+          "model_direction": "over",
+          "model_direction_result": "win",
+          "prediction_minus_line": 1.5
+        },
+        "LAL_team_total": {
+          "line": 128.5,
+          "over_american": -120,
+          "under_american": -110,
+          "over_settlement": "win",
+          "under_settlement": "loss",
+          "model_direction": "over",
+          "model_direction_result": "win",
+          "prediction_minus_line": 4.5
+        },
+        "POR_team_total": {
+          "line": 124.5,
+          "over_american": -115,
+          "under_american": -115,
+          "over_settlement": "win",
+          "under_settlement": "loss",
+          "model_direction": "under",
+          "model_direction_result": "loss",
+          "prediction_minus_line": -1.5
+        },
+        "LAL_spread": {
+          "line": -5.5,
+          "american": -115,
+          "cover": false,
+          "model_direction": "LAL_minus_5_5",
+          "model_direction_result": "loss",
+          "projected_margin_minus_cover_requirement": 4.5
+        },
+        "POR_spread": {
+          "line": 5.5,
+          "american": -115,
+          "cover": true
+        },
+        "LAL_moneyline": {
+          "american": -220,
+          "win": false,
+          "model_direction": "LAL",
+          "model_direction_result": "loss"
+        },
+        "POR_moneyline": {
+          "american": 175,
+          "win": true
+        }
+      },
+      "tags": [
+        "HALF_HIGH_FG_EFFICIENCY_BOTH",
+        "THREE_POINT_REGRESSION_ASYMMETRY",
+        "SECOND_HALF_MARGIN_REVERSAL",
+        "SCORE_FEED_DISCREPANCY",
+        "NO_VERIFIED_TICKET",
+        "NO_OVERTIME"
+      ],
+      "include_in_prediction_error_summary": true,
+      "include_in_verified_forecast_ranking": false,
+      "include_in_book_settlement_count": true,
+      "include_in_model_edge_validation": false,
+      "include_in_wager_roi": false
+    }
+  ],
+  "rollup": {
+    "games_total": 1,
+    "provisional_games": 1,
+    "verified_frozen_forecasts": 0,
+    "score_mismatch_games": 1,
+    "confirmed_wagers": 0,
+    "prediction_error_descriptive_provisional_only": {
+      "total_points_mae": 9,
+      "home_team_points_mae": 4,
+      "away_team_points_mae": 13,
+      "home_margin_mae": 17,
+      "second_half_total_mae": 9
+    },
+    "hypothetical_market_directions_unranked": {
+      "full_game_total": {
+        "graded": 1,
+        "wins": 1,
+        "losses": 0
+      },
+      "LAL_team_total": {
+        "graded": 1,
+        "wins": 1,
+        "losses": 0
+      },
+      "POR_team_total": {
+        "graded": 1,
+        "wins": 0,
+        "losses": 1
+      },
+      "LAL_spread": {
+        "graded": 1,
+        "wins": 0,
+        "losses": 1
+      },
+      "LAL_moneyline": {
+        "graded": 1,
+        "wins": 0,
+        "losses": 1
+      }
+    },
+    "strongest_market_ranking": {
+      "status": "NOT_AVAILABLE",
+      "reason": "zero verified eligible forecast entries, one provisional game with score mismatch and no calibrated probabilities"
+    }
+  }
+}
